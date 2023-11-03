@@ -49,4 +49,3 @@ SELECT * FROM vente WHERE codart = 'I100'
 CREATE VIEW v_VenteI100Grobrigan
 AS
 SELECT * FROM vente WHERE codart = 'I100' and numfou = 00120
-test

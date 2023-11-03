@@ -90,4 +90,3 @@ SELECT nom, UPPER(nom), LOWER(nom) FROM employe WHERE nom LIKE "Vrante"
 
 --32. Afficher le nom et le nombre de caractères du nom des employés.
 SELECT nom, LENGTH(nom) from employe
-tests
