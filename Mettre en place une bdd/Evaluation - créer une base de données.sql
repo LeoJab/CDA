@@ -132,3 +132,83 @@ values
 INSERT INTO entcom(numcom, obscom, datcom, numfou)
 values
    (70010, '', '2018-04-23 15:59:51', 120)
+
+
+--Gescom
+
+--Créer la base de données
+CREATE TABLE suppliers(
+   sup_id INT AUTO_INCREMENT,
+   sup_name VARCHAR(50) NOT NULL,
+   sup_city VARCHAR(50) NOT NULL,
+   sup_adresse VARCHAR(150) NOT NULL,
+   sup_mail VARCHAR(75),
+   sup_phone VARCHAR(10),
+   PRIMARY KEY(sup_id)
+);
+
+CREATE TABLE customers(
+   cus_id INT AUTO_INCREMENT,
+   cus_lastname VARCHAR(50) NOT NULL,
+   cus_firstname VARCHAR(50) NOT NULL,
+   cus_adresse VARCHAR(150) NOT NULL,
+   cus_zipcode VARCHAR(5) NOT NULL,
+   cus_city VARCHAR(50) NOT NULL,
+   cus_mail VARCHAR(75) ,
+   cus_phone VARCHAR(10) ,
+   PRIMARY KEY(cus_id)
+);
+
+CREATE TABLE oders(
+   ord_id INT AUTO_INCREMENT,
+   ord_order_date DATE NOT NULL,
+   prd_ship_date DATE,
+   ord_bill_date DATE,
+   ord_reception_date DATE,
+   ord_status VARCHAR(25) NOT NULL,
+   cus_id INT NOT NULL,
+   PRIMARY KEY(ord_id),
+   FOREIGN KEY(cus_id) REFERENCES customers(cus_id)
+);
+
+CREATE TABLE categories(
+   cat_id INT AUTO_INCREMENT,
+   cat_name VARCHAR(50) ,
+   cat_parent_id INT NOT NULL,
+   PRIMARY KEY(cat_id),
+   FOREIGN KEY(cat_parent_id) REFERENCES categories(cat_id)
+);
+
+CREATE TABLE products(
+   pro_id INT AUTO_INCREMENT,
+   pro_ref VARCHAR(10) NOT NULL,
+   pro_name VARCHAR(200) NOT NULL,
+   pro_desc TEXT NOT NULL,
+   pro_price DECIMAL(6,2) NOT NULL,
+   pro_stock SMALLINT,
+   pro_color VARCHAR(30) ,
+   pro_picture VARCHAR(40) ,
+   pro_add_date DATE,
+   pro_update_date DATETIME,
+   pro_publish TINYINT NOT NULL,
+   sup_id INT,
+   cat_id INT NOT NULL,
+   PRIMARY KEY(pro_id),
+   FOREIGN KEY(sup_id) REFERENCES suppliers(sup_id),
+   FOREIGN KEY(cat_id) REFERENCES categories(cat_id)
+);
+
+CREATE TABLE details(
+   ord_id INT,
+   pro_id INT,
+   det_id INT AUTO_INCREMENT,
+   det_price DECIMAL(6,2)  NOT NULL,
+   det_quantity INT(100) NOT NULL,
+   PRIMARY KEY(ord_id, pro_id),
+   FOREIGN KEY(ord_id) REFERENCES oders(ord_id),
+   FOREIGN KEY(pro_id) REFERENCES products(pro_id)
+);
+
+create trigger products_add_date before insert on products for each row set new.pro_add_date = CURRENT_DATE();
+create trigger products_update_date before update on products for each row set new.pro_update_date = CURRENT_DATE();
+create trigger orders_order_date before insert on orders for each row set new.ord_order_date = CURRENT_DATE();

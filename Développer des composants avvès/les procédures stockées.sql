@@ -42,4 +42,4 @@ END |
 
 DELIMITER ;
 
-CALL CA_Fournisseur('120', '2018') 540 8700 9120
+CALL CA_Fournisseur('120', '2018')
