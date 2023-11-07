@@ -24,10 +24,11 @@ BEGIN
     INNER JOIN chambre ON cha_hot_id = hot_id
     WHERE cha_id = cha_res_id;
     
-
-    --SET nbr_res_hot = SELECT 
+    --Nombre de chambre reserve de l'hotel
+    SET nbr_res_hot = SELECT 
 END; //
+DELIMITER ;
 
-SELECT cha_id, res_cha_id FROM chambre
+SELECT cha_hot_id, res_cha_id FROM chambre
 INNER JOIN reservation ON res_cha_id = cha_id
-GROUP BY cha_id
+GROUP BY cha_hot_id
