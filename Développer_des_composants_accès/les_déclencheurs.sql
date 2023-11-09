@@ -176,3 +176,35 @@ DELIMITER ;
 
 /* 1. Nous retirons 15 produits du stock. stock d'alerte = 5, le stock physique = 5, le stock physique n'est pas inférieur 
 au stock d'alerte, on ne fait rien. */
+CREATE TABLE articles_a_commander(
+    FOREIGN KEY (CODART) REFERENCES produit(codart),
+    codart varchar(4),
+    date DATE,
+    QTE int
+);
+
+DELIMITER //
+CREATE TRIGGER stock_update BEFORE UPDATE ON produit
+FOR EACH ROW
+BEGIN
+DECLARE diff INT;
+    IF stkphy < stkale
+        SET diff = stkphy - stkale;
+        INSERT INTO articles_a_commander(codart, date, qte) VALUES (new.codart, CURRENT_DATE(), diff);
+    END IF;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER stock_update BEFORE UPDATE ON produit
+FOR EACH ROW
+BEGIN
+DECLARE diff INT;
+    IF new.stkphy < new.stkale
+        SET diff = new.stkphy - new.stkale;
+        INSERT INTO articles_a_commander SET codart = new.codart
+        INSERT INTO articles_a_commander SET date = CURRENT_DATE()
+        INSERT INTO articles_a_commander SET qte = diff
+    END IF;
+END //
+DELIMITER ;
