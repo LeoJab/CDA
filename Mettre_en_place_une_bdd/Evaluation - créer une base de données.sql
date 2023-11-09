@@ -214,6 +214,7 @@ create trigger products_add_date before insert on products for each row set new.
 create trigger products_update_date before update on products for each row set new.pro_update_date = CURRENT_DATE();
 create trigger orders_order_date before insert on orders for each row set new.ord_order_date = CURRENT_DATE();
 
+-- Creation de l'index
 CREATE INDEX pro_ref ON products(pro_ref);
 
 -- Utilisateur et droits

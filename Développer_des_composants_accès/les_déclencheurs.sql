@@ -107,3 +107,72 @@ VALUES
 INSERT INTO reservation(res_cha_id, res_cli_id, res_date, res_date_debut, res_date_fin, res_prix, res_arrhes)
 VALUES
     (35, 21, '2017-01-10 00:00:00', '2017-07-01 00:00:00', '2017-07-15 00:00:00', 400, 50) */
+
+
+
+/* BASE TEST */
+
+/* 1. Mettez en place ce trigger, puis ajoutez un produit dans une commande, vérifiez que le champ total est bien mis à jour. */
+INSERT INTO lignedecommande(id_commande, id_produit, quantite, prix)
+VALUES (2, 3, 2, 10)
+
+
+/* 2. Ce trigger ne fonctionne que lorsque l'on ajoute des produits dans la commande, les modifications ou suppressions ne permettent 
+pas de recalculer le total. Modifiez le code ci-dessus pour faire en sorte que la modification ou la suppression de produit recalcule 
+le total de la commande. */
+
+/* UPDATE */
+DELIMITER |
+CREATE TRIGGER maj_total_update AFTER UPDATE ON lignedecommande
+    FOR EACH ROW
+    BEGIN
+    DECLARE id_c INT;
+    DECLARE tot DOUBLE;
+    SET id_c = OLD.id_commande; -- nous captons le numéro de commande concerné
+    SET tot = (SELECT sum(prix*quantite) FROM lignedecommande WHERE id_commande=id_c); -- on recalcule le total
+    SET tot = tot - (tot/remise);
+        -- SET tot = ??? (prévoir le calcul de la remise) 
+    UPDATE commande SET total=tot WHERE id=id_c; -- on stocke le total dans la table commande
+    END;
+|
+DELIMITER ;
+
+/* DELETE */
+DELIMITER |
+CREATE TRIGGER maj_total_delete AFTER DELETE ON lignedecommande
+    FOR EACH ROW
+    BEGIN
+    DECLARE id_c INT;
+    DECLARE tot DOUBLE;
+    SET id_c = OLD.id_commande; -- nous captons le numéro de commande concerné
+    SET tot = (SELECT sum(prix*quantite) FROM lignedecommande WHERE id_commande=id_c); -- on recalcule le total
+    SET tot = tot - (tot/remise);
+        -- SET tot = ??? (prévoir le calcul de la remise) 
+    UPDATE commande SET total=tot WHERE id=id_c; -- on stocke le total dans la table commande
+    END;
+|
+DELIMITER ;
+
+/* 3. Un champ remise était prévu dans la table commande, il contient le coefficient de remise à appliquer à la commande. 
+Prenez en compte ce champ dans le code de votre trigger. */
+DELIMITER |
+CREATE TRIGGER maj_total AFTER INSERT ON lignedecommande
+    FOR EACH ROW
+    BEGIN
+    DECLARE id_c INT;
+    DECLARE tot DOUBLE;
+    SET id_c = NEW.id_commande; -- nous captons le numéro de commande concerné
+    SET tot = (SELECT sum(prix*quantite) FROM lignedecommande WHERE id_commande=id_c); -- on recalcule le total
+    SET tot = tot - (tot/remise);
+        -- SET tot = ??? (prévoir le calcul de la remise) 
+    UPDATE commande SET total=tot WHERE id=id_c; -- on stocke le total dans la table commande
+    END;
+|
+DELIMITER ;
+
+
+
+/* PAPYRUS */
+
+/* 1. Nous retirons 15 produits du stock. stock d'alerte = 5, le stock physique = 5, le stock physique n'est pas inférieur 
+au stock d'alerte, on ne fait rien. */
