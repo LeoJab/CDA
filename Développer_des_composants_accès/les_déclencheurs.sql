@@ -191,7 +191,7 @@ DECLARE diff INT;
     IF stkphy < stkale
         SET diff = stkphy - stkale;
         INSERT INTO articles_a_commander(codart, date, qte) VALUES (new.codart, CURRENT_DATE(), diff);
-    END IF;
+    END IF;s
 END //
 DELIMITER ;
 
