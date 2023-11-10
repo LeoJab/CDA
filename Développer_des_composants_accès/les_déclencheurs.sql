@@ -185,27 +185,27 @@ CREATE TABLE articles_a_commander(
 );
 
 DELIMITER //
-CREATE TRIGGER stock_update BEFORE UPDATE ON produit
+CREATE TRIGGER stock_update AFTER UPDATE ON produit
 FOR EACH ROW
 BEGIN
-DECLARE diff INT;
-    IF stkphy < stkale
-        SET diff = stkphy - stkale;
-        INSERT INTO articles_a_commander(codart, date, qte) VALUES (new.codart, CURRENT_DATE(), diff);
-    END IF;s
-END //
+    DECLARE diff INT;
+    DECLARE id_p varchar(4);
+    DECLARE date_day date;
+    
+    /* Recupération du CODART de l'aticle */
+    SET id_p = NEW.codart;
+    /* Calcule de la différence entre le stock physique et le stock d'alerte */
+    SET diff = NEW.stkphy - NEW.stkale;
+    /* Recupération de la date du jour */
+    SET date_day = CURRENT_DATE();
+
+        IF NEW.stkphy<=NEW.stkale
+            THEN INSERT INTO articles_a_commander(codart, date, qte) VALUES (id_p, date_day, diff);
+        END IF;
+
+END; //
 DELIMITER ;
 
-DELIMITER //
-CREATE TRIGGER stock_update BEFORE UPDATE ON produit
-FOR EACH ROW
-BEGIN
-DECLARE diff INT;
-    IF new.stkphy < new.stkale
-        SET diff = new.stkphy - new.stkale;
-        INSERT INTO articles_a_commander SET codart = new.codart
-        INSERT INTO articles_a_commander SET date = CURRENT_DATE()
-        INSERT INTO articles_a_commander SET qte = diff
-    END IF;
-END //
-DELIMITER ;
+UPDATE produit
+SET stkphy = 19 
+WHERE codart = 'B001'
