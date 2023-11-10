@@ -195,17 +195,23 @@ BEGIN
     /* Recupération du CODART de l'aticle */
     SET id_p = NEW.codart;
     /* Calcule de la différence entre le stock physique et le stock d'alerte */
-    SET diff = NEW.stkphy - NEW.stkale;
+    SET diff = NEW.stkale - NEW.stkphy;
     /* Recupération de la date du jour */
     SET date_day = CURRENT_DATE();
 
         IF NEW.stkphy<=NEW.stkale
-            THEN INSERT INTO articles_a_commander(codart, date, qte) VALUES (id_p, date_day, diff);
+            IF (SELECT codart FROM articles_a_commander WHERE codart = NEW.id_p) = id_p
+                THEN UPDATE articles_a_commander SET date = date_day, qte = diff WHERE codart = id_p;
+            ELSE
+                THEN INSERT INTO articles_a_commander(codart, date, qte) VALUES (id_p, date_day, diff);
+            END IF;
+        ELSEIF NEW.stkphy>NEW.stkale
+            THEN DELETE FROM articles_a_commander WHERE codart = id_p;
         END IF;
 
 END; //
 DELIMITER ;
 
 UPDATE produit
-SET stkphy = 19 
+SET stkphy = 21
 WHERE codart = 'B001'
