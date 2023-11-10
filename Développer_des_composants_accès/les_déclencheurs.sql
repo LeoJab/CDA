@@ -7,6 +7,7 @@ for each row
 BEGIN
     SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = 'Impossible de modifier une reservation !';
 END; //
+DELIMITER ;
 /* REQUETE TEST
 UPDATE reservation
 SET res_date = "2017-01-15 00:00:00"
