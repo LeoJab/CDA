@@ -52,15 +52,11 @@ DELIMITER //
 CREATE TRIGGER insert_reservation2 BEFORE INSERT ON reservation
 FOR EACH ROW 
 BEGIN
-    DECLARE num_cli INT;
     DECLARE nbr_res_cli INT;
-
-    /* Récupération de l'id du client */
-    SET num_cli = new.res_cli_id;
 
     /* Calcule du nombre de réservation du client */
     SELECT COUNT(res_cli_id) INTO nbr_res_cli FROM reservation
-    WHERE res_cli_id = num_cli;
+    WHERE res_cli_id = new.res_cli_id;
 
         IF nbr_res_cli>=3
             THEN SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = "Ce client à déjà 3 réservations !";
@@ -202,7 +198,7 @@ BEGIN
     /* Recupération de la date du jour */
     SET date_day = CURRENT_DATE();
 
-        IF NEW.stkphy<=NEW.stkale
+        IF NEW.stkphy<NEW.stkale
             IF codart_art_com = id_p
                 THEN UPDATE articles_a_commander SET date = date_day, qte = diff WHERE codart = id_p;
             ELSE
@@ -218,5 +214,3 @@ DELIMITER ;
 UPDATE produit
 SET stkphy = 21
 WHERE codart = 'B001'
-
-SELECT codart FROM articles_a_commander WHERE codart = 'B001'
