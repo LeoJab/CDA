@@ -190,20 +190,23 @@ FOR EACH ROW
 BEGIN
     DECLARE diff INT;
     DECLARE id_p varchar(4);
+    DECLARE codart_art_com varchar(4);
     DECLARE date_day date;
     
     /* Recupération du CODART de l'aticle */
     SET id_p = NEW.codart;
+    /* Vérification que le codart existe dans la table "articles_a_commander" */
+    SELECT codart INTO codart_art_com FROM articles_a_commander WHERE codart = id_p;
     /* Calcule de la différence entre le stock physique et le stock d'alerte */
     SET diff = NEW.stkale - NEW.stkphy;
     /* Recupération de la date du jour */
     SET date_day = CURRENT_DATE();
 
         IF NEW.stkphy<=NEW.stkale
-            IF (SELECT codart FROM articles_a_commander WHERE codart = NEW.id_p) = id_p
+            IF codart_art_com = id_p
                 THEN UPDATE articles_a_commander SET date = date_day, qte = diff WHERE codart = id_p;
             ELSE
-                THEN INSERT INTO articles_a_commander(codart, date, qte) VALUES (id_p, date_day, diff);
+                INSERT INTO articles_a_commander(codart, date, qte) VALUES (id_p, date_day, diff);
             END IF;
         ELSEIF NEW.stkphy>NEW.stkale
             THEN DELETE FROM articles_a_commander WHERE codart = id_p;
@@ -215,3 +218,5 @@ DELIMITER ;
 UPDATE produit
 SET stkphy = 21
 WHERE codart = 'B001'
+
+SELECT codart FROM articles_a_commander WHERE codart = 'B001'
