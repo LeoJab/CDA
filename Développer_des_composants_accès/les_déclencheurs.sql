@@ -204,7 +204,7 @@ BEGIN
         ELSE*/
             INSERT INTO articles_a_commander(codart, date, qte) VALUES (id_p, date_day, diff);
         /*END IF;*/
-    ELSEIF NEW.stkphy>NEW.stkale
+    ELSEIF NEW.stkphy>=NEW.stkale
         THEN DELETE FROM articles_a_commander WHERE codart = id_p;
     END IF;
 
