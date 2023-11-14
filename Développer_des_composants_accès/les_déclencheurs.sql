@@ -198,15 +198,15 @@ BEGIN
     /* Recupération de la date du jour */
     SET date_day = CURRENT_DATE();
 
-        IF NEW.stkphy<NEW.stkale
-            IF codart_art_com = id_p
-                THEN UPDATE articles_a_commander SET date = date_day, qte = diff WHERE codart = id_p;
-            ELSE
-                INSERT INTO articles_a_commander(codart, date, qte) VALUES (id_p, date_day, diff);
-            END IF;
-        ELSEIF NEW.stkphy>NEW.stkale
-            THEN DELETE FROM articles_a_commander WHERE codart = id_p;
-        END IF;
+    IF NEW.stkphy<NEW.stkale
+        /*IF codart_art_com = id_p
+            THEN UPDATE articles_a_commander SET date = date_day, qte = diff WHERE codart = id_p;
+        ELSE*/
+            INSERT INTO articles_a_commander(codart, date, qte) VALUES (id_p, date_day, diff);
+        /*END IF;*/
+    ELSEIF NEW.stkphy>NEW.stkale
+        THEN DELETE FROM articles_a_commander WHERE codart = id_p;
+    END IF;
 
 END; //
 DELIMITER ;
