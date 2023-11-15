@@ -1,0 +1,20 @@
+1. Donnez une définition de l'agilité:
+    C'est permettre à chaque membre d'une équipe de choisir ce qu'il veux faire
+
+2. Pourquoi l'Extreme Programming ?
+    Ca permet que le produit finale soit au plus proche des attentes du client
+
+3. Quels avantages y a-t'il à utiliser SCRUM ?
+    Le produit finale est au plus proche des attentes du client, le projet est beaucoup plus flexible, faire des modifications est plus 
+simple. Et si une erreur est faite pendant un sprint, on ne perd que quelque semaines de travail et non pas 6 mois, 1 an avec 
+d'autres méthodes
+
+4. Sprint et intégration continue, expliquez le fonctionnement d'un sprint
+    Le sprint c'est une période de 1 à 4 semaines, qui arrive après une multitude d'étape qui permet d'avoir un sprint organisé.
+Pendant le sprint des réunions sont réaliser chaque jour pour que chaque développeur puisse dire ce qu'il a faits la veille, ce qui
+va faire le jours même et dire s'il rencontre des problèmes. Un scrum master est désigné pour assurer la méthode est bien suivi, il
+Permets aussi en cas de problème de trouver une solution au problème.
+
+5. TDD :(Test Driven Development), recherchez des informations pour expliquer le principe.
+    C'est une méthode qui consiste à écrire des tests avant de coder le logiciel, ce qui permet de tester le code en allant de
+developper.
