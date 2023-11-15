@@ -38,7 +38,7 @@ INNER JOIN hotel ON hotel.hot_id = chambre.cha_hot_id
 --1.
 CREATE VIEW v_GlobalCde
 AS
-SELECT codart, SUM(qtecde) AS QteTot, SUM(priuni) AS PrixTot FROM ligcom GROUP BY codart
+SELECT codart, SUM(qtecde) AS QteTot, SUM(priuni * qtecde) AS PrixTot FROM ligcom GROUP BY codart
 
 --2
 CREATE VIEW v_VentesI100
