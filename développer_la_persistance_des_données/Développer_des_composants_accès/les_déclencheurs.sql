@@ -31,8 +31,8 @@ BEGIN
     WHERE cha_id = cha_res_id;
     
     /* Nombre de chambre reserve de l'hotel */
-    SELECT COUNT(res_cha_id) INTO nbr_res_hot FROM chambre
-    INNER JOIN reservation ON res_cha_id = cha_id
+    SELECT COUNT(res_cha_id) INTO nbr_res_hot FROM reservation
+    INNER JOIN chambre ON cha_id = res_cha_id
     WHERE cha_hot_id = hot_res_id
     GROUP BY cha_hot_id;
 
