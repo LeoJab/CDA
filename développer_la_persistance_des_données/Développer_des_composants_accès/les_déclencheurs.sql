@@ -71,25 +71,14 @@ VALUES
 
 /*4. insert_chambre : lors d'une insertion, on calcule le total des capacités des chambres pour l'hôtel, si ce total est supérieur à 50, on interdit l'insertion de la chambre. */
 DELIMITER //
-CREATE TRIGGER insert_chambre BEFORE INSERT ON reservation
+CREATE TRIGGER insert_chambre BEFORE INSERT ON chambre
 FOR EACH ROW
 BEGIN
-    DECLARE cha_res_id INT;
-    DECLARE hot_res_id INT;
     DECLARE nbr_cha_hot INT;
     
-    /* Numéro de chambre de la reservation */
-    SET cha_res_id = new.res_cha_id;
-    
-    /* Recupération de l'id de l'hotel de la reservation */
-    SELECT hot_id INTO hot_res_id FROM hotel 
-    INNER JOIN chambre ON cha_hot_id = hot_id
-    WHERE cha_id = cha_res_id;
-
     /* Calcule des chambres de l'hotel */
     SELECT SUM(cha_capacite) INTO nbr_cha_hot FROM chambre
-    WHERE cha_hot_id = hot_res_id
-    GROUP BY cha_hot_id;
+    WHERE cha_hot_id = new.cha_hot_id
 
         IF nbr_cha_hot>50
             THEN SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = "La capacité des chambres de l'hotel est supérieur à 50";
