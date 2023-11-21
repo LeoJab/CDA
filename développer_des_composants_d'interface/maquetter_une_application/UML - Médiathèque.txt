@@ -2,3 +2,12 @@
 -Usagers
 -Employé
 -Bénévoles
+
+3. Ecrivez le scénario principal et les scénarios alternatifs pour le cas d'usage qui concerne l'emprunt d'une ressource.
+Scénario Principal:
+    Un usager muni d'une carte de lecteur, peu consulter les documents et emprunter jusqu'à 5 documents en simultanés en échange 
+d'une caution.
+
+Scénario Alternatif:
+    Si l'usager n'a pas de carte de lecteur, il peut consulter les documents mais ne peut pas emprunter de livre. Pour obtenir
+une carte de lecteur il doit se présenter à un employé de la médiathèque.
