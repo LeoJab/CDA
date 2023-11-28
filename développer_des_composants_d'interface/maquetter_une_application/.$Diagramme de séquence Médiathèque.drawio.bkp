@@ -1,0 +1,76 @@
+<mxfile host="Electron" modified="2023-11-28T08:25:13.498Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="vlrM0VmK8lOLkg5qqWfv" version="22.1.2" type="device">
+  <diagram name="Page-1" id="acYfCNslp4RXIbU5z5HF">
+    <mxGraphModel dx="713" dy="467" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="h8FOu51G0vFTDpfw8E58-1" value="Personnel" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;" vertex="1" parent="1">
+          <mxGeometry x="450" y="120" width="20" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="h8FOu51G0vFTDpfw8E58-2" value=":système" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="690" y="120" width="100" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="h8FOu51G0vFTDpfw8E58-5" value="1: Nouvel emprunt" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1" source="h8FOu51G0vFTDpfw8E58-1" target="h8FOu51G0vFTDpfw8E58-2">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="490" y="260" as="sourcePoint" />
+            <mxPoint x="570" y="260" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="590" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h8FOu51G0vFTDpfw8E58-6" value="2: Affiche la liste des usagers" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;dashed=1;" edge="1" parent="1" source="h8FOu51G0vFTDpfw8E58-2" target="h8FOu51G0vFTDpfw8E58-1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="540" y="300" as="sourcePoint" />
+            <mxPoint x="620" y="300" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="600" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h8FOu51G0vFTDpfw8E58-7" value="3: Saisie le numéro de lecteur" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1" source="h8FOu51G0vFTDpfw8E58-1" target="h8FOu51G0vFTDpfw8E58-2">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="540" y="300" as="sourcePoint" />
+            <mxPoint x="620" y="300" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="590" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h8FOu51G0vFTDpfw8E58-8" value="4: Affiche les informations du lecteur" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;dashed=1;" edge="1" parent="1" source="h8FOu51G0vFTDpfw8E58-2" target="h8FOu51G0vFTDpfw8E58-1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="540" y="300" as="sourcePoint" />
+            <mxPoint x="620" y="300" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="610" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h8FOu51G0vFTDpfw8E58-9" value="5: Saisie la référence du document" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="460.00034482758605" y="300" as="sourcePoint" />
+            <mxPoint x="739.6900000000003" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h8FOu51G0vFTDpfw8E58-10" value="6: Affiche les informations du document" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;dashed=1;" edge="1" parent="1" source="h8FOu51G0vFTDpfw8E58-2" target="h8FOu51G0vFTDpfw8E58-1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="540" y="300" as="sourcePoint" />
+            <mxPoint x="620" y="300" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="610" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h8FOu51G0vFTDpfw8E58-11" value="dispatch" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1" source="h8FOu51G0vFTDpfw8E58-1" target="h8FOu51G0vFTDpfw8E58-2">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="510" y="400" as="sourcePoint" />
+            <mxPoint x="590" y="400" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="600" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
