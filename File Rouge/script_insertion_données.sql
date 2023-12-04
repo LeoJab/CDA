@@ -70,4 +70,6 @@ VALUES
 /* Télévision */
 INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
 VALUES
-    ("TV001", "TV OLED Samsung", "")
+    ("TV001", "TV OLED Samsung",
+    "Explorez une expérience visuelle exceptionnelle avec les téléviseurs OLED de Samsung. Alliant des couleurs vibrantes, des noirs profonds et un design élégant, plongez dans une qualité d'image remarquable et une immersion totale pour vos moments de divertissement à domicile.",
+    1789.00, 1431.20, "Samsung", "TV OLED", "Noir", 1225, 773, 265, 18200);
