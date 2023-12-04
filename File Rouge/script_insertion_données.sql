@@ -29,7 +29,7 @@ VALUES
     ("Apple", "Explorez l'univers des tablettes Apple, mariage parfait entre élégance et puissance. Découvrez des dispositifs innovants offrant une expérience tactile immersive et une intégration transparente avec l'écosystème Apple.", 2),
     ("Lenovo", "Découvrez l'univers des tablettes Lenovo, fusion parfaite de style et de fonctionnalité. Explorez une gamme diversifiée de dispositifs offrant une expérience numérique exceptionnelle et une polyvalence pour répondre à vos besoins.", 2),
     /* Télévision */
-    ("Lenovo", "Explorez l'univers captivant des télévisions Samsung. Alliant qualité d'image exceptionnelle et design élégant, découvrez une gamme variée de modèles offrant une expérience visuelle immersive pour votre divertissement à domicile.", 3),
+    ("Samsung", "Explorez l'univers captivant des télévisions Samsung. Alliant qualité d'image exceptionnelle et design élégant, découvrez une gamme variée de modèles offrant une expérience visuelle immersive pour votre divertissement à domicile.", 3),
     /* Ordinateur Portable */
     ("HP", "Découvrez l'excellence informatique avec les ordinateurs portables HP. Alliant style et performance, explorez une gamme variée de dispositifs répondant à vos besoins en matière de productivité et de mobilité.", 4),
     ("Lenovo", "Explorez la puissance portable avec les ordinateurs portables Lenovo. Alliant design élégant et performances avancées, découvrez une gamme variée de dispositifs adaptés à vos besoins professionnels et personnels.", 4),
@@ -43,3 +43,31 @@ VALUES
     /* Console Gaming */
     ("PlayStation", "Explorez l'univers du gaming avec la console PlayStation. Alliant performances de pointe, design emblématique et une bibliothèque de jeux captivante, plongez dans une expérience de jeu immersive avec la console de gaming ultime de Sony.", 8),
     ("Xbox", "Plongez dans le monde du gaming avec la console Xbox. Associant performances de pointe, design innovant et une bibliothèque de jeux variée, explorez une expérience de jeu captivante avec la console de gaming de Microsoft.", 8);
+
+/* Téléphonie */
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
+VALUES
+    ("TEL001",
+    "Smartphone Samsung Galaxy A54",
+    "Découvrez l'élégance et la performance avec le smartphone Samsung Galaxy A54. Doté d'un design raffiné, d'un écran dynamique et de fonctionnalités avancées, explorez une expérience mobile polyvalente répondant à vos besoins quotidiens.",
+    449.00, 359.20, "Samsung", "Galaxy A54", "Noir", 158.20, 74.80, 8.20, 202.00, 16, 1);
+
+INSERT INTO telephone_tablette(prod_id, tel_sys_expl, tel_type_sim, tel_nbr_sim, tel_proc, tel_type_charge, tel_proc_modele, tel_bat, tel_etat_bat, tel_taille_ecran, tel_res_ecran, tel_freq_ecran, tel_reseau, tel_bluetooth, tel_wifi, tel_memoire, tel_ram)
+VALUES
+    (1, "Android 13", "Nano Sim", 2, "8 coeurs", "Filaire", "Exynos 1380", "5000 mAh", "Neuf", "6,4", "2340x1080", "120", "5G", "5.3", "Wifi 6", 128, 8);
+
+/* Tablette */
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, fourni_id, scate_id)
+VALUES
+    ("TAB001", "Tablette Apple Ipad 10.2", 
+    "Découvrez l'iPad 10.2 de 9e génération d'Apple, en gris sidéral avec une capacité de 64 Go. Fusion parfaite de style et de fonctionnalité, profitez d'une expérience tablette immersive avec des performances avancées et une grande capacité de stockage.",
+    389.00, 311.12, "Apple", "Ipad 10.2", "Noir", 250, 7, 17.4, 487, 15, 2);
+
+INSERT INTO telephone_tablette(prod_id, tel_sys_expl, tel_type_sim, tel_nbr_sim, tel_proc, tel_type_charge, tel_proc_modele, tel_bat, tel_etat_bat, tel_taille_ecran, tel_res_ecran, tel_freq_ecran, tel_reseau, tel_bluetooth, tel_wifi, tel_memoire, tel_ram)
+VALUES
+    (2, "iPadOS 15", "", "", "6 coeurs", "Filaire", "Apple A13 Bionic", "8557 mAh", "Neuf", "10,2 pouce", "2160x1620", "120", "", "5.3", "Wifi 6", 64, 4);
+
+/* Télévision */
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
+VALUES
+    ("TV001", "TV OLED Samsung", "")
