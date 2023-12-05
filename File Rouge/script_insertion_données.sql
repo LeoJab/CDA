@@ -81,3 +81,13 @@ VALUES
 /* Ordinateur Portable */
 INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
 VALUES
+    ("OP001", "Ordinateur Portable HP Envy 17 2023",
+    "Découvrez l'excellence portable avec l'ordinateur HP Envy 17. Doté d'un design élégant, d'un écran généreux et de performances avancées, explorez une expérience informatique haut de gamme pour répondre à vos besoins professionnels et personnels.",
+    1199.00, 959.20, "HP", "HP Envy 17", "Gris Métalique", 396, 19.6, 258.6, 2500, 6, 7
+    );
+
+INSERT INTO ordinateur_portable(prod_id, op_resolution, op_webcam, op_proc, op_proc_freq, op_proc_nbr_coeur, op_ram, op_ram_freq, op_cg_modele, op_stkage, op_type_stkage, op_wifi, op_bluetooth, op_port_usb, op_port_hdmi, op_sys_exp)
+VALUES
+    (4, "1920 x 1080", 1, "Intel Core i7 1355U", "3,8 GHz", 10, 16, "3200 MHz", "NVIDIA GeForce RTX 3050", 512, "SSD", "Wifi 6", "5.3", 3, 1, "Windows 11");
+
+/* Imprimante */
