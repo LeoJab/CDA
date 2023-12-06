@@ -132,3 +132,45 @@ VALUES
 INSERT INTO console_gaming(prod_id, cons_port_usb, cons_port_hdmi, cons_disque_dur, cons_resolution, cons_fps)
 VALUES
     (8, 1, 1, 1000, "3840x2160", 120);
+
+
+
+/* Commercial */
+INSERT INTO utilisateur(uti_nom, uti_prenom, uti_role, uti_adresse, uti_ville, uti_cp, uti_tel, uti_mail, uti_mdp)
+VALUES
+    ("Maison", "Michel", "Commmercial", "1 rue du Haut", "Rouen", "76000", "0625147541", "michel.maison@gmail.com", "1234");
+
+/* Utilisateur(Professionnel et particulier) */
+INSERT INTO utilisateur(uti_nom, uti_prenom, uti_cate, uti_role, uti_adresse, uti_adresse_liv, uti_ville, uti_cp, uti_tel, uti_mail, uti_mdp, id_commercial)
+VALUES
+    ("Dupond", "Olivier", "Professionnel", "Client", "52 rue de l'église", "52 rue de l'église", "Paris", "75000", "0925144578", "olivier.dupond@gamil.com", "1234", 1),
+    ("Michel", "Michel", "Particulier", "Client", "75 rue du Caillou", "23 rue du Bas", "Amiens", "80000", "0654124754", "michel.michel@gmail.com", "2514", NULL);
+
+/* Commande */
+INSERT INTO commande(com_suivi, com_date)
+VALUES
+    ("En préparation", "2023-12-06");
+
+INSERT INTO passe(uti_id, com_id)
+VALUES
+    (3, 1);
+
+/* Facture */
+INSERT INTO facture(fac_tot_ttc, fac_tot_prix_ht, fac_date, fac_reduc, fac_adresse, fac_tva, com_id)
+VALUES
+    (838.00, 670.40, "2023-06-12", NULL, "23 rue du Bas", 167.60, 1);
+
+INSERT INTO contient(fac_id, prod_id, pro_quant)
+VALUES
+    (1, 1, 1),
+    (1, 2, 1);
+
+/* Livraison */
+INSERT INTO livraison(liv_adresse, liv_date, liv_status, com_id)
+VALUES
+    ("23 rue du Bas", "2023-12-12", "Pas encore remis", 1);
+
+/* Paiement */
+INSERT INTO paiement(paie_mode, paie_date, paie_status, com_id)
+VALUES
+    ("Virement bancaire", "2023-12-06", "Paiement Effectué", 1);
