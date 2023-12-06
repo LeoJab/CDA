@@ -83,11 +83,52 @@ INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod
 VALUES
     ("OP001", "Ordinateur Portable HP Envy 17 2023",
     "Découvrez l'excellence portable avec l'ordinateur HP Envy 17. Doté d'un design élégant, d'un écran généreux et de performances avancées, explorez une expérience informatique haut de gamme pour répondre à vos besoins professionnels et personnels.",
-    1199.00, 959.20, "HP", "HP Envy 17", "Gris Métalique", 396, 19.6, 258.6, 2500, 6, 7
-    );
+    1199.00, 959.20, "HP", "HP Envy 17", "Gris Métalique", 396, 19.6, 258.6, 2500, 6, 7);
 
 INSERT INTO ordinateur_portable(prod_id, op_resolution, op_webcam, op_proc, op_proc_freq, op_proc_nbr_coeur, op_ram, op_ram_freq, op_cg_modele, op_stkage, op_type_stkage, op_wifi, op_bluetooth, op_port_usb, op_port_hdmi, op_sys_exp)
 VALUES
     (4, "1920 x 1080", 1, "Intel Core i7 1355U", "3,8 GHz", 10, 16, "3200 MHz", "NVIDIA GeForce RTX 3050", 512, "SSD", "Wifi 6", "5.3", 3, 1, "Windows 11");
 
 /* Imprimante */
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
+VALUES
+    ("IMP001", "Imprimante jet d'encre Hp Envy Inspire 7224e éligible Instant Ink",
+    "Optimisez vos impressions avec l'imprimante jet d'encre HP Envy Inspire 7224e, éligible au service Instant Ink. Bénéficiez d'une qualité d'impression exceptionnelle et d'une gestion pratique de l'encre, offrant une solution efficace et moderne pour vos besoins d'impression.",
+    139.99, 111.99, "HP", "Hp Envy Inspire 7224e", "Blanc", 460, 191, 383, 6910, 6, 9);
+
+INSERT INTO imprimante(prod_id, imp_type, imp_vit, imp_qualiter, imp_qualiter_photo, imp_format)
+VALUES
+    (5, "Jet d'encre", "Standart", "Qualité Standart", "Qualité Standart", "jusqu'à A4");
+
+/* Unité Central */
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
+VALUES
+    ("UC001", "Unité centrale Lenovo IdeaCentre 3",
+    "Explorez la puissance informatique avec l'unité centrale Lenovo IdeaCentre 3. Dotée d'un design élégant et de performances fiables, cette unité centrale offre une solution polyvalente pour vos besoins en traitement et stockage, combinant efficacité et style.",
+    399.00, 312.20, "Lenovo", "IdeaCentre 3", "Gris métalique", 100, 270, 290, 3500, 5, 11);
+
+INSERT INTO unite_central(prod_id, uc_proc, uc_proc_frequence, uc_proc_nbr_coeur, uc_ram, uc_ram_type, uc_cg_modele, uc_stkage, uc_type_stkage, uc_wifi, uc_port_usb, uc_port_hdmi, uc_sys_expl)
+VALUES
+    (6, "AMD Ryzen 3 3250U", "2.6 GHz", 2, 8, "DDR4", "AMD Radeon", 512, "SSD", "Wifi 5", 8, 1, "Windows 11");
+
+/* Enceinte */
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
+VALUES
+    ("ENC001", "Enceinte portable Jbl Boombox 3 Noir",
+    "Plongez dans une expérience sonore puissante avec l'enceinte portable JBL Boombox 3 en noir. Alliant un design robuste, une autonomie exceptionnelle et des basses percutantes, cette enceinte est l'accessoire idéal pour des moments musicaux immersifs en déplacement.",
+    379.99, 303.99, "JBL", "Boombox 3", "Noir", 588, 353, 539, 14100, 4, 12);
+
+INSERT INTO enceinte(prod_id, enc_puissance, enc_alimentation, enc_wifi, enc_bluetooth)
+VALUES
+    (7, "180 Watts", "Batterie/Filaire", 0, 1);
+
+/* Console Gaming */
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, fourni_id, scate_id)
+VALUES
+    ("CONS001", "Console Sony PS5 Slim Edition Standard",
+    "Découvrez l'expérience de jeu nouvelle génération avec la console Sony PS5 Slim Edition Standard. Alliant un design élégant, des performances de pointe et une bibliothèque de jeux captivante, plongez dans l'univers du gaming avec style et technologie de pointe.",
+    549.00, 439.20, "Sony", "PS5 Slime", "Blanc", 3, 13);
+
+INSERT INTO console_gaming(prod_id, cons_port_usb, cons_port_hdmi, cons_disque_dur, cons_resolution, cons_fps)
+VALUES
+    (8, 1, 1, 1000, "3840x2160", 120);
