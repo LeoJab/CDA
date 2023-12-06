@@ -462,12 +462,12 @@ DELIMITER ;
 /* Vues Produit - Fournisseur */
 CREATE VIEW fournisseur_produit
 AS
-SELECT * FROM produit
-INNER JOIN fournisseur ON fournisseur.fourni_id = produit.fourni_id
+SELECT produit.*, fourni_ref, fourni_nom, fourni_adresse, fourni_ville, fourni_cp, fourni_email, fourni_tel FROM produit
+INNER JOIN fournisseur ON fournisseur.fourni_id = produit.fourni_id;
 
 /* Vues Produit - Sous-Catégorie/Catégorie */
 CREATE VIEW produit_categorie_sous_categorie
 AS
-SELECT * FROM produit
+SELECT produit.*, sous_categorie.scate_lib, sous_categorie.scate_desc, categorie.cate_id, categorie.cate_lib, categorie.cate_desc FROM produit
 INNER JOIN sous_categorie ON sous_categorie.scate_id = produit.scate_id
 INNER JOIN categorie ON categorie.cate_id = sous_categorie.cate_id;
