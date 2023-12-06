@@ -115,6 +115,7 @@ CREATE TABLE Produit(
    prod_largeur DECIMAL(6,2)  ,
    prod_profondeur DECIMAL(6,2)  ,
    prod_poid DECIMAL(6,2)  ,
+   prod_solde INT,
    Id_multi_media INT NOT NULL,
    fourni_id INT NOT NULL,
    scate_id INT NOT NULL,
@@ -123,6 +124,7 @@ CREATE TABLE Produit(
    FOREIGN KEY(fourni_id) REFERENCES fournisseur(fourni_id),
    FOREIGN KEY(scate_id) REFERENCES Sous_Categorie(scate_id)
 );
+
 
 CREATE TABLE telephone_tablette(
    prod_id INT,
@@ -297,89 +299,89 @@ VALUES
     ("Xbox", "Plongez dans le monde du gaming avec la console Xbox. Associant performances de pointe, design innovant et une bibliothèque de jeux variée, explorez une expérience de jeu captivante avec la console de gaming de Microsoft.", 8);
 
 /* Téléphonie */
-INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
 VALUES
     ("TEL001",
     "Smartphone Samsung Galaxy A54",
     "Découvrez l'élégance et la performance avec le smartphone Samsung Galaxy A54. Doté d'un design raffiné, d'un écran dynamique et de fonctionnalités avancées, explorez une expérience mobile polyvalente répondant à vos besoins quotidiens.",
-    449.00, 359.20, "Samsung", "Galaxy A54", "Noir", 158.20, 74.80, 8.20, 202.00, 16, 1);
+    449.00, 359.20, "Samsung", "Galaxy A54", "Noir", 158.20, 74.80, 8.20, 202.00, NULL, 16, 1);
 
 INSERT INTO telephone_tablette(prod_id, tel_sys_expl, tel_type_sim, tel_nbr_sim, tel_proc, tel_type_charge, tel_proc_modele, tel_bat, tel_etat_bat, tel_taille_ecran, tel_res_ecran, tel_freq_ecran, tel_reseau, tel_bluetooth, tel_wifi, tel_memoire, tel_ram)
 VALUES
     (1, "Android 13", "Nano Sim", 2, "8 coeurs", "Filaire", "Exynos 1380", "5000 mAh", "Neuf", "6,4", "2340x1080", "120", "5G", "5.3", "Wifi 6", 128, 8);
 
 /* Tablette */
-INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, fourni_id, scate_id)
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
 VALUES
     ("TAB001", "Tablette Apple Ipad 10.2", 
     "Découvrez l'iPad 10.2 de 9e génération d'Apple, en gris sidéral avec une capacité de 64 Go. Fusion parfaite de style et de fonctionnalité, profitez d'une expérience tablette immersive avec des performances avancées et une grande capacité de stockage.",
-    389.00, 311.12, "Apple", "Ipad 10.2", "Noir", 250, 7, 17.4, 487, 15, 2);
+    389.00, 311.12, "Apple", "Ipad 10.2", "Noir", 250, 7, 17.4, 487, 5, 15, 2);
 
 INSERT INTO telephone_tablette(prod_id, tel_sys_expl, tel_type_sim, tel_nbr_sim, tel_proc, tel_type_charge, tel_proc_modele, tel_bat, tel_etat_bat, tel_taille_ecran, tel_res_ecran, tel_freq_ecran, tel_reseau, tel_bluetooth, tel_wifi, tel_memoire, tel_ram)
 VALUES
     (2, "iPadOS 15", "", "", "6 coeurs", "Filaire", "Apple A13 Bionic", "8557 mAh", "Neuf", "10,2 pouce", "2160x1620", "120", "", "5.3", "Wifi 6", 64, 4);
 
 /* Télévision */
-INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
 VALUES
     ("TV001", "TV OLED Samsung 2023",
     "Explorez une expérience visuelle exceptionnelle avec les téléviseurs OLED de Samsung. Alliant des couleurs vibrantes, des noirs profonds et un design élégant, plongez dans une qualité d'image remarquable et une immersion totale pour vos moments de divertissement à domicile.",
-    1789.00, 1431.20, "Samsung", "TV OLED", "Noir", 1225, 773, 265, 18200, 16, 4);
+    1789.00, 1431.20, "Samsung", "TV OLED", "Noir", 1225, 773, 265, 18200, NULL, 16, 4);
 
 INSERT INTO television(prod_id, tv_resolution, tv_def, tv_techno, tv_proc, tv_son_puiss, tv_port_hdmi, tv_port_usb)
 VALUES
     (3, "3840x2160", "4k", "OLED", "Neo Quantum Processor 4k", "40 Watts", 4, 2);
 
 /* Ordinateur Portable */
-INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
 VALUES
     ("OP001", "Ordinateur Portable HP Envy 17 2023",
     "Découvrez l'excellence portable avec l'ordinateur HP Envy 17. Doté d'un design élégant, d'un écran généreux et de performances avancées, explorez une expérience informatique haut de gamme pour répondre à vos besoins professionnels et personnels.",
-    1199.00, 959.20, "HP", "HP Envy 17", "Gris Métalique", 396, 19.6, 258.6, 2500, 6, 7);
+    1199.00, 959.20, "HP", "HP Envy 17", "Gris Métalique", 396, 19.6, 258.6, 2500, 10, 6, 7);
 
 INSERT INTO ordinateur_portable(prod_id, op_resolution, op_webcam, op_proc, op_proc_freq, op_proc_nbr_coeur, op_ram, op_ram_freq, op_cg_modele, op_stkage, op_type_stkage, op_wifi, op_bluetooth, op_port_usb, op_port_hdmi, op_sys_exp)
 VALUES
     (4, "1920 x 1080", 1, "Intel Core i7 1355U", "3,8 GHz", 10, 16, "3200 MHz", "NVIDIA GeForce RTX 3050", 512, "SSD", "Wifi 6", "5.3", 3, 1, "Windows 11");
 
 /* Imprimante */
-INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
 VALUES
     ("IMP001", "Imprimante jet d'encre Hp Envy Inspire 7224e éligible Instant Ink",
     "Optimisez vos impressions avec l'imprimante jet d'encre HP Envy Inspire 7224e, éligible au service Instant Ink. Bénéficiez d'une qualité d'impression exceptionnelle et d'une gestion pratique de l'encre, offrant une solution efficace et moderne pour vos besoins d'impression.",
-    139.99, 111.99, "HP", "Hp Envy Inspire 7224e", "Blanc", 460, 191, 383, 6910, 6, 9);
+    139.99, 111.99, "HP", "Hp Envy Inspire 7224e", "Blanc", 460, 191, 383, 6910, NULL, 6, 9);
 
 INSERT INTO imprimante(prod_id, imp_type, imp_vit, imp_qualiter, imp_qualiter_photo, imp_format)
 VALUES
     (5, "Jet d'encre", "Standart", "Qualité Standart", "Qualité Standart", "jusqu'à A4");
 
 /* Unité Central */
-INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
 VALUES
     ("UC001", "Unité centrale Lenovo IdeaCentre 3",
     "Explorez la puissance informatique avec l'unité centrale Lenovo IdeaCentre 3. Dotée d'un design élégant et de performances fiables, cette unité centrale offre une solution polyvalente pour vos besoins en traitement et stockage, combinant efficacité et style.",
-    399.00, 312.20, "Lenovo", "IdeaCentre 3", "Gris métalique", 100, 270, 290, 3500, 5, 11);
+    399.00, 312.20, "Lenovo", "IdeaCentre 3", "Gris métalique", 100, 270, 290, 3500, NULL, 5, 11);
 
 INSERT INTO unite_central(prod_id, uc_proc, uc_proc_frequence, uc_proc_nbr_coeur, uc_ram, uc_ram_type, uc_cg_modele, uc_stkage, uc_type_stkage, uc_wifi, uc_port_usb, uc_port_hdmi, uc_sys_expl)
 VALUES
     (6, "AMD Ryzen 3 3250U", "2.6 GHz", 2, 8, "DDR4", "AMD Radeon", 512, "SSD", "Wifi 5", 8, 1, "Windows 11");
 
 /* Enceinte */
-INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid,fourni_id, scate_id)
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
 VALUES
     ("ENC001", "Enceinte portable Jbl Boombox 3 Noir",
     "Plongez dans une expérience sonore puissante avec l'enceinte portable JBL Boombox 3 en noir. Alliant un design robuste, une autonomie exceptionnelle et des basses percutantes, cette enceinte est l'accessoire idéal pour des moments musicaux immersifs en déplacement.",
-    379.99, 303.99, "JBL", "Boombox 3", "Noir", 588, 353, 539, 14100, 4, 12);
+    379.99, 303.99, "JBL", "Boombox 3", "Noir", 588, 353, 539, 14100, NULL, 4, 12);
 
 INSERT INTO enceinte(prod_id, enc_puissance, enc_alimentation, enc_wifi, enc_bluetooth)
 VALUES
     (7, "180 Watts", "Batterie/Filaire", 0, 1);
 
 /* Console Gaming */
-INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, fourni_id, scate_id)
+INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_solde, fourni_id, scate_id)
 VALUES
     ("CONS001", "Console Sony PS5 Slim Edition Standard",
     "Découvrez l'expérience de jeu nouvelle génération avec la console Sony PS5 Slim Edition Standard. Alliant un design élégant, des performances de pointe et une bibliothèque de jeux captivante, plongez dans l'univers du gaming avec style et technologie de pointe.",
-    549.00, 439.20, "Sony", "PS5 Slime", "Blanc", 3, 13);
+    549.00, 439.20, "Sony", "PS5 Slime", "Blanc", NULL, 3, 13);
 
 INSERT INTO console_gaming(prod_id, cons_port_usb, cons_port_hdmi, cons_disque_dur, cons_resolution, cons_fps)
 VALUES
@@ -410,7 +412,7 @@ VALUES
 /* Facture */
 INSERT INTO facture(fac_tot_ttc, fac_tot_prix_ht, fac_date, fac_reduc, fac_adresse, fac_tva, com_id)
 VALUES
-    (838.00, 670.40, "2023-06-12", NULL, "23 rue du Bas", 167.60, 1);
+    (838.00, 670.40, "2023-12-08", NULL, "23 rue du Bas", 167.60, 1);
 
 INSERT INTO contient(fac_id, prod_id, pro_quant)
 VALUES
@@ -426,3 +428,46 @@ VALUES
 INSERT INTO paiement(paie_mode, paie_date, paie_status, com_id)
 VALUES
     ("Virement bancaire", "2023-12-06", "Paiement Effectué", 1);
+
+
+
+/* PROCEDURES STOCKEES */
+
+/* Sélection des commandes non soldées en cours de livraison */
+DELIMITER |
+    CREATE PROCEDURE lst_commande_non_soldee_en_liv()
+
+    BEGIN
+        SELECT commande.com_id from commande
+        INNER JOIN facture ON facture.com_id = commande.com_id
+        INNER JOIN livraison ON livraison.com_id = commande.com_id
+        WHERE fac_reduc IS NULL AND livraison.liv_status = "En cours de livraison";
+    END |
+DELIMITER ;
+
+/* Délais moyen entre la date de commande et la date de facturation */
+DELIMITER |
+    CREATE PROCEDURE délai_date_com_fac()
+
+    BEGIN
+        SELECT DATEDIFF(commande.com_date, facture.fac_date) FROM commande
+        INNER JOIN facture ON facture.com_id = commande.com_id;
+    END |
+DELIMITER ;
+
+
+
+/* VUES */
+
+/* Vues Produit - Fournisseur */
+CREATE VIEW fournisseur_produit
+AS
+SELECT * FROM produit
+INNER JOIN fournisseur ON fournisseur.fourni_id = produit.fourni_id
+
+/* Vues Produit - Sous-Catégorie/Catégorie */
+CREATE VIEW produit_categorie_sous_categorie
+AS
+SELECT * FROM produit
+INNER JOIN sous_categorie ON sous_categorie.scate_id = produit.scate_id
+INNER JOIN categorie ON categorie.cate_id = sous_categorie.cate_id;
