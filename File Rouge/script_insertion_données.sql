@@ -1,3 +1,255 @@
+/* CREATION DE LA BASE DE DONNEES */
+DROP DATABASE regnaloub;
+
+CREATE DATABASE regnaloub;
+
+USE regnaloub;
+
+
+
+/* CREATION DES TABLES */
+CREATE TABLE Utilisateur(
+   uti_id INT AUTO_INCREMENT,
+   uti_nom VARCHAR(30) ,
+   uti_prenom VARCHAR(30) ,
+   uti_cate VARCHAR(30) ,
+   uti_role VARCHAR(30) ,
+   uti_adresse VARCHAR(80) ,
+   uti_adresse_liv VARCHAR(80) ,
+   uti_ville VARCHAR(40) ,
+   uti_cp VARCHAR(5) ,
+   uti_tel VARCHAR(20) ,
+   uti_mail VARCHAR(80) ,
+   uti_mdp VARCHAR(250) ,
+   id_commercial INT,
+   PRIMARY KEY(uti_id),
+   FOREIGN KEY(id_commercial) REFERENCES Utilisateur(uti_id)
+);
+
+CREATE TABLE fournisseur(
+   fourni_id INT AUTO_INCREMENT,
+   fourni_ref VARCHAR(30) ,
+   fourni_nom VARCHAR(30) ,
+   fourni_adresse VARCHAR(80) ,
+   fourni_ville VARCHAR(30) ,
+   fourni_cp VARCHAR(5) ,
+   fourni_email VARCHAR(50) ,
+   fourni_tel VARCHAR(15) ,
+   PRIMARY KEY(fourni_id)
+);
+
+CREATE TABLE Categorie(
+   cate_id INT AUTO_INCREMENT,
+   cate_lib VARCHAR(20) ,
+   cate_desc VARCHAR(250) ,
+   PRIMARY KEY(cate_id)
+);
+
+CREATE TABLE commande(
+   com_id INT AUTO_INCREMENT,
+   com_suivi VARCHAR(50) ,
+   com_date DATE,
+   PRIMARY KEY(com_id)
+);
+
+CREATE TABLE facture(
+   fac_id INT AUTO_INCREMENT,
+   fac_tot_ttc DECIMAL(8,2)  ,
+   fac_tot_prix_ht DECIMAL(8,2)  ,
+   fac_date DATE,
+   fac_reduc INT,
+   fac_adresse VARCHAR(80) ,
+   fac_tva DECIMAL(4,2)  ,
+   com_id INT NOT NULL,
+   PRIMARY KEY(fac_id),
+   FOREIGN KEY(com_id) REFERENCES commande(com_id)
+);
+
+CREATE TABLE livraison(
+   liv_id INT AUTO_INCREMENT,
+   liv_adresse VARCHAR(80) ,
+   liv_date DATE,
+   liv_status VARCHAR(50) ,
+   com_id INT NOT NULL,
+   PRIMARY KEY(liv_id),
+   FOREIGN KEY(com_id) REFERENCES commande(com_id)
+);
+
+CREATE TABLE Sous_Categorie(
+   scate_id INT AUTO_INCREMENT,
+   scate_lib VARCHAR(20) ,
+   scate_desc VARCHAR(250) ,
+   cate_id INT NOT NULL,
+   PRIMARY KEY(scate_id),
+   FOREIGN KEY(cate_id) REFERENCES Categorie(cate_id)
+);
+
+CREATE TABLE multi_media(
+   Id_multi_media INT AUTO_INCREMENT,
+   media_url VARCHAR(200) ,
+   PRIMARY KEY(Id_multi_media)
+);
+
+CREATE TABLE Paiement(
+   Id_Paiement INT AUTO_INCREMENT,
+   paie_mode VARCHAR(50) ,
+   paie_date VARCHAR(50) ,
+   paie_status VARCHAR(80) ,
+   com_id INT NOT NULL,
+   PRIMARY KEY(Id_Paiement),
+   UNIQUE(com_id),
+   FOREIGN KEY(com_id) REFERENCES commande(com_id)
+);
+
+CREATE TABLE Produit(
+   prod_id INT AUTO_INCREMENT,
+   prod_ref VARCHAR(30) ,
+   prod_lib VARCHAR(20) ,
+   prod_desc VARCHAR(60) ,
+   prod_prix DECIMAL(6,2)  ,
+   prod_prix_ht DECIMAL(6,2)  ,
+   prod_marque VARCHAR(50) ,
+   prod_modele VARCHAR(100) ,
+   prod_couleur VARCHAR(20) ,
+   prod_hauteur DECIMAL(6,2)  ,
+   prod_largeur DECIMAL(6,2)  ,
+   prod_profondeur DECIMAL(6,2)  ,
+   prod_poid DECIMAL(6,2)  ,
+   Id_multi_media INT NOT NULL,
+   fourni_id INT NOT NULL,
+   scate_id INT NOT NULL,
+   PRIMARY KEY(prod_id),
+   FOREIGN KEY(Id_multi_media) REFERENCES multi_media(Id_multi_media),
+   FOREIGN KEY(fourni_id) REFERENCES fournisseur(fourni_id),
+   FOREIGN KEY(scate_id) REFERENCES Sous_Categorie(scate_id)
+);
+
+CREATE TABLE telephone_tablette(
+   prod_id INT,
+   tel_sys_expl VARCHAR(20) ,
+   tel_type_sim VARCHAR(30) ,
+   tel_nbr_sim INT,
+   tel_proc VARCHAR(60) ,
+   tel_type_charge VARCHAR(50) ,
+   tel_proc_modele VARCHAR(50) ,
+   tel_bat VARCHAR(30) ,
+   tel_etat_bat VARCHAR(20) ,
+   tel_taille_ecran VARCHAR(50) ,
+   tel_res_ecran VARCHAR(50) ,
+   tel_freq_ecran VARCHAR(50) ,
+   tel_reseau VARCHAR(10) ,
+   tel_bluetooth VARCHAR(10) ,
+   tel_wifi VARCHAR(10) ,
+   tel_memoire INT,
+   tel_ram INT,
+   PRIMARY KEY(prod_id),
+   FOREIGN KEY(prod_id) REFERENCES Produit(prod_id)
+);
+
+CREATE TABLE television(
+   prod_id INT,
+   tv_resolution VARCHAR(50) ,
+   tv_def VARCHAR(10) ,
+   tv_techno VARCHAR(50) ,
+   tv_proc VARCHAR(50) ,
+   tv_son_puiss VARCHAR(10) ,
+   tv_port_hdmi INT,
+   tv_port_usb INT,
+   PRIMARY KEY(prod_id),
+   FOREIGN KEY(prod_id) REFERENCES Produit(prod_id)
+);
+
+CREATE TABLE ordinateur_portable(
+   prod_id INT,
+   op_resolution VARCHAR(50) ,
+   op_webcam BOOLEAN,
+   op_proc VARCHAR(60) ,
+   op_proc_freq DECIMAL(4,2)  ,
+   op_proc_nbr_coeur INT,
+   op_ram INT,
+   op_ram_freq VARCHAR(50) ,
+   op_cg_modele VARCHAR(50) ,
+   op_stkage INT,
+   op_type_stkage VARCHAR(20) ,
+   op_wifi VARCHAR(10) ,
+   op_bluetooth VARCHAR(10) ,
+   op_port_usb INT,
+   op_port_hdmi INT,
+   op_sys_exp VARCHAR(20) ,
+   PRIMARY KEY(prod_id),
+   FOREIGN KEY(prod_id) REFERENCES Produit(prod_id)
+);
+
+CREATE TABLE imprimante(
+   prod_id INT,
+   imp_type VARCHAR(50) ,
+   imp_vit VARCHAR(30) ,
+   imp_qualiter VARCHAR(50) ,
+   imp_qualiter_photo VARCHAR(50) ,
+   imp_format VARCHAR(40) ,
+   PRIMARY KEY(prod_id),
+   FOREIGN KEY(prod_id) REFERENCES Produit(prod_id)
+);
+
+CREATE TABLE unite_central(
+   prod_id INT,
+   uc_proc VARCHAR(50) ,
+   uc_proc_frequence DECIMAL(4,2)  ,
+   uc_proc_nbr_coeur INT,
+   uc_ram INT,
+   uc_ram_type VARCHAR(20) ,
+   uc_cg_modele VARCHAR(50) ,
+   uc_stkage INT,
+   uc_type_stkage VARCHAR(20) ,
+   uc_wifi VARCHAR(10) ,
+   uc_port_usb INT,
+   uc_port_hdmi INT,
+   uc_sys_expl VARCHAR(20) ,
+   PRIMARY KEY(prod_id),
+   FOREIGN KEY(prod_id) REFERENCES Produit(prod_id)
+);
+
+CREATE TABLE enceinte(
+   prod_id INT,
+   enc_puissance INT,
+   enc_alimentation VARCHAR(20) ,
+   enc_wifi BOOLEAN,
+   enc_bluetooth BOOLEAN,
+   PRIMARY KEY(prod_id),
+   FOREIGN KEY(prod_id) REFERENCES Produit(prod_id)
+);
+
+CREATE TABLE console_gaming(
+   prod_id INT,
+   cons_port_usb INT,
+   cons_port_hdmi INT,
+   cons_disque_dur INT,
+   cons_resolution VARCHAR(50) ,
+   cons_fps INT,
+   PRIMARY KEY(prod_id),
+   FOREIGN KEY(prod_id) REFERENCES Produit(prod_id)
+);
+
+CREATE TABLE passe(
+   uti_id INT,
+   com_id INT,
+   PRIMARY KEY(uti_id, com_id),
+   FOREIGN KEY(uti_id) REFERENCES Utilisateur(uti_id),
+   FOREIGN KEY(com_id) REFERENCES commande(com_id)
+);
+
+CREATE TABLE contient(
+   prod_id INT,
+   fac_id INT,
+   pro_quant INT,
+   PRIMARY KEY(prod_id, fac_id),
+   FOREIGN KEY(prod_id) REFERENCES Produit(prod_id),
+   FOREIGN KEY(fac_id) REFERENCES facture(fac_id)
+);
+
+
+
+/* INSERTION DE DONNEES */
 INSERT INTO fournisseur(fourni_ref, fourni_nom, fourni_adresse, fourni_ville, fourni_cp, fourni_tel, fourni_email)
 VALUES
     ("F001", "Apple", "2 rue des Sergents", "Amiens", "80000", "0952899060", "fourni.apple@gmail.com"),
