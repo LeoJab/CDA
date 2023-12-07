@@ -303,7 +303,7 @@ VALUES
     ("TEL001",
     "Smartphone Samsung Galaxy A54",
     "Découvrez l'élégance et la performance avec le smartphone Samsung Galaxy A54. Doté d'un design raffiné, d'un écran dynamique et de fonctionnalités avancées, explorez une expérience mobile polyvalente répondant à vos besoins quotidiens.",
-    449.00, 359.20, "Samsung", "Galaxy A54", "Noir", 158.20, 74.80, 8.20, 202.00, NULL, 16, 1);
+    449.00, 359.20, "Samsung", "Galaxy A54", "Noir", 158.20, 74.80, 8.20, 202.00, NULL, 2, 1);
 
 INSERT INTO telephone_tablette(prod_id, tel_sys_expl, tel_type_sim, tel_nbr_sim, tel_proc, tel_type_charge, tel_proc_modele, tel_bat, tel_etat_bat, tel_taille_ecran, tel_res_ecran, tel_freq_ecran, tel_reseau, tel_bluetooth, tel_wifi, tel_memoire, tel_ram)
 VALUES
@@ -314,7 +314,7 @@ INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod
 VALUES
     ("TAB001", "Tablette Apple Ipad 10.2", 
     "Découvrez l'iPad 10.2 de 9e génération d'Apple, en gris sidéral avec une capacité de 64 Go. Fusion parfaite de style et de fonctionnalité, profitez d'une expérience tablette immersive avec des performances avancées et une grande capacité de stockage.",
-    389.00, 311.12, "Apple", "Ipad 10.2", "Noir", 250, 7, 17.4, 487, 5, 15, 2);
+    389.00, 311.12, "Apple", "Ipad 10.2", "Noir", 250, 7, 17.4, 487, 5, 1, 2);
 
 INSERT INTO telephone_tablette(prod_id, tel_sys_expl, tel_type_sim, tel_nbr_sim, tel_proc, tel_type_charge, tel_proc_modele, tel_bat, tel_etat_bat, tel_taille_ecran, tel_res_ecran, tel_freq_ecran, tel_reseau, tel_bluetooth, tel_wifi, tel_memoire, tel_ram)
 VALUES
@@ -325,7 +325,7 @@ INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod
 VALUES
     ("TV001", "TV OLED Samsung 2023",
     "Explorez une expérience visuelle exceptionnelle avec les téléviseurs OLED de Samsung. Alliant des couleurs vibrantes, des noirs profonds et un design élégant, plongez dans une qualité d'image remarquable et une immersion totale pour vos moments de divertissement à domicile.",
-    1789.00, 1431.20, "Samsung", "TV OLED", "Noir", 1225, 773, 265, 18200, NULL, 16, 4);
+    1789.00, 1431.20, "Samsung", "TV OLED", "Noir", 1225, 773, 265, 18200, NULL, 2, 4);
 
 INSERT INTO television(prod_id, tv_resolution, tv_def, tv_techno, tv_proc, tv_son_puiss, tv_port_hdmi, tv_port_usb)
 VALUES
