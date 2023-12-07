@@ -1,0 +1,91 @@
+/* Consultation catalogue */
+SELECT * FROM produit
+
+/* Ajout d'un nouvel utilisateur */
+INSERT INTO utilisateur(uti_nom, uti_prenom, uti_cate, uti_role, uti_adresse, uti_adresse_fac, uti_adresse_liv, uti_ville, uti_cp, uti_tel, uti_mail, uti_mdp, id_commercial)
+VALUES
+
+/* Ancienne commande utilisateur */
+SELECT * FROM commande
+WHERE uti_id = 
+ORDER BY com_date ASC
+
+/* Ajouter un produit */
+    /* Téléphonie */
+    INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
+    VALUES
+
+    INSERT INTO telephone_tablette(prod_id, tel_sys_expl, tel_type_sim, tel_nbr_sim, tel_proc, tel_type_charge, tel_proc_modele, tel_bat, tel_etat_bat, tel_taille_ecran, tel_res_ecran, tel_freq_ecran, tel_reseau, tel_bluetooth, tel_wifi, tel_memoire, tel_ram)
+    VALUES
+    
+    /* Tablette */
+    INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
+    VALUES
+
+    INSERT INTO telephone_tablette(prod_id, tel_sys_expl, tel_type_sim, tel_nbr_sim, tel_proc, tel_type_charge, tel_proc_modele, tel_bat, tel_etat_bat, tel_taille_ecran, tel_res_ecran, tel_freq_ecran, tel_reseau, tel_bluetooth, tel_wifi, tel_memoire, tel_ram)
+    VALUES
+
+    /* Télévision */
+    INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
+    VALUES
+
+    INSERT INTO television(prod_id, tv_resolution, tv_def, tv_techno, tv_proc, tv_son_puiss, tv_port_hdmi, tv_port_usb)
+    VALUES
+
+    /* Ordinateur Portable */
+    INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
+    VALUES
+
+    INSERT INTO ordinateur_portable(prod_id, op_resolution, op_webcam, op_proc, op_proc_freq, op_proc_nbr_coeur, op_ram, op_ram_freq, op_cg_modele, op_stkage, op_type_stkage, op_wifi, op_bluetooth, op_port_usb, op_port_hdmi, op_sys_exp)
+    VALUES
+
+    /* Imprimante */
+    INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
+    VALUES
+
+    INSERT INTO imprimante(prod_id, imp_type, imp_vit, imp_qualiter, imp_qualiter_photo, imp_format)
+    VALUES
+
+    /* Unité Central */
+    INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
+    VALUES
+
+    INSERT INTO unite_central(prod_id, uc_proc, uc_proc_frequence, uc_proc_nbr_coeur, uc_ram, uc_ram_type, uc_cg_modele, uc_stkage, uc_type_stkage, uc_wifi, uc_port_usb, uc_port_hdmi, uc_sys_expl)
+    VALUES
+
+    /* Enceinte */
+    INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_hauteur, prod_largeur, prod_profondeur, prod_poid, prod_solde, fourni_id, scate_id)
+    VALUES
+
+    INSERT INTO enceinte(prod_id, enc_puissance, enc_alimentation, enc_wifi, enc_bluetooth)
+    VALUES
+
+    /* Console Gaming */
+    INSERT INTO produit(prod_ref, prod_lib, prod_desc, prod_prix, prod_prix_ht, prod_marque, prod_modele, prod_couleur, prod_solde, fourni_id, scate_id)
+    VALUES
+
+    INSERT INTO console_gaming(prod_id, cons_port_usb, cons_port_hdmi, cons_disque_dur, cons_resolution, cons_fps)
+    VALUES
+
+/* Supprimer un produit */
+    /* Téléphone/Tablette */
+    DELETE telephone_tablette WHERE prod_id =
+    DELETE produit WHERE prod_id =
+    /* Télévision */
+    DELETE television WHERE prod_id =
+    DELETE produit WHERE prod_id =
+    /* Ordinateur Portable */
+    DELETE ordinateur_portable WHERE prod_id =
+    DELETE produit WHERE prod_id =
+    /* Imprimante */
+    DELETE imprimante WHERE prod_id = 
+    DELETE produit WHERE prod_id =
+    /* Unité Central */
+    DELETE utite_central WHERE prod_id =
+    DELETE produit WHERE prod_id =
+    /* Enceinte */
+    DELETE enceinte WHERE prod_id =
+    DELETE produit WHERE prod_id =
+    /* Console Gaming */
+    DELETE console_gaming WHERE prod_id =
+    DELETE produit WHERE prod_id =
