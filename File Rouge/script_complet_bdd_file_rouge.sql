@@ -60,7 +60,6 @@ CREATE TABLE facture(
    fac_tot_ttc DECIMAL(8,2)  ,
    fac_tot_prix_ht DECIMAL(8,2)  ,
    fac_date DATE,
-   fac_reduc INT,
    fac_adresse VARCHAR(100) ,
    fac_tva DECIMAL(4,2)  ,
    com_id INT NOT NULL,
@@ -237,7 +236,10 @@ CREATE TABLE console_gaming(
 CREATE TABLE contient(
    prod_id INT,
    fac_id INT,
-   pro_quant INT,
+   prod_quant INT,
+   prod_pu DECIMAL(10,2)  ,
+   prod_pu_ht DECIMAL(10,2)  ,
+   prod_solde VARCHAR(50) ,
    PRIMARY KEY(prod_id, fac_id),
    FOREIGN KEY(prod_id) REFERENCES Produit(prod_id),
    FOREIGN KEY(fac_id) REFERENCES facture(fac_id)
@@ -403,14 +405,14 @@ VALUES
     ("En préparation", "2023-12-06", 3);
 
 /* Facture */
-INSERT INTO facture(fac_tot_ttc, fac_tot_prix_ht, fac_date, fac_reduc, fac_adresse, fac_tva, com_id)
+INSERT INTO facture(fac_tot_ttc, fac_tot_prix_ht, fac_date, fac_adresse, fac_tva, com_id)
 VALUES
-    (838.00, 670.40, "2023-12-08", NULL, "75 rue du Caillou", 167.60, 1);
+    (838.00, 670.40, "2023-12-08", "75 rue du Caillou", 167.60, 1);
 
-INSERT INTO contient(fac_id, prod_id, pro_quant)
+INSERT INTO contient(fac_id, prod_id, prod_quant, prod_pu, prod_pu_ht)
 VALUES
-    (1, 1, 1),
-    (1, 2, 1);
+    (1, 1, 1, 449.00, 359.20),
+    (1, 2, 1, 389.00, 311.12);
 
 /* Livraison */
 INSERT INTO livraison(liv_adresse, liv_date, liv_status, com_id)
