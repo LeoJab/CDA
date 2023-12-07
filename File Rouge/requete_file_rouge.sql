@@ -89,3 +89,27 @@ ORDER BY com_date ASC
     /* Console Gaming */
     DELETE console_gaming WHERE prod_id =
     DELETE produit WHERE prod_id =
+
+/* Modifier les caractéristiques d'un produit */
+UPDATE produit
+SET /*colonne*/ = 
+WHERE prod_id =
+
+/* Modifier l'aborescence des catégories */
+UPDATE sous_categorie
+SET cat_id =
+WHERE scate_id =
+
+/* Chiffre d'affaires mois par mois une année sélectionnée */
+SELECT MONTH(commande.com_date) AS "Mois", SUM(prod_pu * prod_quant) AS "CA", SUM(prod_pu_ht * prod_quant) AS "CA HT" FROM contient
+INNER JOIN facture ON facture.fac_id = contient.fac_id
+INNER JOIN commande ON commande.com_id = facture.fac_id
+WHERE YEAR(commande.com_date) = /*Année*/
+GROUP BY Mois
+
+/* Chiffre d'affaire généré par un fournisseur */
+SELECT fournisseur.fourni_id, SUM(prod_pu * prod_quant) AS "CA", SUM(prod_pu_ht * prod_quant) AS "CA HT" FROM contient
+INNER JOIN produit ON produit.prod_id = contient.prod_id
+INNER JOIN fournisseur ON fournisseur.fourni_id = produit.fourni_id
+WHERE fournisseur.fourni_id = /*fourni_id*/
+GROUP BY fournisseur.fourni_id
