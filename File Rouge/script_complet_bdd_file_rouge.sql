@@ -50,7 +50,9 @@ CREATE TABLE commande(
    com_id INT AUTO_INCREMENT,
    com_suivi VARCHAR(50) ,
    com_date DATE,
-   PRIMARY KEY(com_id)
+   uti_id INT,
+   PRIMARY KEY(com_id),
+   FOREIGN KEY(uti_id) REFERENCES Utilisateur(uti_id)
 );
 
 CREATE TABLE facture(
@@ -232,14 +234,6 @@ CREATE TABLE console_gaming(
    FOREIGN KEY(prod_id) REFERENCES Produit(prod_id)
 );
 
-CREATE TABLE passe(
-   uti_id INT,
-   com_id INT,
-   PRIMARY KEY(uti_id, com_id),
-   FOREIGN KEY(uti_id) REFERENCES Utilisateur(uti_id),
-   FOREIGN KEY(com_id) REFERENCES commande(com_id)
-);
-
 CREATE TABLE contient(
    prod_id INT,
    fac_id INT,
@@ -248,6 +242,8 @@ CREATE TABLE contient(
    FOREIGN KEY(prod_id) REFERENCES Produit(prod_id),
    FOREIGN KEY(fac_id) REFERENCES facture(fac_id)
 );
+
+
 
 
 
@@ -402,13 +398,9 @@ VALUES
     ("Michel", "Michel", "Particulier", "Client", "75 rue du Caillou", "75 rue du Caillou", "23 rue du Bas", "Amiens", "80000", "0654124754", "michel.michel@gmail.com", "2514", NULL);
 
 /* Commande */
-INSERT INTO commande(com_suivi, com_date)
+INSERT INTO commande(com_suivi, com_date, uti_id)
 VALUES
-    ("En préparation", "2023-12-06");
-
-INSERT INTO passe(uti_id, com_id)
-VALUES
-    (3, 1);
+    ("En préparation", "2023-12-06", 3);
 
 /* Facture */
 INSERT INTO facture(fac_tot_ttc, fac_tot_prix_ht, fac_date, fac_reduc, fac_adresse, fac_tva, com_id)
