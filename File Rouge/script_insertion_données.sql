@@ -14,8 +14,9 @@ CREATE TABLE Utilisateur(
    uti_prenom VARCHAR(30) ,
    uti_cate VARCHAR(30) ,
    uti_role VARCHAR(30) ,
-   uti_adresse VARCHAR(80) ,
-   uti_adresse_liv VARCHAR(80) ,
+   uti_adresse VARCHAR(100) ,
+   uti_adresse_liv VARCHAR(100) ,
+   uti_adresse_fac VARCHAR(100) ,
    uti_ville VARCHAR(40) ,
    uti_cp VARCHAR(5) ,
    uti_tel VARCHAR(20) ,
@@ -30,7 +31,7 @@ CREATE TABLE fournisseur(
    fourni_id INT AUTO_INCREMENT,
    fourni_ref VARCHAR(30) ,
    fourni_nom VARCHAR(30) ,
-   fourni_adresse VARCHAR(80) ,
+   fourni_adresse VARCHAR(100) ,
    fourni_ville VARCHAR(30) ,
    fourni_cp VARCHAR(5) ,
    fourni_email VARCHAR(50) ,
@@ -40,8 +41,8 @@ CREATE TABLE fournisseur(
 
 CREATE TABLE Categorie(
    cate_id INT AUTO_INCREMENT,
-   cate_lib VARCHAR(20) ,
-   cate_desc VARCHAR(250) ,
+   cate_lib VARCHAR(40) ,
+   cate_desc TEXT,
    PRIMARY KEY(cate_id)
 );
 
@@ -58,7 +59,7 @@ CREATE TABLE facture(
    fac_tot_prix_ht DECIMAL(8,2)  ,
    fac_date DATE,
    fac_reduc INT,
-   fac_adresse VARCHAR(80) ,
+   fac_adresse VARCHAR(100) ,
    fac_tva DECIMAL(4,2)  ,
    com_id INT NOT NULL,
    PRIMARY KEY(fac_id),
@@ -67,7 +68,7 @@ CREATE TABLE facture(
 
 CREATE TABLE livraison(
    liv_id INT AUTO_INCREMENT,
-   liv_adresse VARCHAR(80) ,
+   liv_adresse VARCHAR(100) ,
    liv_date DATE,
    liv_status VARCHAR(50) ,
    com_id INT NOT NULL,
@@ -77,8 +78,8 @@ CREATE TABLE livraison(
 
 CREATE TABLE Sous_Categorie(
    scate_id INT AUTO_INCREMENT,
-   scate_lib VARCHAR(20) ,
-   scate_desc VARCHAR(250) ,
+   scate_lib VARCHAR(40) ,
+   scate_desc TEXT,
    cate_id INT NOT NULL,
    PRIMARY KEY(scate_id),
    FOREIGN KEY(cate_id) REFERENCES Categorie(cate_id)
@@ -86,7 +87,7 @@ CREATE TABLE Sous_Categorie(
 
 CREATE TABLE multi_media(
    Id_multi_media INT AUTO_INCREMENT,
-   media_url VARCHAR(200) ,
+   media_url TEXT,
    PRIMARY KEY(Id_multi_media)
 );
 
@@ -104,17 +105,17 @@ CREATE TABLE Paiement(
 CREATE TABLE Produit(
    prod_id INT AUTO_INCREMENT,
    prod_ref VARCHAR(30) ,
-   prod_lib VARCHAR(20) ,
-   prod_desc VARCHAR(60) ,
-   prod_prix DECIMAL(6,2)  ,
-   prod_prix_ht DECIMAL(6,2)  ,
+   prod_lib VARCHAR(40) ,
+   prod_desc TEXT,
+   prod_prix DECIMAL(10,2)  ,
+   prod_prix_ht DECIMAL(10,2)  ,
    prod_marque VARCHAR(50) ,
    prod_modele VARCHAR(100) ,
    prod_couleur VARCHAR(20) ,
-   prod_hauteur DECIMAL(6,2)  ,
-   prod_largeur DECIMAL(6,2)  ,
-   prod_profondeur DECIMAL(6,2)  ,
-   prod_poid DECIMAL(6,2)  ,
+   prod_hauteur DECIMAL(10,2)  ,
+   prod_largeur DECIMAL(10,2)  ,
+   prod_profondeur DECIMAL(10,2)  ,
+   prod_poid DECIMAL(10,2)  ,
    prod_solde INT,
    Id_multi_media INT NOT NULL,
    fourni_id INT NOT NULL,
@@ -124,7 +125,6 @@ CREATE TABLE Produit(
    FOREIGN KEY(fourni_id) REFERENCES fournisseur(fourni_id),
    FOREIGN KEY(scate_id) REFERENCES Sous_Categorie(scate_id)
 );
-
 
 CREATE TABLE telephone_tablette(
    prod_id INT,
@@ -248,6 +248,7 @@ CREATE TABLE contient(
    FOREIGN KEY(prod_id) REFERENCES Produit(prod_id),
    FOREIGN KEY(fac_id) REFERENCES facture(fac_id)
 );
+
 
 
 
@@ -395,10 +396,10 @@ VALUES
     ("Maison", "Michel", "Commmercial", "1 rue du Haut", "Rouen", "76000", "0625147541", "michel.maison@gmail.com", "1234");
 
 /* Utilisateur(Professionnel et particulier) */
-INSERT INTO utilisateur(uti_nom, uti_prenom, uti_cate, uti_role, uti_adresse, uti_adresse_liv, uti_ville, uti_cp, uti_tel, uti_mail, uti_mdp, id_commercial)
+INSERT INTO utilisateur(uti_nom, uti_prenom, uti_cate, uti_role, uti_adresse, uti_adresse_fac, uti_adresse_liv, uti_ville, uti_cp, uti_tel, uti_mail, uti_mdp, id_commercial)
 VALUES
-    ("Dupond", "Olivier", "Professionnel", "Client", "52 rue de l'église", "52 rue de l'église", "Paris", "75000", "0925144578", "olivier.dupond@gamil.com", "1234", 1),
-    ("Michel", "Michel", "Particulier", "Client", "75 rue du Caillou", "23 rue du Bas", "Amiens", "80000", "0654124754", "michel.michel@gmail.com", "2514", NULL);
+    ("Dupond", "Olivier", "Professionnel", "Client", "52 rue de l'église", "52 rue de l'église", "52 rue de l'église", "Paris", "75000", "0925144578", "olivier.dupond@gamil.com", "1234", 1),
+    ("Michel", "Michel", "Particulier", "Client", "75 rue du Caillou", "75 rue du Caillou", "23 rue du Bas", "Amiens", "80000", "0654124754", "michel.michel@gmail.com", "2514", NULL);
 
 /* Commande */
 INSERT INTO commande(com_suivi, com_date)
@@ -412,7 +413,7 @@ VALUES
 /* Facture */
 INSERT INTO facture(fac_tot_ttc, fac_tot_prix_ht, fac_date, fac_reduc, fac_adresse, fac_tva, com_id)
 VALUES
-    (838.00, 670.40, "2023-12-08", NULL, "23 rue du Bas", 167.60, 1);
+    (838.00, 670.40, "2023-12-08", NULL, "75 rue du Caillou", 167.60, 1);
 
 INSERT INTO contient(fac_id, prod_id, pro_quant)
 VALUES
