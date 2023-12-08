@@ -113,3 +113,27 @@ INNER JOIN produit ON produit.prod_id = contient.prod_id
 INNER JOIN fournisseur ON fournisseur.fourni_id = produit.fourni_id
 WHERE fournisseur.fourni_id = /*fourni_id*/
 GROUP BY fournisseur.fourni_id
+
+/* TOP 10 des produits les plus commandés pour une année sélectionnée */
+SELECT produit.prod_ref, produit.prod_lib, SUM(contient.prod_quant), fournisseur.fourni_nom FROM contient
+INNER JOIN produit ON produit.prod_id = contient.prod_id
+INNER JOIN fournisseur ON fournisseur.fourni_id = produit.fourni_id
+INNER JOIN facture ON facture.fac_id = contient.fac_id
+INNER JOIN commande ON commande.com_id = facture.com_id
+WHERE YEAR(commande.com_date) = /*Année*/
+GROUP BY produit.prof_ref
+ORDER BY SUM(contient.prod_quant) DESC
+LIMIT 10
+
+/* TOP 10 des produits les plus rémunérateurs pour une année sélectionnée */
+SELECT produit.prod_ref, produit.prod_lib, SUM(prod_pu * prod_quant) AS "CA", fournisseur.fourni_id FROM contient
+INNER JOIN produit ON produit.prod_id = contient.prod_id
+INNER JOIN fournisseur ON fournisseur.fourni_id = produit.fourni_id
+INNER JOIN facture ON facture.fac_id = contient.fac_id
+INNER JOIN commande ON commande.com_id = facture.com_id
+WHERE YEAR(commande.com_date) = /*Année*/
+GROUP BY produit.prod_ref
+ORDER BY CA DESC
+LIMIT 10
+
+/* Top 10 des clients en nombre de commandes ou chiffre d'affaires */
