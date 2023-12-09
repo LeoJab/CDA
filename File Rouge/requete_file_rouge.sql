@@ -137,3 +137,29 @@ ORDER BY CA DESC
 LIMIT 10
 
 /* Top 10 des clients en nombre de commandes ou chiffre d'affaires */
+    /* Top 10 client nombre de commande */
+SELECT uti_nom, uti_prenom, COUNT(com_id) FROM utilisateur
+INNER JOIN commande ON commande.uti_id = utilisateur.uti_id
+GROUP BY uti_nom
+ORDER BY COUNT(com_id) DESC
+LIMIT 10 
+
+    /* Top 10 client chiffre d'affaires */
+SELECT uti_nom, uti_prenom, SUM(prod_pu * prod_quant) AS "CA" FROM utilisateur
+INNER JOIN commande ON commande.uti_id = utilisateur.uti_id
+INNER JOIN facture ON facture.com_id = commande.com_id
+INNER JOIN contient ON contient.fac_id = facture.fac_id
+GROUP BY uti_nom
+ORDER BY CA DESC
+LIMIT 10
+
+/* Répartition du chiffre d'affaires par type de client */
+SELECT uti_cate, SUM(prod_pu * prod_quant) AS "CA" FROM utilisateur
+INNER JOIN commande ON commande.uti_id = utilisateur.uti_id
+INNER JOIN facture ON facture.com_id = commande.com_id
+INNER JOIN contient ON contient.fac_id = facture.fac_id
+GROUP BY uti_cate
+
+/* Nombre de commandes en cours de livraison. */
+SELECT com_suivi, COUNT(com_suivi) FROM commande
+WHERE com_suivi = "En cours de livraison"
