@@ -1,0 +1,49 @@
+<mxfile host="Electron" modified="2023-12-12T15:59:47.307Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="Etxq4L_pyRotpm9kuLsS" version="22.1.2" type="device">
+  <diagram name="Page-1" id="GgPyIpGDk4c4OADg5op0">
+    <mxGraphModel dx="1050" dy="717" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="eGH9VqQ-00GoRvuF3f-Z-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="405" y="40" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eGH9VqQ-00GoRvuF3f-Z-2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" source="eGH9VqQ-00GoRvuF3f-Z-1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eGH9VqQ-00GoRvuF3f-Z-8" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=#ff0000;align=center;verticalAlign=bottom;fontFamily=Helvetica;fontSize=11;fontColor=default;endArrow=open;endSize=8;" edge="1" parent="1" source="eGH9VqQ-00GoRvuF3f-Z-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eGH9VqQ-00GoRvuF3f-Z-3" value="Ajouter des produits dans le panier" style="html=1;whiteSpace=wrap;fillColor=#ffffc0;strokeColor=#ff1313;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="365" y="130" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eGH9VqQ-00GoRvuF3f-Z-13" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=#ff0000;align=center;verticalAlign=bottom;fontFamily=Helvetica;fontSize=11;fontColor=default;endArrow=open;endSize=8;" edge="1" parent="1" source="eGH9VqQ-00GoRvuF3f-Z-9" target="eGH9VqQ-00GoRvuF3f-Z-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eGH9VqQ-00GoRvuF3f-Z-9" value="Connexion au site" style="html=1;whiteSpace=wrap;rounded=1;strokeColor=#ff1313;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;fillColor=#ffffc0;" vertex="1" parent="1">
+          <mxGeometry x="365" y="240" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eGH9VqQ-00GoRvuF3f-Z-10" value="Condition" style="rhombus;whiteSpace=wrap;html=1;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;rounded=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="380" y="350" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="eGH9VqQ-00GoRvuF3f-Z-11" value="no" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;labelBackgroundColor=default;fontFamily=Helvetica;fontSize=11;fontColor=default;shape=connector;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="eGH9VqQ-00GoRvuF3f-Z-10" parent="1" target="eGH9VqQ-00GoRvuF3f-Z-9">
+          <mxGeometry x="-1" relative="1" as="geometry">
+            <mxPoint x="560" y="370" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="520" y="370" />
+              <mxPoint x="520" y="265" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eGH9VqQ-00GoRvuF3f-Z-12" value="yes" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;verticalAlign=top;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;labelBackgroundColor=default;fontFamily=Helvetica;fontSize=11;fontColor=default;shape=connector;" edge="1" source="eGH9VqQ-00GoRvuF3f-Z-10" parent="1">
+          <mxGeometry x="-1" relative="1" as="geometry">
+            <mxPoint x="420" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
