@@ -43,6 +43,7 @@ CREATE TABLE Categorie(
    cate_id INT AUTO_INCREMENT,
    cate_lib VARCHAR(40) ,
    cate_desc TEXT,
+   cate_photo TEXT,
    PRIMARY KEY(cate_id)
 );
 
@@ -81,6 +82,7 @@ CREATE TABLE Sous_Categorie(
    scate_id INT AUTO_INCREMENT,
    scate_lib VARCHAR(40) ,
    scate_desc TEXT,
+   scate_photo TEXT,
    cate_id INT NOT NULL,
    PRIMARY KEY(scate_id),
    FOREIGN KEY(cate_id) REFERENCES Categorie(cate_id)
