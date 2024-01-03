@@ -53,17 +53,23 @@ class Produit
     private ?int $sold = null;
 
     #[ORM\ManyToOne(inversedBy: 'produits')]
-    private ?SousCategorie $sousCategorie = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?sousCategorie $SousCategorie = null;
 
     #[ORM\ManyToOne(inversedBy: 'produits')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?fournisseur $fournisseur = null;
 
     #[ORM\ManyToOne(inversedBy: 'produits')]
-    private ?multiMedia $multiMedia = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?multiMedia $media = null;
+
+    #[ORM\OneToMany(mappedBy: 'produit', targetEntity: Contient::class, orphanRemoval: true)]
+    private Collection $produit;
 
     public function __construct()
     {
-        $this->multiMedia = new ArrayCollection();
+        $this->produit = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -215,14 +221,14 @@ class Produit
         return $this;
     }
 
-    public function getSousCategorie(): ?SousCategorie
+    public function getSousCategorie(): ?sousCategorie
     {
-        return $this->sousCategorie;
+        return $this->SousCategorie;
     }
 
-    public function setSousCategorie(?SousCategorie $sousCategorie): static
+    public function setSousCategorie(?sousCategorie $SousCategorie): static
     {
-        $this->sousCategorie = $sousCategorie;
+        $this->SousCategorie = $SousCategorie;
 
         return $this;
     }
@@ -239,14 +245,44 @@ class Produit
         return $this;
     }
 
-    public function getMultiMedia(): ?multiMedia
+    public function getMedia(): ?multiMedia
     {
-        return $this->multiMedia;
+        return $this->media;
     }
 
-    public function setMultiMedia(?multiMedia $multiMedia): static
+    public function setMedia(?multiMedia $media): static
     {
-        $this->multiMedia = $multiMedia;
+        $this->media = $media;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Contient>
+     */
+    public function getProduit(): Collection
+    {
+        return $this->produit;
+    }
+
+    public function addProduit(Contient $produit): static
+    {
+        if (!$this->produit->contains($produit)) {
+            $this->produit->add($produit);
+            $produit->setProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Contient $produit): static
+    {
+        if ($this->produit->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getProduit() === $this) {
+                $produit->setProduit(null);
+            }
+        }
 
         return $this;
     }

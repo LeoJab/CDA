@@ -36,7 +36,7 @@ class Fournisseur
     #[ORM\Column(length: 15)]
     private ?string $tel = null;
 
-    #[ORM\OneToMany(mappedBy: 'fournisseur', targetEntity: Produit::class)]
+    #[ORM\OneToMany(mappedBy: 'fournisseur', targetEntity: Produit::class, orphanRemoval: true)]
     private Collection $produits;
 
     public function __construct()

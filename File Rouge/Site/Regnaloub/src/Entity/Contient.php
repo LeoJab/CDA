@@ -26,6 +26,14 @@ class Contient
     #[ORM\Column]
     private ?int $sold = null;
 
+    #[ORM\ManyToOne(inversedBy: 'produit')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Produit $produit = null;
+
+    #[ORM\ManyToOne(inversedBy: 'facture')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Facture $facture = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +83,30 @@ class Contient
     public function setSold(int $sold): static
     {
         $this->sold = $sold;
+
+        return $this;
+    }
+
+    public function getProduit(): ?Produit
+    {
+        return $this->produit;
+    }
+
+    public function setProduit(?Produit $produit): static
+    {
+        $this->produit = $produit;
+
+        return $this;
+    }
+
+    public function getFacture(): ?Facture
+    {
+        return $this->facture;
+    }
+
+    public function setFacture(?Facture $facture): static
+    {
+        $this->facture = $facture;
 
         return $this;
     }
