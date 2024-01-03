@@ -12,7 +12,7 @@ class Commande
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $com_id = null;
 
     #[ORM\Column(length: 50)]
     private ?string $com_suivi = null;
@@ -20,9 +20,9 @@ class Commande
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $com_date = null;
 
-    public function getId(): ?int
+    public function getComId(): ?int
     {
-        return $this->id;
+        return $this->com_id;
     }
 
     public function getComSuivi(): ?string

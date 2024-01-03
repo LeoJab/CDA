@@ -11,7 +11,7 @@ class Imprimante
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $prod_id = null;
 
     #[ORM\Column(length: 50)]
     private ?string $imp_type = null;
@@ -28,9 +28,9 @@ class Imprimante
     #[ORM\Column(length: 40)]
     private ?string $imp_format = null;
 
-    public function getId(): ?int
+    public function geProdId(): ?int
     {
-        return $this->id;
+        return $this->prod_id;
     }
 
     public function getImpType(): ?string

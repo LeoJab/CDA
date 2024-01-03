@@ -12,7 +12,7 @@ class Paiement
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $paie_id = null;
 
     #[ORM\Column(length: 50)]
     private ?string $paie_mode = null;
@@ -23,9 +23,9 @@ class Paiement
     #[ORM\Column(length: 80)]
     private ?string $paie_status = null;
 
-    public function getId(): ?int
+    public function getPaieId(): ?int
     {
-        return $this->id;
+        return $this->paie_id;
     }
 
     public function getPaieMode(): ?string

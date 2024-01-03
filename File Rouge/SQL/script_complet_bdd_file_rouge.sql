@@ -22,9 +22,9 @@ CREATE TABLE Utilisateur(
    uti_tel VARCHAR(20) ,
    uti_mail VARCHAR(80) ,
    uti_mdp VARCHAR(250) ,
-   id_commercial INT,
+   uti_id_1 INT,
    PRIMARY KEY(uti_id),
-   FOREIGN KEY(id_commercial) REFERENCES Utilisateur(uti_id)
+   FOREIGN KEY(uti_id_1) REFERENCES Utilisateur(uti_id)
 );
 
 CREATE TABLE fournisseur(
@@ -89,18 +89,18 @@ CREATE TABLE Sous_Categorie(
 );
 
 CREATE TABLE multi_media(
-   Id_multi_media INT AUTO_INCREMENT,
+   media_id INT AUTO_INCREMENT,
    media_url TEXT,
-   PRIMARY KEY(Id_multi_media)
+   PRIMARY KEY(media_id)
 );
 
 CREATE TABLE Paiement(
-   Id_Paiement INT AUTO_INCREMENT,
+   paie_id INT AUTO_INCREMENT,
    paie_mode VARCHAR(50) ,
-   paie_date VARCHAR(50) ,
+   paie_date DATE,
    paie_status VARCHAR(80) ,
    com_id INT NOT NULL,
-   PRIMARY KEY(Id_Paiement),
+   PRIMARY KEY(paie_id),
    UNIQUE(com_id),
    FOREIGN KEY(com_id) REFERENCES commande(com_id)
 );
@@ -120,11 +120,11 @@ CREATE TABLE Produit(
    prod_profondeur DECIMAL(10,2)  ,
    prod_poid DECIMAL(10,2)  ,
    prod_solde INT,
-   Id_multi_media INT NOT NULL,
+   media_id INT NOT NULL,
    fourni_id INT NOT NULL,
    scate_id INT NOT NULL,
    PRIMARY KEY(prod_id),
-   FOREIGN KEY(Id_multi_media) REFERENCES multi_media(Id_multi_media),
+   FOREIGN KEY(media_id) REFERENCES multi_media(media_id),
    FOREIGN KEY(fourni_id) REFERENCES fournisseur(fourni_id),
    FOREIGN KEY(scate_id) REFERENCES Sous_Categorie(scate_id)
 );
@@ -167,7 +167,7 @@ CREATE TABLE television(
 CREATE TABLE ordinateur_portable(
    prod_id INT,
    op_resolution VARCHAR(50) ,
-   op_webcam BOOLEAN,
+   op_webcam VARCHAR(10) ,
    op_proc VARCHAR(60) ,
    op_proc_freq DECIMAL(4,2)  ,
    op_proc_nbr_coeur INT,
@@ -218,8 +218,8 @@ CREATE TABLE enceinte(
    prod_id INT,
    enc_puissance INT,
    enc_alimentation VARCHAR(20) ,
-   enc_wifi BOOLEAN,
-   enc_bluetooth BOOLEAN,
+   enc_wifi VARCHAR(10) ,
+   enc_bluetooth VARCHAR(10) ,
    PRIMARY KEY(prod_id),
    FOREIGN KEY(prod_id) REFERENCES Produit(prod_id)
 );
@@ -238,11 +238,12 @@ CREATE TABLE console_gaming(
 CREATE TABLE contient(
    prod_id INT,
    fac_id INT,
+   cont_id INT AUTO_INCREMENT,
    prod_quant INT,
    prod_pu DECIMAL(10,2)  ,
    prod_pu_ht DECIMAL(10,2)  ,
-   prod_solde VARCHAR(50) ,
-   PRIMARY KEY(prod_id, fac_id),
+   prod_solde INT,
+   PRIMARY KEY(cont_id, prod_id, fac_id),
    FOREIGN KEY(prod_id) REFERENCES Produit(prod_id),
    FOREIGN KEY(fac_id) REFERENCES facture(fac_id)
 );

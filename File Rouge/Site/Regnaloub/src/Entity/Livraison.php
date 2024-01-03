@@ -12,7 +12,7 @@ class Livraison
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $liv_id = null;
 
     #[ORM\Column(length: 100)]
     private ?string $liv_adresse = null;
@@ -23,9 +23,9 @@ class Livraison
     #[ORM\Column(length: 50)]
     private ?string $liv_status = null;
 
-    public function getId(): ?int
+    public function getLivId(): ?int
     {
-        return $this->id;
+        return $this->liv_id;
     }
 
     public function getLivAdresse(): ?string

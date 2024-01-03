@@ -11,7 +11,7 @@ class Enceinte
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $prod_id = null;
 
     #[ORM\Column]
     private ?int $enc_puissance = null;
@@ -25,9 +25,9 @@ class Enceinte
     #[ORM\Column(length: 10)]
     private ?string $enc_bluetooth = null;
 
-    public function getId(): ?int
+    public function getProdId(): ?int
     {
-        return $this->id;
+        return $this->prod_id;
     }
 
     public function getEncPuissance(): ?int

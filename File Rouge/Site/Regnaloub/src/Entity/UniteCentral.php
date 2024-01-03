@@ -12,7 +12,7 @@ class UniteCentral
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $prod_id = null;
 
     #[ORM\Column(length: 50)]
     private ?string $uc_proc = null;
@@ -50,9 +50,9 @@ class UniteCentral
     #[ORM\Column(length: 20)]
     private ?string $uc_sys_expl = null;
 
-    public function getId(): ?int
+    public function getProdId(): ?int
     {
-        return $this->id;
+        return $this->prod_id;
     }
 
     public function getUcProc(): ?string

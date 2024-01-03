@@ -12,7 +12,7 @@ class SousCategorie
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $scate_id = null;
 
     #[ORM\Column(length: 60)]
     private ?string $scate_lib = null;
@@ -23,9 +23,9 @@ class SousCategorie
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $scate_photo = null;
 
-    public function getId(): ?int
+    public function getScateId(): ?int
     {
-        return $this->id;
+        return $this->scate_id;
     }
 
     public function getScateLib(): ?string

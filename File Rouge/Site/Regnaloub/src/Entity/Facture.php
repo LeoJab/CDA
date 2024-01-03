@@ -12,7 +12,7 @@ class Facture
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $fac_id = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $fac_tot_ttc = null;
@@ -29,9 +29,9 @@ class Facture
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $fac_tva = null;
 
-    public function getId(): ?int
+    public function getFacId(): ?int
     {
-        return $this->id;
+        return $this->fac_id;
     }
 
     public function getFacTotTtc(): ?string

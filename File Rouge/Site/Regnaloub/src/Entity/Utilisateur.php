@@ -11,7 +11,7 @@ class Utilisateur
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $uti_id = null;
 
     #[ORM\Column(length: 30)]
     private ?string $uti_nom = null;
@@ -49,9 +49,9 @@ class Utilisateur
     #[ORM\Column(length: 255)]
     private ?string $uti_mdp = null;
 
-    public function getId(): ?int
+    public function getUtiId(): ?int
     {
-        return $this->id;
+        return $this->uti_id;
     }
 
     public function getUtiNom(): ?string

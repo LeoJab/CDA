@@ -11,7 +11,7 @@ class TelephoneTablette
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $prod_id = null;
 
     #[ORM\Column(length: 20)]
     private ?string $tel_sys_expl = null;
@@ -61,9 +61,9 @@ class TelephoneTablette
     #[ORM\Column]
     private ?int $tel_ram = null;
 
-    public function getId(): ?int
+    public function getProdId(): ?int
     {
-        return $this->id;
+        return $this->prod_id;
     }
 
     public function getTelSysExpl(): ?string

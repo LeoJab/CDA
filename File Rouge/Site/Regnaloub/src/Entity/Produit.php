@@ -12,7 +12,7 @@ class Produit
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $prod_id = null;
 
     #[ORM\Column(length: 30)]
     private ?string $prod_ref = null;
@@ -50,9 +50,9 @@ class Produit
     #[ORM\Column]
     private ?int $prod_sold = null;
 
-    public function getId(): ?int
+    public function getProdId(): ?int
     {
-        return $this->id;
+        return $this->prod_id;
     }
 
     public function getProdRef(): ?string

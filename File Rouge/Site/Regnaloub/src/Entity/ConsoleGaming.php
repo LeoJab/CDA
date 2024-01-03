@@ -11,7 +11,7 @@ class ConsoleGaming
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $prod_id = null;
 
     #[ORM\Column]
     private ?int $cons_port_usb = null;
@@ -28,9 +28,9 @@ class ConsoleGaming
     #[ORM\Column]
     private ?int $cons_fps = null;
 
-    public function getId(): ?int
+    public function getProdId(): ?int
     {
-        return $this->id;
+        return $this->prod_id;
     }
 
     public function getConsPortUsb(): ?int

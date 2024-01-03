@@ -11,7 +11,7 @@ class Fournisseur
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $fourni_id = null;
 
     #[ORM\Column(length: 30)]
     private ?string $fourni_ref = null;
@@ -34,9 +34,9 @@ class Fournisseur
     #[ORM\Column(length: 15)]
     private ?string $fourni_tel = null;
 
-    public function getId(): ?int
+    public function getFourniId(): ?int
     {
-        return $this->id;
+        return $this->fourni_id;
     }
 
     public function getFourniRef(): ?string

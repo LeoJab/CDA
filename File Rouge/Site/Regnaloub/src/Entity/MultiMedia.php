@@ -12,14 +12,14 @@ class MultiMedia
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $media_id = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $media_url = null;
 
-    public function getId(): ?int
+    public function getMediaId(): ?int
     {
-        return $this->id;
+        return $this->media_id;
     }
 
     public function getMediaUrl(): ?string

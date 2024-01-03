@@ -12,7 +12,7 @@ class Contient
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $cont_id = null;
 
     #[ORM\Column]
     private ?int $prod_quant = null;
@@ -26,9 +26,9 @@ class Contient
     #[ORM\Column]
     private ?int $prod_sold = null;
 
-    public function getId(): ?int
+    public function getContId(): ?int
     {
-        return $this->id;
+        return $this->cont_id;
     }
 
     public function getProdQuant(): ?int

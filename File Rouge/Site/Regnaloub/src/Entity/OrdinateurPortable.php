@@ -12,7 +12,7 @@ class OrdinateurPortable
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $prod_id = null;
 
     #[ORM\Column(length: 50)]
     private ?string $op_resolution = null;
@@ -59,9 +59,9 @@ class OrdinateurPortable
     #[ORM\Column(length: 20)]
     private ?string $op_sys_exp = null;
 
-    public function getId(): ?int
+    public function getProdId(): ?int
     {
-        return $this->id;
+        return $this->prod_id;
     }
 
     public function getOpResolution(): ?string
