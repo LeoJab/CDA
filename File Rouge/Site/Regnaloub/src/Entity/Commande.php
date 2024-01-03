@@ -12,39 +12,39 @@ class Commande
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $com_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $com_suivi = null;
+    private ?string $suivi = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $com_date = null;
+    private ?\DateTimeInterface $date = null;
 
-    public function getComId(): ?int
+    public function getId(): ?int
     {
-        return $this->com_id;
+        return $this->id;
     }
 
-    public function getComSuivi(): ?string
+    public function getSuivi(): ?string
     {
-        return $this->com_suivi;
+        return $this->suivi;
     }
 
-    public function setComSuivi(string $com_suivi): static
+    public function setComSuivi(string $suivi): static
     {
-        $this->com_suivi = $com_suivi;
+        $this->suivi = $suivi;
 
         return $this;
     }
 
-    public function getComDate(): ?\DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->com_date;
+        return $this->date;
     }
 
-    public function setComDate(\DateTimeInterface $com_date): static
+    public function setDate(\DateTimeInterface $date): static
     {
-        $this->com_date = $com_date;
+        $this->date = $date;
 
         return $this;
     }

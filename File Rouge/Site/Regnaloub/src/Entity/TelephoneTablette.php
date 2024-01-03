@@ -11,249 +11,249 @@ class TelephoneTablette
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $prod_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $tel_sys_expl = null;
+    private ?string $sys_expl = null;
 
     #[ORM\Column(length: 30)]
-    private ?string $tel_type_sim = null;
+    private ?string $type_sim = null;
 
     #[ORM\Column]
-    private ?int $tel_nbr_sim = null;
+    private ?int $nbr_sim = null;
 
     #[ORM\Column(length: 60)]
-    private ?string $tel_proc = null;
+    private ?string $proc = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $tel_type_charge = null;
+    private ?string $type_charge = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $tel_proc_modele = null;
+    private ?string $proc_modele = null;
 
     #[ORM\Column(length: 30)]
-    private ?string $tel_bat = null;
+    private ?string $bat = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $tel_etat_bat = null;
+    private ?string $etat_bat = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $tel_taille_ecran = null;
+    private ?string $taille_ecran = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $tel_res_ecran = null;
+    private ?string $res_ecran = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $tel_freq_ecran = null;
+    private ?string $freq_ecran = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $tel_reseau = null;
+    private ?string $reseau = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $tel_bluetooth = null;
+    private ?string $bluetooth = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $tel_wifi = null;
+    private ?string $wifi = null;
 
     #[ORM\Column]
-    private ?int $tel_memoire = null;
+    private ?int $memoire = null;
 
     #[ORM\Column]
-    private ?int $tel_ram = null;
+    private ?int $ram = null;
 
-    public function getProdId(): ?int
+    public function getId(): ?int
     {
-        return $this->prod_id;
+        return $this->id;
     }
 
-    public function getTelSysExpl(): ?string
+    public function getSysExpl(): ?string
     {
-        return $this->tel_sys_expl;
+        return $this->sys_expl;
     }
 
-    public function setTelSysExpl(string $tel_sys_expl): static
+    public function setSysExpl(string $sys_expl): static
     {
-        $this->tel_sys_expl = $tel_sys_expl;
+        $this->sys_expl = $sys_expl;
 
         return $this;
     }
 
-    public function getTelTypeSim(): ?string
+    public function getTypeSim(): ?string
     {
-        return $this->tel_type_sim;
+        return $this->type_sim;
     }
 
-    public function setTelTypeSim(string $tel_type_sim): static
+    public function setTypeSim(string $type_sim): static
     {
-        $this->tel_type_sim = $tel_type_sim;
+        $this->type_sim = $type_sim;
 
         return $this;
     }
 
-    public function getTelNbrSim(): ?int
+    public function getNbrSim(): ?int
     {
-        return $this->tel_nbr_sim;
+        return $this->nbr_sim;
     }
 
-    public function setTelNbrSim(int $tel_nbr_sim): static
+    public function setNbrSim(int $nbr_sim): static
     {
-        $this->tel_nbr_sim = $tel_nbr_sim;
+        $this->nbr_sim = $nbr_sim;
 
         return $this;
     }
 
-    public function getTelProc(): ?string
+    public function getProc(): ?string
     {
-        return $this->tel_proc;
+        return $this->proc;
     }
 
-    public function setTelProc(string $tel_proc): static
+    public function setProc(string $proc): static
     {
-        $this->tel_proc = $tel_proc;
+        $this->proc = $proc;
 
         return $this;
     }
 
-    public function getTelTypeCharge(): ?string
+    public function getTypeCharge(): ?string
     {
-        return $this->tel_type_charge;
+        return $this->type_charge;
     }
 
-    public function setTelTypeCharge(string $tel_type_charge): static
+    public function setTypeCharge(string $type_charge): static
     {
-        $this->tel_type_charge = $tel_type_charge;
+        $this->type_charge = $type_charge;
 
         return $this;
     }
 
-    public function getTelProcModele(): ?string
+    public function getProcModele(): ?string
     {
-        return $this->tel_proc_modele;
+        return $this->proc_modele;
     }
 
-    public function setTelProcModele(string $tel_proc_modele): static
+    public function setProcModele(string $proc_modele): static
     {
-        $this->tel_proc_modele = $tel_proc_modele;
+        $this->proc_modele = $proc_modele;
 
         return $this;
     }
 
-    public function getTelBat(): ?string
+    public function getBat(): ?string
     {
-        return $this->tel_bat;
+        return $this->bat;
     }
 
-    public function setTelBat(string $tel_bat): static
+    public function setBat(string $bat): static
     {
-        $this->tel_bat = $tel_bat;
+        $this->bat = $bat;
 
         return $this;
     }
 
-    public function getTelEtatBat(): ?string
+    public function getEtatBat(): ?string
     {
-        return $this->tel_etat_bat;
+        return $this->etat_bat;
     }
 
-    public function setTelEtatBat(string $tel_etat_bat): static
+    public function setEtatBat(string $etat_bat): static
     {
-        $this->tel_etat_bat = $tel_etat_bat;
+        $this->etat_bat = $etat_bat;
 
         return $this;
     }
 
-    public function getTelTailleEcran(): ?string
+    public function getTailleEcran(): ?string
     {
-        return $this->tel_taille_ecran;
+        return $this->taille_ecran;
     }
 
-    public function setTelTailleEcran(string $tel_taille_ecran): static
+    public function setTailleEcran(string $taille_ecran): static
     {
-        $this->tel_taille_ecran = $tel_taille_ecran;
+        $this->taille_ecran = $taille_ecran;
 
         return $this;
     }
 
-    public function getTelResEcran(): ?string
+    public function getResEcran(): ?string
     {
-        return $this->tel_res_ecran;
+        return $this->res_ecran;
     }
 
-    public function setTelResEcran(string $tel_res_ecran): static
+    public function setResEcran(string $res_ecran): static
     {
-        $this->tel_res_ecran = $tel_res_ecran;
+        $this->res_ecran = $res_ecran;
 
         return $this;
     }
 
-    public function getTelFreqEcran(): ?string
+    public function getFreqEcran(): ?string
     {
-        return $this->tel_freq_ecran;
+        return $this->freq_ecran;
     }
 
-    public function setTelFreqEcran(string $tel_freq_ecran): static
+    public function setFreqEcran(string $freq_ecran): static
     {
-        $this->tel_freq_ecran = $tel_freq_ecran;
+        $this->freq_ecran = $freq_ecran;
 
         return $this;
     }
 
-    public function getTelReseau(): ?string
+    public function getReseau(): ?string
     {
-        return $this->tel_reseau;
+        return $this->reseau;
     }
 
-    public function setTelReseau(string $tel_reseau): static
+    public function setReseau(string $reseau): static
     {
-        $this->tel_reseau = $tel_reseau;
+        $this->reseau = $reseau;
 
         return $this;
     }
 
-    public function getTelBluetooth(): ?string
+    public function getBluetooth(): ?string
     {
-        return $this->tel_bluetooth;
+        return $this->bluetooth;
     }
 
-    public function setTelBluetooth(string $tel_bluetooth): static
+    public function setBluetooth(string $bluetooth): static
     {
-        $this->tel_bluetooth = $tel_bluetooth;
+        $this->bluetooth = $bluetooth;
 
         return $this;
     }
 
-    public function getTelWifi(): ?string
+    public function getWifi(): ?string
     {
-        return $this->tel_wifi;
+        return $this->wifi;
     }
 
-    public function setTelWifi(string $tel_wifi): static
+    public function setWifi(string $wifi): static
     {
-        $this->tel_wifi = $tel_wifi;
+        $this->wifi = $wifi;
 
         return $this;
     }
 
-    public function getTelMemoire(): ?int
+    public function getMemoire(): ?int
     {
-        return $this->tel_memoire;
+        return $this->memoire;
     }
 
-    public function setTelMemoire(int $tel_memoire): static
+    public function setMemoire(int $memoire): static
     {
-        $this->tel_memoire = $tel_memoire;
+        $this->memoire = $memoire;
 
         return $this;
     }
 
-    public function getTelRam(): ?int
+    public function getRam(): ?int
     {
-        return $this->tel_ram;
+        return $this->ram;
     }
 
-    public function setTelRam(int $tel_ram): static
+    public function setRam(int $ram): static
     {
-        $this->tel_ram = $tel_ram;
+        $this->ram = $ram;
 
         return $this;
     }

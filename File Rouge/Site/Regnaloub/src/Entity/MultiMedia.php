@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MultiMediaRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,24 +14,74 @@ class MultiMedia
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $media_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $media_url = null;
+    private ?string $url = null;
 
-    public function getMediaId(): ?int
+    #[ORM\OneToMany(mappedBy: 'multiMedia', targetEntity: Produit::class)]
+    private Collection $produits;
+
+    public function __construct()
     {
-        return $this->media_id;
+        $this->produits = new ArrayCollection();
     }
 
-    public function getMediaUrl(): ?string
+    public function getId(): ?int
     {
-        return $this->media_url;
+        return $this->id;
     }
 
-    public function setMediaUrl(string $media_url): static
+    public function getUrl(): ?string
     {
-        $this->media_url = $media_url;
+        return $this->url;
+    }
+
+    public function setUrl(string $url): static
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getProduit(): ?Produit
+    {
+        return $this->produit;
+    }
+
+    public function setProduit(?Produit $produit): static
+    {
+        $this->produit = $produit;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): static
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits->add($produit);
+            $produit->setMultiMedia($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): static
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getMultiMedia() === $this) {
+                $produit->setMultiMedia(null);
+            }
+        }
 
         return $this;
     }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProduitRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,189 +14,239 @@ class Produit
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $prod_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 30)]
-    private ?string $prod_ref = null;
+    private ?string $ref = null;
 
     #[ORM\Column(length: 60)]
-    private ?string $prod_lib = null;
+    private ?string $lib = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $prod_desc = null;
+    private ?string $desc = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $prod_prix = null;
+    private ?string $prix = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $prod_prix_hit = null;
+    private ?string $prix_hit = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $prod_marque = null;
+    private ?string $marque = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $prod_modele = null;
+    private ?string $modele = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $prod_hauteur = null;
+    private ?string $hauteur = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $prod_largeur = null;
+    private ?string $largeur = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $prod_profondeur = null;
+    private ?string $profondeur = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $prod_poid = null;
+    private ?string $poid = null;
 
     #[ORM\Column]
-    private ?int $prod_sold = null;
+    private ?int $sold = null;
 
-    public function getProdId(): ?int
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?SousCategorie $sousCategorie = null;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?fournisseur $fournisseur = null;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?multiMedia $multiMedia = null;
+
+    public function __construct()
     {
-        return $this->prod_id;
+        $this->multiMedia = new ArrayCollection();
     }
 
-    public function getProdRef(): ?string
+    public function getId(): ?int
     {
-        return $this->prod_ref;
+        return $this->id;
     }
 
-    public function setProdRef(string $prod_ref): static
+    public function getRef(): ?string
     {
-        $this->prod_ref = $prod_ref;
+        return $this->ref;
+    }
+
+    public function setRef(string $ref): static
+    {
+        $this->ref = $ref;
 
         return $this;
     }
 
-    public function getProdLib(): ?string
+    public function getLib(): ?string
     {
-        return $this->prod_lib;
+        return $this->lib;
     }
 
-    public function setProdLib(string $prod_lib): static
+    public function setLib(string $lib): static
     {
-        $this->prod_lib = $prod_lib;
+        $this->lib = $lib;
 
         return $this;
     }
 
-    public function getProdDesc(): ?string
+    public function getDesc(): ?string
     {
-        return $this->prod_desc;
+        return $this->desc;
     }
 
-    public function setProdDesc(string $prod_desc): static
+    public function setDesc(string $desc): static
     {
-        $this->prod_desc = $prod_desc;
+        $this->desc = $desc;
 
         return $this;
     }
 
-    public function getProdPrix(): ?string
+    public function getPrix(): ?string
     {
-        return $this->prod_prix;
+        return $this->prix;
     }
 
-    public function setProdPrix(string $prod_prix): static
+    public function setPrix(string $prix): static
     {
-        $this->prod_prix = $prod_prix;
+        $this->prix = $prix;
 
         return $this;
     }
 
-    public function getProdPrixHit(): ?string
+    public function getPrixHit(): ?string
     {
-        return $this->prod_prix_hit;
+        return $this->prix_hit;
     }
 
-    public function setProdPrixHit(string $prod_prix_hit): static
+    public function setPrixHit(string $prix_hit): static
     {
-        $this->prod_prix_hit = $prod_prix_hit;
+        $this->prix_hit = $prix_hit;
 
         return $this;
     }
 
-    public function getProdMarque(): ?string
+    public function getMarque(): ?string
     {
-        return $this->prod_marque;
+        return $this->marque;
     }
 
-    public function setProdMarque(string $prod_marque): static
+    public function setMarque(string $marque): static
     {
-        $this->prod_marque = $prod_marque;
+        $this->marque = $marque;
 
         return $this;
     }
 
-    public function getProdModele(): ?string
+    public function getModele(): ?string
     {
-        return $this->prod_modele;
+        return $this->modele;
     }
 
-    public function setProdModele(string $prod_modele): static
+    public function setModele(string $modele): static
     {
-        $this->prod_modele = $prod_modele;
+        $this->modele = $modele;
 
         return $this;
     }
 
-    public function getProdHauteur(): ?string
+    public function getHauteur(): ?string
     {
-        return $this->prod_hauteur;
+        return $this->hauteur;
     }
 
-    public function setProdHauteur(string $prod_hauteur): static
+    public function setHauteur(string $hauteur): static
     {
-        $this->prod_hauteur = $prod_hauteur;
+        $this->hauteur = $hauteur;
 
         return $this;
     }
 
-    public function getProdLargeur(): ?string
+    public function getLargeur(): ?string
     {
-        return $this->prod_largeur;
+        return $this->largeur;
     }
 
-    public function setProdLargeur(string $prod_largeur): static
+    public function setLargeur(string $largeur): static
     {
-        $this->prod_largeur = $prod_largeur;
+        $this->largeur = $largeur;
 
         return $this;
     }
 
-    public function getProdProfondeur(): ?string
+    public function getProfondeur(): ?string
     {
-        return $this->prod_profondeur;
+        return $this->profondeur;
     }
 
-    public function setProdProfondeur(string $prod_profondeur): static
+    public function setProfondeur(string $profondeur): static
     {
-        $this->prod_profondeur = $prod_profondeur;
+        $this->profondeur = $profondeur;
 
         return $this;
     }
 
-    public function getProdPoid(): ?string
+    public function getPoid(): ?string
     {
-        return $this->prod_poid;
+        return $this->poid;
     }
 
-    public function setProdPoid(string $prod_poid): static
+    public function setPoid(string $poid): static
     {
-        $this->prod_poid = $prod_poid;
+        $this->poid = $poid;
 
         return $this;
     }
 
-    public function getProdSold(): ?int
+    public function getSold(): ?int
     {
-        return $this->prod_sold;
+        return $this->sold;
     }
 
-    public function setProdSold(int $prod_sold): static
+    public function setSold(int $sold): static
     {
-        $this->prod_sold = $prod_sold;
+        $this->sold = $sold;
+
+        return $this;
+    }
+
+    public function getSousCategorie(): ?SousCategorie
+    {
+        return $this->sousCategorie;
+    }
+
+    public function setSousCategorie(?SousCategorie $sousCategorie): static
+    {
+        $this->sousCategorie = $sousCategorie;
+
+        return $this;
+    }
+
+    public function getFournisseur(): ?fournisseur
+    {
+        return $this->fournisseur;
+    }
+
+    public function setFournisseur(?fournisseur $fournisseur): static
+    {
+        $this->fournisseur = $fournisseur;
+
+        return $this;
+    }
+
+    public function getMultiMedia(): ?multiMedia
+    {
+        return $this->multiMedia;
+    }
+
+    public function setMultiMedia(?multiMedia $multiMedia): static
+    {
+        $this->multiMedia = $multiMedia;
 
         return $this;
     }

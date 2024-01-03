@@ -12,84 +12,84 @@ class Facture
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $fac_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $fac_tot_ttc = null;
+    private ?string $tot_ttc = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $fac_tot_prix_ht = null;
+    private ?string $tot_prix_ht = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $fac_date = null;
+    private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $fac_adresse = null;
+    private ?string $adresse = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $fac_tva = null;
+    private ?string $tva = null;
 
-    public function getFacId(): ?int
+    public function getId(): ?int
     {
-        return $this->fac_id;
+        return $this->id;
     }
 
-    public function getFacTotTtc(): ?string
+    public function getTotTtc(): ?string
     {
-        return $this->fac_tot_ttc;
+        return $this->tot_ttc;
     }
 
-    public function setFacTotTtc(string $fac_tot_ttc): static
+    public function setTotTtc(string $tot_ttc): static
     {
-        $this->fac_tot_ttc = $fac_tot_ttc;
+        $this->tot_ttc = $tot_ttc;
 
         return $this;
     }
 
-    public function getFacTotPrixHt(): ?string
+    public function getTotPrixHt(): ?string
     {
-        return $this->fac_tot_prix_ht;
+        return $this->tot_prix_ht;
     }
 
-    public function setFacTotPrixHt(string $fac_tot_prix_ht): static
+    public function setTotPrixHt(string $tot_prix_ht): static
     {
-        $this->fac_tot_prix_ht = $fac_tot_prix_ht;
+        $this->tot_prix_ht = $tot_prix_ht;
 
         return $this;
     }
 
-    public function getFacDate(): ?\DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->fac_date;
+        return $this->date;
     }
 
-    public function setFacDate(\DateTimeInterface $fac_date): static
+    public function setDate(\DateTimeInterface $date): static
     {
-        $this->fac_date = $fac_date;
+        $this->date = $date;
 
         return $this;
     }
 
-    public function getFacAdresse(): ?string
+    public function getAdresse(): ?string
     {
-        return $this->fac_adresse;
+        return $this->adresse;
     }
 
-    public function setFacAdresse(string $fac_adresse): static
+    public function setAdresse(string $adresse): static
     {
-        $this->fac_adresse = $fac_adresse;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
-    public function getFacTva(): ?string
+    public function getTva(): ?string
     {
-        return $this->fac_tva;
+        return $this->tva;
     }
 
-    public function setFacTva(string $fac_tva): static
+    public function setTva(string $tva): static
     {
-        $this->fac_tva = $fac_tva;
+        $this->tva = $tva;
 
         return $this;
     }

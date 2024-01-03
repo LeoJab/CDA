@@ -12,54 +12,54 @@ class Paiement
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $paie_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $paie_mode = null;
+    private ?string $mode = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $paie_date = null;
+    private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(length: 80)]
-    private ?string $paie_status = null;
+    private ?string $status = null;
 
-    public function getPaieId(): ?int
+    public function getId(): ?int
     {
-        return $this->paie_id;
+        return $this->id;
     }
 
-    public function getPaieMode(): ?string
+    public function getMode(): ?string
     {
-        return $this->paie_mode;
+        return $this->mode;
     }
 
-    public function setPaieMode(string $paie_mode): static
+    public function setMode(string $mode): static
     {
-        $this->paie_mode = $paie_mode;
+        $this->mode = $mode;
 
         return $this;
     }
 
-    public function getPaieDate(): ?\DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->paie_date;
+        return $this->date;
     }
 
-    public function setPaieDate(\DateTimeInterface $paie_date): static
+    public function setDate(\DateTimeInterface $date): static
     {
-        $this->paie_date = $paie_date;
+        $this->date = $date;
 
         return $this;
     }
 
-    public function getPaieStatus(): ?string
+    public function getStatus(): ?string
     {
-        return $this->paie_status;
+        return $this->status;
     }
 
-    public function setPaieStatus(string $paie_status): static
+    public function setStatus(string $status): static
     {
-        $this->paie_status = $paie_status;
+        $this->status = $status;
 
         return $this;
     }

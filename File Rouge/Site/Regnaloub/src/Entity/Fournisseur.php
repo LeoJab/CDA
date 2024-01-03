@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FournisseurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FournisseurRepository::class)]
@@ -11,114 +13,152 @@ class Fournisseur
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $fourni_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 30)]
-    private ?string $fourni_ref = null;
+    private ?string $ref = null;
 
     #[ORM\Column(length: 30)]
-    private ?string $fourni_nom = null;
+    private ?string $nom = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $founi_adresse = null;
+    private ?string $adresse = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $fourni_ville = null;
+    private ?string $ville = null;
 
     #[ORM\Column(length: 5)]
-    private ?string $fourni_cp = null;
+    private ?string $cp = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $fourni_email = null;
+    private ?string $email = null;
 
     #[ORM\Column(length: 15)]
-    private ?string $fourni_tel = null;
+    private ?string $tel = null;
 
-    public function getFourniId(): ?int
+    #[ORM\OneToMany(mappedBy: 'fournisseur', targetEntity: Produit::class)]
+    private Collection $produits;
+
+    public function __construct()
     {
-        return $this->fourni_id;
+        $this->produits = new ArrayCollection();
     }
 
-    public function getFourniRef(): ?string
+    public function getId(): ?int
     {
-        return $this->fourni_ref;
+        return $this->id;
     }
 
-    public function setFourniRef(string $fourni_ref): static
+    public function getRef(): ?string
     {
-        $this->fourni_ref = $fourni_ref;
+        return $this->ref;
+    }
+
+    public function setRef(string $ref): static
+    {
+        $this->ref = $ref;
 
         return $this;
     }
 
-    public function getFourniNom(): ?string
+    public function getNom(): ?string
     {
-        return $this->fourni_nom;
+        return $this->nom;
     }
 
-    public function setFourniNom(string $fourni_nom): static
+    public function setNom(string $nom): static
     {
-        $this->fourni_nom = $fourni_nom;
+        $this->nom = $nom;
 
         return $this;
     }
 
-    public function getFouniAdresse(): ?string
+    public function getAdresse(): ?string
     {
-        return $this->founi_adresse;
+        return $this->adresse;
     }
 
-    public function setFouniAdresse(string $founi_adresse): static
+    public function setAdresse(string $adresse): static
     {
-        $this->founi_adresse = $founi_adresse;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
-    public function getFourniVille(): ?string
+    public function getVille(): ?string
     {
-        return $this->fourni_ville;
+        return $this->ville;
     }
 
-    public function setFourniVille(string $fourni_ville): static
+    public function setVille(string $ville): static
     {
-        $this->fourni_ville = $fourni_ville;
+        $this->ville = $ville;
 
         return $this;
     }
 
-    public function getFourniCp(): ?string
+    public function getCp(): ?string
     {
-        return $this->fourni_cp;
+        return $this->cp;
     }
 
-    public function setFourniCp(string $fourni_cp): static
+    public function setCp(string $cp): static
     {
-        $this->fourni_cp = $fourni_cp;
+        $this->cp = $cp;
 
         return $this;
     }
 
-    public function getFourniEmail(): ?string
+    public function getEmail(): ?string
     {
-        return $this->fourni_email;
+        return $this->email;
     }
 
-    public function setFourniEmail(string $fourni_email): static
+    public function setEmail(string $email): static
     {
-        $this->fourni_email = $fourni_email;
+        $this->email = $email;
 
         return $this;
     }
 
-    public function getFourniTel(): ?string
+    public function getTel(): ?string
     {
-        return $this->fourni_tel;
+        return $this->tel;
     }
 
-    public function setFourniTel(string $fourni_tel): static
+    public function setTel(string $tel): static
     {
-        $this->fourni_tel = $fourni_tel;
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): static
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits->add($produit);
+            $produit->setFournisseur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): static
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getFournisseur() === $this) {
+                $produit->setFournisseur(null);
+            }
+        }
 
         return $this;
     }

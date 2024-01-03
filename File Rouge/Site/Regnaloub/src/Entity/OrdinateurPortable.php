@@ -12,234 +12,234 @@ class OrdinateurPortable
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $prod_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $op_resolution = null;
+    private ?string $resolution = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $op_webcam = null;
+    private ?string $webcam = null;
 
     #[ORM\Column(length: 60)]
-    private ?string $op_proc = null;
+    private ?string $proc = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $op_proc_freq = null;
+    private ?string $proc_freq = null;
 
     #[ORM\Column]
-    private ?int $op_proc_nbr_coeur = null;
+    private ?int $proc_nbr_coeur = null;
 
     #[ORM\Column]
-    private ?int $op_ram = null;
+    private ?int $ram = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $op_ram_freq = null;
+    private ?string $ram_freq = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $op_cg_modele = null;
+    private ?string $cg_modele = null;
 
     #[ORM\Column]
-    private ?int $op_stkage = null;
+    private ?int $stkage = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $op_type_stkage = null;
+    private ?string $type_stkage = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $op_wifi = null;
+    private ?string $wifi = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $op_bluetooth = null;
+    private ?string $bluetooth = null;
 
     #[ORM\Column]
-    private ?int $op_port_usb = null;
+    private ?int $port_usb = null;
 
     #[ORM\Column]
-    private ?int $op_port_hdmi = null;
+    private ?int $port_hdmi = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $op_sys_exp = null;
+    private ?string $sys_exp = null;
 
     public function getProdId(): ?int
     {
-        return $this->prod_id;
+        return $this->id;
     }
 
-    public function getOpResolution(): ?string
+    public function getResolution(): ?string
     {
-        return $this->op_resolution;
+        return $this->resolution;
     }
 
-    public function setOpResolution(string $op_resolution): static
+    public function setResolution(string $resolution): static
     {
-        $this->op_resolution = $op_resolution;
+        $this->resolution = $resolution;
 
         return $this;
     }
 
-    public function getOpWebcam(): ?string
+    public function getWebcam(): ?string
     {
-        return $this->op_webcam;
+        return $this->webcam;
     }
 
-    public function setOpWebcam(string $op_webcam): static
+    public function setWebcam(string $webcam): static
     {
-        $this->op_webcam = $op_webcam;
+        $this->webcam = $webcam;
 
         return $this;
     }
 
-    public function getOpProc(): ?string
+    public function getProc(): ?string
     {
-        return $this->op_proc;
+        return $this->proc;
     }
 
-    public function setOpProc(string $op_proc): static
+    public function setProc(string $proc): static
     {
-        $this->op_proc = $op_proc;
+        $this->proc = $proc;
 
         return $this;
     }
 
-    public function getOpProcFreq(): ?string
+    public function getProcFreq(): ?string
     {
-        return $this->op_proc_freq;
+        return $this->proc_freq;
     }
 
-    public function setOpProcFreq(string $op_proc_freq): static
+    public function setProcFreq(string $proc_freq): static
     {
-        $this->op_proc_freq = $op_proc_freq;
+        $this->proc_freq = $proc_freq;
 
         return $this;
     }
 
-    public function getOpProcNbrCoeur(): ?int
+    public function getProcNbrCoeur(): ?int
     {
-        return $this->op_proc_nbr_coeur;
+        return $this->proc_nbr_coeur;
     }
 
-    public function setOpProcNbrCoeur(int $op_proc_nbr_coeur): static
+    public function setProcNbrCoeur(int $proc_nbr_coeur): static
     {
-        $this->op_proc_nbr_coeur = $op_proc_nbr_coeur;
+        $this->proc_nbr_coeur = $proc_nbr_coeur;
 
         return $this;
     }
 
-    public function getOpRam(): ?int
+    public function getRam(): ?int
     {
-        return $this->op_ram;
+        return $this->ram;
     }
 
-    public function setOpRam(int $op_ram): static
+    public function setRam(int $ram): static
     {
-        $this->op_ram = $op_ram;
+        $this->ram = $ram;
 
         return $this;
     }
 
-    public function getOpRamFreq(): ?string
+    public function getRamFreq(): ?string
     {
-        return $this->op_ram_freq;
+        return $this->ram_freq;
     }
 
-    public function setOpRamFreq(string $op_ram_freq): static
+    public function setRamFreq(string $ram_freq): static
     {
-        $this->op_ram_freq = $op_ram_freq;
+        $this->ram_freq = $ram_freq;
 
         return $this;
     }
 
-    public function getOpCgModele(): ?string
+    public function getCgModele(): ?string
     {
-        return $this->op_cg_modele;
+        return $this->cg_modele;
     }
 
-    public function setOpCgModele(string $op_cg_modele): static
+    public function setCgModele(string $cg_modele): static
     {
-        $this->op_cg_modele = $op_cg_modele;
+        $this->cg_modele = $cg_modele;
 
         return $this;
     }
 
-    public function getOpStkage(): ?int
+    public function getStkage(): ?int
     {
-        return $this->op_stkage;
+        return $this->stkage;
     }
 
-    public function setOpStkage(int $op_stkage): static
+    public function setStkage(int $stkage): static
     {
-        $this->op_stkage = $op_stkage;
+        $this->stkage = $stkage;
 
         return $this;
     }
 
-    public function getOpTypeStkage(): ?string
+    public function getTypeStkage(): ?string
     {
-        return $this->op_type_stkage;
+        return $this->type_stkage;
     }
 
-    public function setOpTypeStkage(string $op_type_stkage): static
+    public function setTypeStkage(string $type_stkage): static
     {
-        $this->op_type_stkage = $op_type_stkage;
+        $this->type_stkage = $type_stkage;
 
         return $this;
     }
 
-    public function getOpWifi(): ?string
+    public function getWifi(): ?string
     {
-        return $this->op_wifi;
+        return $this->wifi;
     }
 
-    public function setOpWifi(string $op_wifi): static
+    public function setWifi(string $wifi): static
     {
-        $this->op_wifi = $op_wifi;
+        $this->wifi = $wifi;
 
         return $this;
     }
 
-    public function getOpBluetooth(): ?string
+    public function getBluetooth(): ?string
     {
-        return $this->op_bluetooth;
+        return $this->bluetooth;
     }
 
-    public function setOpBluetooth(string $op_bluetooth): static
+    public function setBluetooth(string $bluetooth): static
     {
-        $this->op_bluetooth = $op_bluetooth;
+        $this->bluetooth = $bluetooth;
 
         return $this;
     }
 
-    public function getOpPortUsb(): ?int
+    public function getPortUsb(): ?int
     {
-        return $this->op_port_usb;
+        return $this->port_usb;
     }
 
-    public function setOpPortUsb(int $op_port_usb): static
+    public function setPortUsb(int $port_usb): static
     {
-        $this->op_port_usb = $op_port_usb;
+        $this->port_usb = $port_usb;
 
         return $this;
     }
 
-    public function getOpPortHdmi(): ?int
+    public function getPortHdmi(): ?int
     {
-        return $this->op_port_hdmi;
+        return $this->port_hdmi;
     }
 
-    public function setOpPortHdmi(int $op_port_hdmi): static
+    public function setPortHdmi(int $port_hdmi): static
     {
-        $this->op_port_hdmi = $op_port_hdmi;
+        $this->port_hdmi = $port_hdmi;
 
         return $this;
     }
 
-    public function getOpSysExp(): ?string
+    public function getSysExp(): ?string
     {
-        return $this->op_sys_exp;
+        return $this->sys_exp;
     }
 
-    public function setOpSysExp(string $op_sys_exp): static
+    public function setSysExp(string $sys_exp): static
     {
-        $this->op_sys_exp = $op_sys_exp;
+        $this->sys_exp = $sys_exp;
 
         return $this;
     }

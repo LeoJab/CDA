@@ -11,84 +11,84 @@ class ConsoleGaming
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $prod_id = null;
+    private ?int $id = null;
 
     #[ORM\Column]
-    private ?int $cons_port_usb = null;
+    private ?int $port_usb = null;
 
     #[ORM\Column]
-    private ?int $cons_port_hdmi = null;
+    private ?int $port_hdmi = null;
 
     #[ORM\Column]
-    private ?int $cons_disque_dur = null;
+    private ?int $disque_dur = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $cons_resolution = null;
+    private ?string $resolution = null;
 
     #[ORM\Column]
-    private ?int $cons_fps = null;
+    private ?int $fps = null;
 
-    public function getProdId(): ?int
+    public function getId(): ?int
     {
-        return $this->prod_id;
+        return $this->id;
     }
 
-    public function getConsPortUsb(): ?int
+    public function getPortUsb(): ?int
     {
-        return $this->cons_port_usb;
+        return $this->port_usb;
     }
 
-    public function setConsPortUsb(int $cons_port_usb): static
+    public function setPortUsb(int $port_usb): static
     {
-        $this->cons_port_usb = $cons_port_usb;
+        $this->port_usb = $port_usb;
 
         return $this;
     }
 
-    public function getConsPortHdmi(): ?int
+    public function getPortHdmi(): ?int
     {
-        return $this->cons_port_hdmi;
+        return $this->port_hdmi;
     }
 
-    public function setConsPortHdmi(int $cons_port_hdmi): static
+    public function setPortHdmi(int $port_hdmi): static
     {
-        $this->cons_port_hdmi = $cons_port_hdmi;
+        $this->port_hdmi = $port_hdmi;
 
         return $this;
     }
 
-    public function getConsDisqueDur(): ?int
+    public function getDisqueDur(): ?int
     {
-        return $this->cons_disque_dur;
+        return $this->disque_dur;
     }
 
-    public function setConsDisqueDur(int $cons_disque_dur): static
+    public function setDisqueDur(int $disque_dur): static
     {
-        $this->cons_disque_dur = $cons_disque_dur;
+        $this->disque_dur = $disque_dur;
 
         return $this;
     }
 
-    public function getConsResolution(): ?string
+    public function getResolution(): ?string
     {
-        return $this->cons_resolution;
+        return $this->resolution;
     }
 
-    public function setConsResolution(string $cons_resolution): static
+    public function setResolution(string $resolution): static
     {
-        $this->cons_resolution = $cons_resolution;
+        $this->resolution = $resolution;
 
         return $this;
     }
 
-    public function getConsFps(): ?int
+    public function getFps(): ?int
     {
-        return $this->cons_fps;
+        return $this->fps;
     }
 
-    public function setConsFps(int $cons_fps): static
+    public function setFps(int $fps): static
     {
-        $this->cons_fps = $cons_fps;
+        $this->fps = $fps;
 
         return $this;
     }

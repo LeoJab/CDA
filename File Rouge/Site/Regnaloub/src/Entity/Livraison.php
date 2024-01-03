@@ -12,54 +12,54 @@ class Livraison
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $liv_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $liv_adresse = null;
+    private ?string $adresse = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $liv_date = null;
+    private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $liv_status = null;
+    private ?string $status = null;
 
-    public function getLivId(): ?int
+    public function getId(): ?int
     {
-        return $this->liv_id;
+        return $this->id;
     }
 
-    public function getLivAdresse(): ?string
+    public function getAdresse(): ?string
     {
-        return $this->liv_adresse;
+        return $this->adresse;
     }
 
-    public function setLivAdresse(string $liv_adresse): static
+    public function setAdresse(string $adresse): static
     {
-        $this->liv_adresse = $liv_adresse;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
-    public function getLivDate(): ?\DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->liv_date;
+        return $this->date;
     }
 
-    public function setLivDate(\DateTimeInterface $liv_date): static
+    public function setDate(\DateTimeInterface $date): static
     {
-        $this->liv_date = $liv_date;
+        $this->date = $date;
 
         return $this;
     }
 
-    public function getLivStatus(): ?string
+    public function getStatus(): ?string
     {
-        return $this->liv_status;
+        return $this->status;
     }
 
-    public function setLivStatus(string $liv_status): static
+    public function setStatus(string $status): static
     {
-        $this->liv_status = $liv_status;
+        $this->status = $status;
 
         return $this;
     }

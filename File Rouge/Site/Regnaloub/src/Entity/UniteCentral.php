@@ -12,189 +12,189 @@ class UniteCentral
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $prod_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $uc_proc = null;
+    private ?string $proc = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 4, scale: 2)]
-    private ?string $uc_proc_frequence = null;
+    private ?string $proc_frequence = null;
 
     #[ORM\Column]
-    private ?int $uc_proc_nbr_coeur = null;
+    private ?int $proc_nbr_coeur = null;
 
     #[ORM\Column]
-    private ?int $uc_ram = null;
+    private ?int $ram = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $uc_ram_type = null;
+    private ?string $ram_type = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $uc_cg_modele = null;
+    private ?string $cg_modele = null;
 
     #[ORM\Column]
-    private ?int $uc_stkage = null;
+    private ?int $stkage = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $uc_type_stkage = null;
+    private ?string $type_stkage = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $uc_wifi = null;
+    private ?string $wifi = null;
 
     #[ORM\Column]
-    private ?int $uc_port_usb = null;
+    private ?int $port_usb = null;
 
     #[ORM\Column]
-    private ?int $uc_port_hdmi = null;
+    private ?int $port_hdmi = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $uc_sys_expl = null;
+    private ?string $sys_expl = null;
 
-    public function getProdId(): ?int
+    public function getId(): ?int
     {
-        return $this->prod_id;
+        return $this->id;
     }
 
-    public function getUcProc(): ?string
+    public function getProc(): ?string
     {
-        return $this->uc_proc;
+        return $this->proc;
     }
 
-    public function setUcProc(string $uc_proc): static
+    public function setProc(string $proc): static
     {
-        $this->uc_proc = $uc_proc;
+        $this->proc = $proc;
 
         return $this;
     }
 
-    public function getUcProcFrequence(): ?string
+    public function getProcFrequence(): ?string
     {
-        return $this->uc_proc_frequence;
+        return $this->proc_frequence;
     }
 
-    public function setUcProcFrequence(string $uc_proc_frequence): static
+    public function setProcFrequence(string $proc_frequence): static
     {
-        $this->uc_proc_frequence = $uc_proc_frequence;
+        $this->proc_frequence = $proc_frequence;
 
         return $this;
     }
 
-    public function getUcProcNbrCoeur(): ?int
+    public function getProcNbrCoeur(): ?int
     {
-        return $this->uc_proc_nbr_coeur;
+        return $this->proc_nbr_coeur;
     }
 
-    public function setUcProcNbrCoeur(int $uc_proc_nbr_coeur): static
+    public function setProcNbrCoeur(int $proc_nbr_coeur): static
     {
-        $this->uc_proc_nbr_coeur = $uc_proc_nbr_coeur;
+        $this->proc_nbr_coeur = $proc_nbr_coeur;
 
         return $this;
     }
 
-    public function getUcRam(): ?int
+    public function getRam(): ?int
     {
-        return $this->uc_ram;
+        return $this->ram;
     }
 
-    public function setUcRam(int $uc_ram): static
+    public function setRam(int $ram): static
     {
-        $this->uc_ram = $uc_ram;
+        $this->ram = $ram;
 
         return $this;
     }
 
-    public function getUcRamType(): ?string
+    public function getRamType(): ?string
     {
-        return $this->uc_ram_type;
+        return $this->ram_type;
     }
 
-    public function setUcRamType(string $uc_ram_type): static
+    public function setRamType(string $ram_type): static
     {
-        $this->uc_ram_type = $uc_ram_type;
+        $this->ram_type = $ram_type;
 
         return $this;
     }
 
-    public function getUcCgModele(): ?string
+    public function getCgModele(): ?string
     {
-        return $this->uc_cg_modele;
+        return $this->cg_modele;
     }
 
-    public function setUcCgModele(string $uc_cg_modele): static
+    public function setCgModele(string $cg_modele): static
     {
-        $this->uc_cg_modele = $uc_cg_modele;
+        $this->cg_modele = $cg_modele;
 
         return $this;
     }
 
-    public function getUcStkage(): ?int
+    public function getStkage(): ?int
     {
-        return $this->uc_stkage;
+        return $this->stkage;
     }
 
-    public function setUcStkage(int $uc_stkage): static
+    public function setStkage(int $stkage): static
     {
-        $this->uc_stkage = $uc_stkage;
+        $this->stkage = $stkage;
 
         return $this;
     }
 
-    public function getUcTypeStkage(): ?string
+    public function getTypeStkage(): ?string
     {
-        return $this->uc_type_stkage;
+        return $this->type_stkage;
     }
 
-    public function setUcTypeStkage(string $uc_type_stkage): static
+    public function setTypeStkage(string $type_stkage): static
     {
-        $this->uc_type_stkage = $uc_type_stkage;
+        $this->type_stkage = $type_stkage;
 
         return $this;
     }
 
-    public function getUcWifi(): ?string
+    public function getWifi(): ?string
     {
-        return $this->uc_wifi;
+        return $this->wifi;
     }
 
-    public function setUcWifi(string $uc_wifi): static
+    public function setWifi(string $wifi): static
     {
-        $this->uc_wifi = $uc_wifi;
+        $this->wifi = $wifi;
 
         return $this;
     }
 
-    public function getUcPortUsb(): ?int
+    public function getPortUsb(): ?int
     {
-        return $this->uc_port_usb;
+        return $this->port_usb;
     }
 
-    public function setUcPortUsb(int $uc_port_usb): static
+    public function setPortUsb(int $port_usb): static
     {
-        $this->uc_port_usb = $uc_port_usb;
+        $this->port_usb = $port_usb;
 
         return $this;
     }
 
-    public function getUcPortHdmi(): ?int
+    public function getPortHdmi(): ?int
     {
-        return $this->uc_port_hdmi;
+        return $this->port_hdmi;
     }
 
-    public function setUcPortHdmi(int $uc_port_hdmi): static
+    public function setPortHdmi(int $port_hdmi): static
     {
-        $this->uc_port_hdmi = $uc_port_hdmi;
+        $this->port_hdmi = $port_hdmi;
 
         return $this;
     }
 
-    public function getUcSysExpl(): ?string
+    public function getSysExpl(): ?string
     {
-        return $this->uc_sys_expl;
+        return $this->sys_expl;
     }
 
-    public function setUcSysExpl(string $uc_sys_expl): static
+    public function setSysExpl(string $sys_expl): static
     {
-        $this->uc_sys_expl = $uc_sys_expl;
+        $this->sys_expl = $sys_expl;
 
         return $this;
     }

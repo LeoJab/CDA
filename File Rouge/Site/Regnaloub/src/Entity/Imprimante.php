@@ -11,84 +11,84 @@ class Imprimante
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $prod_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $imp_type = null;
+    private ?string $type = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $imp_vit = null;
+    private ?string $vit = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $imp_qualiter = null;
+    private ?string $qualiter = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $imp_qualiter_photo = null;
+    private ?string $qualiter_photo = null;
 
     #[ORM\Column(length: 40)]
-    private ?string $imp_format = null;
+    private ?string $format = null;
 
-    public function geProdId(): ?int
+    public function geId(): ?int
     {
-        return $this->prod_id;
+        return $this->id;
     }
 
-    public function getImpType(): ?string
+    public function getType(): ?string
     {
-        return $this->imp_type;
+        return $this->type;
     }
 
-    public function setImpType(string $imp_type): static
+    public function setType(string $type): static
     {
-        $this->imp_type = $imp_type;
+        $this->type = $type;
 
         return $this;
     }
 
-    public function getImpVit(): ?string
+    public function getVit(): ?string
     {
-        return $this->imp_vit;
+        return $this->vit;
     }
 
-    public function setImpVit(string $imp_vit): static
+    public function setVit(string $vit): static
     {
-        $this->imp_vit = $imp_vit;
+        $this->vit = $vit;
 
         return $this;
     }
 
-    public function getImpQualiter(): ?string
+    public function getQualiter(): ?string
     {
-        return $this->imp_qualiter;
+        return $this->qualiter;
     }
 
-    public function setImpQualiter(string $imp_qualiter): static
+    public function setQualiter(string $qualiter): static
     {
-        $this->imp_qualiter = $imp_qualiter;
+        $this->qualiter = $qualiter;
 
         return $this;
     }
 
-    public function getImpQualiterPhoto(): ?string
+    public function getQualiterPhoto(): ?string
     {
-        return $this->imp_qualiter_photo;
+        return $this->qualiter_photo;
     }
 
-    public function setImpQualiterPhoto(string $imp_qualiter_photo): static
+    public function setQualiterPhoto(string $qualiter_photo): static
     {
-        $this->imp_qualiter_photo = $imp_qualiter_photo;
+        $this->qualiter_photo = $qualiter_photo;
 
         return $this;
     }
 
-    public function getImpFormat(): ?string
+    public function getFormat(): ?string
     {
-        return $this->imp_format;
+        return $this->format;
     }
 
-    public function setImpFormat(string $imp_format): static
+    public function setFormat(string $format): static
     {
-        $this->imp_format = $imp_format;
+        $this->format = $format;
 
         return $this;
     }

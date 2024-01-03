@@ -12,69 +12,69 @@ class Contient
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $cont_id = null;
+    private ?int $id = null;
 
     #[ORM\Column]
-    private ?int $prod_quant = null;
+    private ?int $quant = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $prod_pu = null;
+    private ?string $pu = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $prod_pu_ht = null;
+    private ?string $pu_ht = null;
 
     #[ORM\Column]
-    private ?int $prod_sold = null;
+    private ?int $sold = null;
 
-    public function getContId(): ?int
+    public function getId(): ?int
     {
-        return $this->cont_id;
+        return $this->id;
     }
 
-    public function getProdQuant(): ?int
+    public function getQuant(): ?int
     {
-        return $this->prod_quant;
+        return $this->quant;
     }
 
-    public function setProdQuant(int $prod_quant): static
+    public function setQuant(int $quant): static
     {
-        $this->prod_quant = $prod_quant;
+        $this->quant = $quant;
 
         return $this;
     }
 
-    public function getProdPu(): ?string
+    public function getPu(): ?string
     {
-        return $this->prod_pu;
+        return $this->pu;
     }
 
-    public function setProdPu(string $prod_pu): static
+    public function setPu(string $pu): static
     {
-        $this->prod_pu = $prod_pu;
+        $this->pu = $pu;
 
         return $this;
     }
 
-    public function getProdPuHt(): ?string
+    public function getPuHt(): ?string
     {
-        return $this->prod_pu_ht;
+        return $this->pu_ht;
     }
 
-    public function setProdPuHt(string $prod_pu_ht): static
+    public function setPuHt(string $pu_ht): static
     {
-        $this->prod_pu_ht = $prod_pu_ht;
+        $this->pu_ht = $pu_ht;
 
         return $this;
     }
 
-    public function getProdSold(): ?int
+    public function getSold(): ?int
     {
-        return $this->prod_sold;
+        return $this->sold;
     }
 
-    public function setProdSold(int $prod_sold): static
+    public function setSold(int $sold): static
     {
-        $this->prod_sold = $prod_sold;
+        $this->sold = $sold;
 
         return $this;
     }

@@ -11,189 +11,189 @@ class Utilisateur
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $uti_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 30)]
-    private ?string $uti_nom = null;
+    private ?string $nom = null;
 
     #[ORM\Column(length: 30)]
-    private ?string $uti_prenom = null;
+    private ?string $prenom = null;
 
     #[ORM\Column(length: 30)]
-    private ?string $uti_cate = null;
+    private ?string $cate = null;
 
     #[ORM\Column(length: 30)]
-    private ?string $uti_role = null;
+    private ?string $role = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $uti_adresse = null;
+    private ?string $adresse = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $uti_adresse_liv = null;
+    private ?string $adresse_liv = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $uti_adresse_fac = null;
+    private ?string $adresse_fac = null;
 
     #[ORM\Column(length: 40)]
-    private ?string $uti_ville = null;
+    private ?string $ville = null;
 
     #[ORM\Column(length: 5)]
-    private ?string $uti_cp = null;
+    private ?string $cp = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $uti_tel = null;
+    private ?string $tel = null;
 
     #[ORM\Column(length: 80)]
-    private ?string $uti_mail = null;
+    private ?string $mail = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $uti_mdp = null;
+    private ?string $mdp = null;
 
-    public function getUtiId(): ?int
+    public function getId(): ?int
     {
-        return $this->uti_id;
+        return $this->id;
     }
 
-    public function getUtiNom(): ?string
+    public function getNom(): ?string
     {
-        return $this->uti_nom;
+        return $this->nom;
     }
 
-    public function setUtiNom(string $uti_nom): static
+    public function setNom(string $nom): static
     {
-        $this->uti_nom = $uti_nom;
+        $this->nom = $nom;
 
         return $this;
     }
 
-    public function getUtiPrenom(): ?string
+    public function getPrenom(): ?string
     {
-        return $this->uti_prenom;
+        return $this->prenom;
     }
 
-    public function setUtiPrenom(string $uti_prenom): static
+    public function setPrenom(string $prenom): static
     {
-        $this->uti_prenom = $uti_prenom;
+        $this->prenom = $prenom;
 
         return $this;
     }
 
-    public function getUtiCate(): ?string
+    public function getCate(): ?string
     {
-        return $this->uti_cate;
+        return $this->cate;
     }
 
-    public function setUtiCate(string $uti_cate): static
+    public function setCate(string $cate): static
     {
-        $this->uti_cate = $uti_cate;
+        $this->cate = $cate;
 
         return $this;
     }
 
-    public function getUtiRole(): ?string
+    public function getRole(): ?string
     {
-        return $this->uti_role;
+        return $this->role;
     }
 
-    public function setUtiRole(string $uti_role): static
+    public function setRole(string $role): static
     {
-        $this->uti_role = $uti_role;
+        $this->role = $role;
 
         return $this;
     }
 
-    public function getUtiAdresse(): ?string
+    public function getAdresse(): ?string
     {
-        return $this->uti_adresse;
+        return $this->adresse;
     }
 
-    public function setUtiAdresse(string $uti_adresse): static
+    public function setAdresse(string $adresse): static
     {
-        $this->uti_adresse = $uti_adresse;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
-    public function getUtiAdresseLiv(): ?string
+    public function getAdresseLiv(): ?string
     {
-        return $this->uti_adresse_liv;
+        return $this->adresse_liv;
     }
 
-    public function setUtiAdresseLiv(string $uti_adresse_liv): static
+    public function setAdresseLiv(string $adresse_liv): static
     {
-        $this->uti_adresse_liv = $uti_adresse_liv;
+        $this->adresse_liv = $adresse_liv;
 
         return $this;
     }
 
-    public function getUtiAdresseFac(): ?string
+    public function getAdresseFac(): ?string
     {
-        return $this->uti_adresse_fac;
+        return $this->adresse_fac;
     }
 
-    public function setUtiAdresseFac(string $uti_adresse_fac): static
+    public function setAdresseFac(string $adresse_fac): static
     {
-        $this->uti_adresse_fac = $uti_adresse_fac;
+        $this->adresse_fac = $adresse_fac;
 
         return $this;
     }
 
-    public function getUtiVille(): ?string
+    public function getVille(): ?string
     {
-        return $this->uti_ville;
+        return $this->ville;
     }
 
-    public function setUtiVille(string $uti_ville): static
+    public function setVille(string $ville): static
     {
-        $this->uti_ville = $uti_ville;
+        $this->ville = $ville;
 
         return $this;
     }
 
-    public function getUtiCp(): ?string
+    public function getCp(): ?string
     {
-        return $this->uti_cp;
+        return $this->cp;
     }
 
-    public function setUtiCp(string $uti_cp): static
+    public function setCp(string $cp): static
     {
-        $this->uti_cp = $uti_cp;
+        $this->cp = $cp;
 
         return $this;
     }
 
-    public function getUtiTel(): ?string
+    public function getTel(): ?string
     {
-        return $this->uti_tel;
+        return $this->tel;
     }
 
-    public function setUtiTel(string $uti_tel): static
+    public function setTel(string $tel): static
     {
-        $this->uti_tel = $uti_tel;
+        $this->tel = $tel;
 
         return $this;
     }
 
-    public function getUtiMail(): ?string
+    public function getMail(): ?string
     {
-        return $this->uti_mail;
+        return $this->mail;
     }
 
-    public function setUtiMail(string $uti_mail): static
+    public function setMail(string $mail): static
     {
-        $this->uti_mail = $uti_mail;
+        $this->mail = $mail;
 
         return $this;
     }
 
-    public function getUtiMdp(): ?string
+    public function getMdp(): ?string
     {
-        return $this->uti_mdp;
+        return $this->mdp;
     }
 
-    public function setUtiMdp(string $uti_mdp): static
+    public function setMdp(string $mdp): static
     {
-        $this->uti_mdp = $uti_mdp;
+        $this->mdp = $mdp;
 
         return $this;
     }

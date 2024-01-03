@@ -11,114 +11,114 @@ class Television
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $prod_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $tv_resolution = null;
+    private ?string $resolution = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $tv_def = null;
+    private ?string $def = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $tv_techno = null;
+    private ?string $techno = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $tv_proc = null;
+    private ?string $proc = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $tv_son_puiss = null;
+    private ?string $son_puiss = null;
 
     #[ORM\Column]
-    private ?int $tv_port_hdmi = null;
+    private ?int $port_hdmi = null;
 
     #[ORM\Column]
-    private ?int $tv_port_usb = null;
+    private ?int $port_usb = null;
 
-    public function getProdId(): ?int
+    public function getId(): ?int
     {
-        return $this->prod_id;
+        return $this->id;
     }
 
-    public function getTvResolution(): ?string
+    public function getResolution(): ?string
     {
-        return $this->tv_resolution;
+        return $this->resolution;
     }
 
-    public function setTvResolution(string $tv_resolution): static
+    public function setResolution(string $resolution): static
     {
-        $this->tv_resolution = $tv_resolution;
+        $this->resolution = $resolution;
 
         return $this;
     }
 
-    public function getTvDef(): ?string
+    public function getDef(): ?string
     {
-        return $this->tv_def;
+        return $this->def;
     }
 
-    public function setTvDef(string $tv_def): static
+    public function setDef(string $def): static
     {
-        $this->tv_def = $tv_def;
+        $this->def = $def;
 
         return $this;
     }
 
-    public function getTvTechno(): ?string
+    public function getTechno(): ?string
     {
-        return $this->tv_techno;
+        return $this->techno;
     }
 
-    public function setTvTechno(string $tv_techno): static
+    public function setTechno(string $techno): static
     {
-        $this->tv_techno = $tv_techno;
+        $this->techno = $techno;
 
         return $this;
     }
 
-    public function getTvProc(): ?string
+    public function getProc(): ?string
     {
-        return $this->tv_proc;
+        return $this->proc;
     }
 
-    public function setTvProc(string $tv_proc): static
+    public function setProc(string $proc): static
     {
-        $this->tv_proc = $tv_proc;
+        $this->proc = $proc;
 
         return $this;
     }
 
-    public function getTvSonPuiss(): ?string
+    public function getSonPuiss(): ?string
     {
-        return $this->tv_son_puiss;
+        return $this->son_puiss;
     }
 
-    public function setTvSonPuiss(string $tv_son_puiss): static
+    public function setSonPuiss(string $son_puiss): static
     {
-        $this->tv_son_puiss = $tv_son_puiss;
+        $this->son_puiss = $son_puiss;
 
         return $this;
     }
 
-    public function getTvPortHdmi(): ?int
+    public function getPortHdmi(): ?int
     {
-        return $this->tv_port_hdmi;
+        return $this->port_hdmi;
     }
 
-    public function setTvPortHdmi(int $tv_port_hdmi): static
+    public function setPortHdmi(int $port_hdmi): static
     {
-        $this->tv_port_hdmi = $tv_port_hdmi;
+        $this->port_hdmi = $port_hdmi;
 
         return $this;
     }
 
-    public function getTvPortUsb(): ?int
+    public function getPortUsb(): ?int
     {
-        return $this->tv_port_usb;
+        return $this->port_usb;
     }
 
-    public function setTvPortUsb(int $tv_port_usb): static
+    public function setPortUsb(int $port_usb): static
     {
-        $this->tv_port_usb = $tv_port_usb;
+        $this->port_usb = $port_usb;
 
         return $this;
     }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SousCategorieRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,54 +14,107 @@ class SousCategorie
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $scate_id = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 60)]
-    private ?string $scate_lib = null;
+    private ?string $lib = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $scate_desc = null;
+    private ?string $desc = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $scate_photo = null;
+    private ?string $photo = null;
 
-    public function getScateId(): ?int
+    #[ORM\ManyToOne(inversedBy: 'sousCategories')]
+    private ?categorie $categorie = null;
+
+    #[ORM\OneToMany(mappedBy: 'sousCategorie', targetEntity: Produit::class)]
+    private Collection $produits;
+
+    public function __construct()
     {
-        return $this->scate_id;
+        $this->produits = new ArrayCollection();
     }
 
-    public function getScateLib(): ?string
+    public function getId(): ?int
     {
-        return $this->scate_lib;
+        return $this->id;
     }
 
-    public function setScateLib(string $scate_lib): static
+    public function getLib(): ?string
     {
-        $this->scate_lib = $scate_lib;
+        return $this->lib;
+    }
+
+    public function setLib(string $lib): static
+    {
+        $this->lib = $lib;
 
         return $this;
     }
 
-    public function getScateDesc(): ?string
+    public function getDesc(): ?string
     {
-        return $this->scate_desc;
+        return $this->desc;
     }
 
-    public function setScateDesc(?string $scate_desc): static
+    public function setDesc(?string $desc): static
     {
-        $this->scate_desc = $scate_desc;
+        $this->desc = $desc;
 
         return $this;
     }
 
-    public function getScatePhoto(): ?string
+    public function getPhoto(): ?string
     {
-        return $this->scate_photo;
+        return $this->photo;
     }
 
-    public function setScatePhoto(?string $scate_photo): static
+    public function setPhoto(?string $photo): static
     {
-        $this->scate_photo = $scate_photo;
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?categorie $categorie): static
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): static
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits->add($produit);
+            $produit->setSousCategorie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): static
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getSousCategorie() === $this) {
+                $produit->setSousCategorie(null);
+            }
+        }
 
         return $this;
     }
