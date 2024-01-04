@@ -54,8 +54,8 @@ class Utilisateur
     #[ORM\OneToMany(mappedBy: 'utilisateur', targetEntity: Commande::class, orphanRemoval: true)]
     private Collection $commandes;
 
-    #[ORM\OneToMany(mappedBy: 'commercial', targetEntity: Utilisateur::class)]
-    private Collection $utilisateurs;
+    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'commercial')]
+    private ?self $commercial = null;
 
     public function __construct()
     {
@@ -242,32 +242,14 @@ class Utilisateur
         return $this;
     }
 
-    /**
-     * @return Collection<int, Utilisateur>
-     */
-    public function getUtilisateurs(): Collection
+    public function getCommercial(): ?self
     {
-        return $this->utilisateurs;
+        return $this->commercial;
     }
 
-    public function addUtilisateur(Utilisateur $utilisateur): static
+    public function setCommercial(?self $commercial): static
     {
-        if (!$this->utilisateurs->contains($utilisateur)) {
-            $this->utilisateurs->add($utilisateur);
-            $utilisateur->setCommercial($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUtilisateur(Utilisateur $utilisateur): static
-    {
-        if ($this->utilisateurs->removeElement($utilisateur)) {
-            // set the owning side to null (unless already changed)
-            if ($utilisateur->getCommercial() === $this) {
-                $utilisateur->setCommercial(null);
-            }
-        }
+        $this->commercial = $commercial;
 
         return $this;
     }

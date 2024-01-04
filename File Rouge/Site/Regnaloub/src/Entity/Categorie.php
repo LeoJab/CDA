@@ -20,7 +20,7 @@ class Categorie
     private ?string $lib = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $desc = null;
+    private ?string $Description = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $photo = null;
@@ -50,14 +50,14 @@ class Categorie
         return $this;
     }
 
-    public function getDesc(): ?string
+    public function getDescription(): ?string
     {
-        return $this->desc;
+        return $this->Description;
     }
 
-    public function setDesc(?string $desc): static
+    public function setDescription(?string $Description): static
     {
-        $this->desc = $desc;
+        $this->Description = $Description;
 
         return $this;
     }
@@ -82,7 +82,7 @@ class Categorie
         return $this->sousCategories;
     }
 
-    public function addSousCategory(SousCategorie $sousCategory): static
+    public function addSousCategorie(SousCategorie $sousCategory): static
     {
         if (!$this->sousCategories->contains($sousCategory)) {
             $this->sousCategories->add($sousCategory);
@@ -92,7 +92,7 @@ class Categorie
         return $this;
     }
 
-    public function removeSousCategory(SousCategorie $sousCategory): static
+    public function removeSousCategorie(SousCategorie $sousCategory): static
     {
         if ($this->sousCategories->removeElement($sousCategory)) {
             // set the owning side to null (unless already changed)

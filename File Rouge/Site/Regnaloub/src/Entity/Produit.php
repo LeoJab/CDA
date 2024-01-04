@@ -23,13 +23,13 @@ class Produit
     private ?string $lib = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $desc = null;
+    private ?string $Description = null;
 
     #[ORM\Column(length: 255)]
     private ?string $prix = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $prix_hit = null;
+    private ?string $prix_ht = null;
 
     #[ORM\Column(length: 50)]
     private ?string $marque = null;
@@ -67,6 +67,9 @@ class Produit
     #[ORM\OneToMany(mappedBy: 'produit', targetEntity: Contient::class, orphanRemoval: true)]
     private Collection $produit;
 
+    #[ORM\Column(length: 20)]
+    private ?string $couleur = null;
+
     public function __construct()
     {
         $this->produit = new ArrayCollection();
@@ -101,14 +104,14 @@ class Produit
         return $this;
     }
 
-    public function getDesc(): ?string
+    public function getDescription(): ?string
     {
-        return $this->desc;
+        return $this->Description;
     }
 
-    public function setDesc(string $desc): static
+    public function setDescription(string $Description): static
     {
-        $this->desc = $desc;
+        $this->Description = $Description;
 
         return $this;
     }
@@ -125,14 +128,14 @@ class Produit
         return $this;
     }
 
-    public function getPrixHit(): ?string
+    public function getPrixHt(): ?string
     {
-        return $this->prix_hit;
+        return $this->prix_ht;
     }
 
-    public function setPrixHit(string $prix_hit): static
+    public function setPrixHt(string $prix_ht): static
     {
-        $this->prix_hit = $prix_hit;
+        $this->prix_ht = $prix_ht;
 
         return $this;
     }
@@ -283,6 +286,18 @@ class Produit
                 $produit->setProduit(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCouleur(): ?string
+    {
+        return $this->couleur;
+    }
+
+    public function setCouleur(string $couleur): static
+    {
+        $this->couleur = $couleur;
 
         return $this;
     }

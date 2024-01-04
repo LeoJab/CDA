@@ -20,7 +20,7 @@ class SousCategorie
     private ?string $lib = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $desc = null;
+    private ?string $Description = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $photo = null;
@@ -54,14 +54,14 @@ class SousCategorie
         return $this;
     }
 
-    public function getDesc(): ?string
+    public function getDescription(): ?string
     {
-        return $this->desc;
+        return $this->Description;
     }
 
-    public function setDesc(?string $desc): static
+    public function setDescription(?string $Description): static
     {
-        $this->desc = $desc;
+        $this->Description = $Description;
 
         return $this;
     }
