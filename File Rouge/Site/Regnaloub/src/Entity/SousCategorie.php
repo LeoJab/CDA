@@ -26,9 +26,10 @@ class SousCategorie
     private ?string $photo = null;
 
     #[ORM\ManyToOne(inversedBy: 'sousCategories')]
-    private ?categorie $categorie = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Categorie $categorie = null;
 
-    #[ORM\OneToMany(mappedBy: 'sousCategorie', targetEntity: Produit::class)]
+    #[ORM\OneToMany(mappedBy: 'SousCategorie', targetEntity: Produit::class, orphanRemoval: true)]
     private Collection $produits;
 
     public function __construct()
@@ -77,12 +78,12 @@ class SousCategorie
         return $this;
     }
 
-    public function getCategorie(): ?categorie
+    public function getCategorie(): ?Categorie
     {
         return $this->categorie;
     }
 
-    public function setCategorie(?categorie $categorie): static
+    public function setCategorie(?Categorie $categorie): static
     {
         $this->categorie = $categorie;
 

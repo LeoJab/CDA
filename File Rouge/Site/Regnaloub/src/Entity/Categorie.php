@@ -25,7 +25,7 @@ class Categorie
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $photo = null;
 
-    #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: SousCategorie::class)]
+    #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: SousCategorie::class, orphanRemoval: true)]
     private Collection $sousCategories;
 
     public function __construct()
@@ -103,4 +103,5 @@ class Categorie
 
         return $this;
     }
+
 }
