@@ -55,6 +55,10 @@
     </header>
 
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% for categorie in categories %}
+           <p> {{categorie.lib}} </p>
+        {% endfor %}
+        {% endblock %}
     </body>
 </html>

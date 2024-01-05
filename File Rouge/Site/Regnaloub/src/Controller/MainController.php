@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Repository\CategorieRepository;
+
 class MainController extends AbstractController
 {
     #[Route('/', name: 'de')]
@@ -17,10 +19,12 @@ class MainController extends AbstractController
     }
 
     #[Route('/accueil', name: 'default')]
-    public function index(): Response
+    public function index(CategorieRepository $cateRepo): Response
     {
+        $categories = $cateRepo->FindAll();
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
+            'categories' => $categories,
         ]);
     }
 }
