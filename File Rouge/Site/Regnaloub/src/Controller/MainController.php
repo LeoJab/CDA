@@ -7,23 +7,30 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Repository\CategorieRepository;
+use App\Repository\ProduitRepository;
 
 class MainController extends AbstractController
 {
-    #[Route('/', name: 'de')]
-    public function default(): Response
+    #[Route('/', name: 'default')]
+    public function default(ProduitRepository $prodRepo, CategorieRepository $cateRepo): Response
     {
+        $produits = $prodRepo->FindAll();
+        $categories = $cateRepo->FindAll();
+        
         return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
+            'produits' => $produits,
+            'categories' => $categories,
         ]);
     }
 
-    #[Route('/accueil', name: 'default')]
-    public function index(CategorieRepository $cateRepo): Response
+    #[Route('/accueil', name: 'accueil')]
+    public function index(ProduitRepository $prodRepo, CategorieRepository $cateRepo): Response
     {
+        $produits = $prodRepo->FindAll();
         $categories = $cateRepo->FindAll();
+        
         return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
+            'produits' => $produits,
             'categories' => $categories,
         ]);
     }

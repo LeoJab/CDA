@@ -54,15 +54,15 @@ class Produit
 
     #[ORM\ManyToOne(inversedBy: 'produits')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?sousCategorie $SousCategorie = null;
+    private ?SousCategorie $SousCategorie = null;
 
     #[ORM\ManyToOne(inversedBy: 'produits')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?fournisseur $fournisseur = null;
+    private ?Fournisseur $fournisseur = null;
 
     #[ORM\ManyToOne(inversedBy: 'produits')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?multiMedia $media = null;
+    private ?MultiMedia $media = null;
 
     #[ORM\OneToMany(mappedBy: 'produit', targetEntity: Contient::class, orphanRemoval: true)]
     private Collection $produit;
