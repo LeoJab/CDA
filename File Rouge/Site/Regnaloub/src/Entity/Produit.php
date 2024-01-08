@@ -60,15 +60,14 @@ class Produit
     #[ORM\JoinColumn(nullable: false)]
     private ?Fournisseur $fournisseur = null;
 
-    #[ORM\ManyToOne(inversedBy: 'produits')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?MultiMedia $media = null;
-
     #[ORM\OneToMany(mappedBy: 'produit', targetEntity: Contient::class, orphanRemoval: true)]
     private Collection $produit;
 
     #[ORM\Column(length: 20)]
     private ?string $couleur = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $photo = null;
 
     public function __construct()
     {
@@ -248,18 +247,6 @@ class Produit
         return $this;
     }
 
-    public function getMedia(): ?multiMedia
-    {
-        return $this->media;
-    }
-
-    public function setMedia(?multiMedia $media): static
-    {
-        $this->media = $media;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Contient>
      */
@@ -298,6 +285,18 @@ class Produit
     public function setCouleur(string $couleur): static
     {
         $this->couleur = $couleur;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): static
+    {
+        $this->photo = $photo;
 
         return $this;
     }

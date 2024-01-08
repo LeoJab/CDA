@@ -36,6 +36,7 @@ class AppFixtures extends Fixture
         $p1->setMarque("ACER");
         $p1->setModele("ZenBook 5");
         $p1->setCouleur("Noir");
+        $p1->setPhoto("https://picsum.photos/300/200");
         $p1->setHauteur(25.8);
         $p1->setLargeur(30.2);
         $p1->setProfondeur(25.6);
@@ -43,13 +44,7 @@ class AppFixtures extends Fixture
         $p1->setSold(0);
         $sc1->addProduit($p1);
         $manager->persist($p1);
-
-        $m1 = new MultiMedia();
-        $m1->setUrl("https://picsum.photos/300/200");
-        $m1->addProduit($p1);
-        $manager->persist($m1);
         
-
         $c2 = new Categorie();
         $c2->setLib("Téléphone Mobile");
         $c2->setDescription("Voici la liste des tléphones portables");
@@ -72,6 +67,7 @@ class AppFixtures extends Fixture
         $p2->setMarque("Samsung");
         $p2->setModele("A10");
         $p2->setCouleur("Noir");
+        $p2->setPhoto("https://picsum.photos/300/200");
         $p2->setHauteur(10);
         $p2->setLargeur(4.6);
         $p2->setProfondeur(1.2);
@@ -79,11 +75,6 @@ class AppFixtures extends Fixture
         $p2->setSold(0);
         $sc2->AddProduit($p2);
         $manager->persist($p2);
-
-        $m2 = new MultiMedia();
-        $m2->SetUrl("https://picsum.photos/300/200");
-        $m2->AddProduit($p2);
-        $manager->persist($m2);
 
         $c3 = new Categorie();
         $c3->SetLib("Console Gaming");
@@ -107,6 +98,7 @@ class AppFixtures extends Fixture
         $p3->SetMarque("PlayStation");
         $p3->SetModele("PS5");
         $p3->SetCouleur("Blanche");
+        $p3->setPhoto("https://picsum.photos/300/200");
         $p3->SetHauteur(36.4);
         $p3->SetLargeur(16.3);
         $p3->SetProfondeur(6.5);
@@ -114,11 +106,6 @@ class AppFixtures extends Fixture
         $p3->SetSold(5);
         $sc3->AddProduit($p3);
         $manager->persist($p3);
-
-        $m3 = new MultiMedia();
-        $m3->SetUrl("https://picsum.photos/300/200");
-        $m3->AddProduit($p3);
-        $manager->persist($m3);
 
         $f1 = new Fournisseur();
         $f1->SetRef("F021458");

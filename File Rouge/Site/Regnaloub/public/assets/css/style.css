@@ -6,3 +6,55 @@
     width: 100%;
     height: 300px;
 }
+
+/* Card produit */
+h1 {
+    font-family: 'Farro';
+    color: var(--Bleu);
+    border-bottom: 2px var(--Bleu) solid;
+    width: 30%;
+    font-size: 50px;
+    margin-left: 3%;
+}
+
+#produit {
+    display: flex;
+    flex-direction: row;
+    margin: 0% 3% 0% 3%;
+}
+
+.card_produit {
+    margin: auto;
+}
+
+#produit p {
+    font-family: 'Farro';
+    color: var(--Bleu);
+    font-size: 17px;
+    margin: 0px;
+}
+
+#produit .desc , #produit .ht {
+    font-family: 'Raleway';
+    font-size: 12px;
+}
+
+#produit img {
+    width: 264px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card_produit_lib_desc_btn {
+    background-color: var(--Beige-1);
+}
+
+.prix {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+#produit .ht {
+    margin-left: 1%;
+}
