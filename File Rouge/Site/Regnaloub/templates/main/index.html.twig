@@ -31,4 +31,64 @@
             </div>
         {% endfor %}
     </div>
+
+    <div id="publicite">Publicité</div>
+
+    <h1>Nos différentes catégories</h1>
+    <div id="categorie">
+        {% for categorie in categories %}
+            <div class="card_categorie">
+                <a href="#">
+                    <img src="{{ categorie.photo }}" alt="">
+                </a>
+                <div class="card_categorie_lib_desc_btn">
+                    <div class="card_categorie_lib_desc">
+                        <p>{{ categorie.lib }}</p>
+                        <p class="desc">{{ categorie.description|u.truncate(60, '...') }}</p>
+                    </div>
+                    <a class="btn_categorie" href="#">Visiter la categorie</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        <div id="horraire">
+            <h2>Horraire d'ouverture</h2>
+            <ul id="jours_horraires">
+                <ul id="jours">
+                    <li>Lundi</li>
+                    <li>Mardi</li>
+                    <li>Mercredi</li>
+                    <li>Jeudi</li>
+                    <li>Vendredi</li>
+                    <li>Samedi</li>
+                    <li>Dimanche</li>
+                </ul>
+                <ul id="horraires">
+                    <li>9h - 18h</li>
+                    <li>9h - 18h</li>
+                    <li>9h - 18h</li>
+                    <li>9h - 18h</li>
+                    <li>9h - 18h</li>
+                    <li>9h - 18h</li>
+                    <li>fermé</li>
+                </ul>
+            </ul>
+        </div>
+        <div id="maps">
+            <h2>Où nous trouver ?</h2>
+            <img src="" alt="Maps magasin">
+        </div>
+        <div id="contact_accueil">
+            <h2>Nous contacter</h2>
+            <div id="mail">
+                <p>Mail:</p>
+                <p>regnaloub@gmail.com</p>
+            </div>
+            <div id="telephone">
+                Téléphone:
+                09.52.12.35.62
+            </div>
+        </div>
+    </div>
 {% endblock %}

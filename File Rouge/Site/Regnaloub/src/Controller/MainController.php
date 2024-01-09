@@ -14,8 +14,8 @@ class MainController extends AbstractController
     #[Route('/', name: 'default')]
     public function index(ProduitRepository $prodRepo, CategorieRepository $cateRepo): Response
     {
-        $produits = $prodRepo->FindAll();
-        $categories = $cateRepo->FindAll();
+        $produits = $prodRepo->findBy(array(), null, 10, null);
+        $categories = $cateRepo->findBy(array(), null, 8, null);
         
         return $this->render('main/index.html.twig', [
             'produits' => $produits,
