@@ -9,17 +9,19 @@
     <div id="produit">
         {% for produit in produits %}
             <div class="card_produit">
-                <img src="{{ produit.photo }}" alt="photo catégorie">
+                <a href="#">
+                    <img src="{{ produit.photo }}" alt="photo catégorie">
+                </a>
                 <div class="card_produit_lib_desc_btn">
                     <div class="card_produit_lib_desc">
                         <p>{{ produit.lib }}</p>
-                        <p class="desc">{{ produit.description }}</p>
+                        <p class="desc">{{ produit.description|u.truncate(60, '...') }}</p>
                         <div class="prix">
                             <p>{{ produit.prix }}€</p>
-                            <p class="ht">{{ produit.prixht }}HT€</p>
+                            <p class="ht">{{ produit.prixht }}€HT</p>
                         </div>
                     </div>
-                    <a href="#">
+                    <a class="btn_panier" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width='24px' height='24px' fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
                         </svg>

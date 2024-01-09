@@ -12,7 +12,7 @@ h1 {
     font-family: 'Farro';
     color: var(--Bleu);
     border-bottom: 2px var(--Bleu) solid;
-    width: 30%;
+    width: auto;
     font-size: 50px;
     margin-left: 3%;
 }
@@ -25,6 +25,7 @@ h1 {
 
 .card_produit {
     margin: auto;
+    border: 2px var(--Marron) solid;
 }
 
 #produit p {
@@ -34,27 +35,52 @@ h1 {
     margin: 0px;
 }
 
-#produit .desc , #produit .ht {
-    font-family: 'Raleway';
-    font-size: 12px;
-}
-
 #produit img {
     width: 264px;
     height: 300px;
     object-fit: cover;
+    vertical-align:bottom
+}
+
+#produit .desc , #produit .ht {
+    font-family: 'Raleway';
+    font-size: 12px;
 }
 
 .card_produit_lib_desc_btn {
     background-color: var(--Beige-1);
 }
 
+.card_produit_lib_desc {
+    margin: 0% 1.5% 0% 1.5%;
+    padding-top: 1%;
+}
+
+.desc {
+    max-height: 56px;
+    max-width: 264px;
+}
+
 .prix {
     display: flex;
     flex-direction: row;
     align-items: baseline;
+    margin: 3% 0% 3% 0%;
 }
 
 #produit .ht {
     margin-left: 1%;
+}
+
+.btn_panier {
+    text-decoration: none;
+    font-family: 'Farro';
+    color: var(--Beige-1);
+    background-color: var(--Marron);
+    font-size: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1% 0% 1% 0%;
 }
