@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
+use App\Repository\SousCategorieRepository;
 
 class MainController extends AbstractController
 {
@@ -26,10 +27,22 @@ class MainController extends AbstractController
     #[Route('/categorie', name: 'categorie')]
     public function categorie(CategorieRepository $cateRepo): Response
     {
+        $categoriesPopu = $cateRepo->findBy(array(), null, 5, null);
         $categories = $cateRepo->findAll();
         
-        return $this->render('main/index.html.twig', [
+        return $this->render('main/categorie.html.twig', [
             'categories' => $categories,
+            'categoriespopu' => $categoriesPopu,
+        ]);
+    }
+
+    #[Route('/sous_categorie/{categorie}', name: 'sous_categorie')]
+    public function souscategorie(SousCategorie $categorie): Response
+    {
+        dd($categorie);
+
+        return $this->render('main/souscategorie.html.twig', [
+            'categorie' => $categorie,
         ]);
     }
 }

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sous-Categorie{% endblock %}
+
+{% block pub %}{% endblock %}
+
+{% block body %}
+    <div id="categorie_all">
+        <h1 id="categorie_titre_categorie">{{ categorie.nom }}</h1>
+        <p>{{ categorie.desc }}</p>
+        <div id="categorie">
+            {% for souscate in categorie.sousCategories %}
+                <div class="card_categorie">
+                    <a href="#">
+                        <img src="{{ souscate.photo }}" alt="">
+                        <div class="card_categorie_lib_desc_btn">
+                            <div class="card_categorie_lib_desc">
+                                <p>{{ categorie.lib }}</p>
+                            </div>
+                            <a class="btn_categorie" href="#">Visiter la categorie</a>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

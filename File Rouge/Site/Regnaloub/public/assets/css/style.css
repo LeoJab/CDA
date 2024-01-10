@@ -29,6 +29,10 @@
     margin-bottom: 3%;
 }
 
+.card_produit a {
+    text-decoration: none;
+}
+
 #produit p {
     font-family: 'Farro';
     color: var(--Bleu);
@@ -95,7 +99,7 @@
     margin: 3% 0% 1% 17.5%;
 }
 
-#categorie {
+#accueil_categorie {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -108,14 +112,14 @@
     margin-bottom: 3%;
 }
 
-#categorie img {
+#accueil_categorie img {
     width: 264px;
     height: 197px;
     object-fit: cover;
     vertical-align:bottom
 }
 
-#categorie p {
+#accueil_categorie p {
     font-family: 'Farro';
     color: var(--Bleu);
     font-size: 17px;
@@ -132,7 +136,11 @@
     padding-top: 1%;
 }
 
-#categorie .desc , #categorie .ht {
+.card_categorie a {
+    text-decoration: none;
+}
+
+#accueil_categorie .desc {
     font-family: 'Raleway';
     font-size: 12px;
 }
@@ -148,7 +156,6 @@
     align-items: center;
     justify-content: center;
     padding: 1% 0% 1% 0%;
-    margin-top: 3%;
 }
 
 /* À propos accueil */
@@ -251,10 +258,42 @@
 
 
 /* Page Categorie */
+#categorie_all {
+    margin: 0% 8% 0% 8%;
+}
+
 #categorie_titre_categorie {
     font-family: 'Farro';
     color: var(--Bleu);
     text-decoration: underline;
     font-size: 50px;
-    margin: 3% 0% 1% 17.5%;
 }
+
+#categorie {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#categorie img {
+    width: 264px;
+    height: 197px;
+    object-fit: cover;
+    vertical-align:bottom
+}
+
+#categorie p {
+    font-family: 'Farro';
+    color: var(--Bleu);
+    font-size: 17px;
+    margin: 0px;
+}
+
+#categorie .desc , #categorie .ht {
+    font-family: 'Raleway';
+    font-size: 12px;
+}
+
+
+
+/* Page sous catégorie */
