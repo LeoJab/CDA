@@ -20,6 +20,48 @@ class AppFixtures extends Fixture
         $c1->setPhoto("https://picsum.photos/300/200");
         $manager->persist($c1);
 
+        $c4 = new Categorie();
+        $c4->setLib("Ordinateur Portable");
+        $c4->setDescription("Voici la liste des ordinateurs portables");
+        $c4->setPhoto("https://picsum.photos/300/200");
+        $manager->persist($c4);
+        
+        $c5 = new Categorie();
+        $c5->setLib("Ordinateur Portable");
+        $c5->setDescription("Voici la liste des ordinateurs portables");
+        $c5->setPhoto("https://picsum.photos/300/200");
+        $manager->persist($c5);
+
+        $c6 = new Categorie();
+        $c6->setLib("Ordinateur Portable");
+        $c6->setDescription("Voici la liste des ordinateurs portables");
+        $c6->setPhoto("https://picsum.photos/300/200");
+        $manager->persist($c6);
+
+        $c7 = new Categorie();
+        $c7->setLib("Ordinateur Portable");
+        $c7->setDescription("Voici la liste des ordinateurs portables");
+        $c7->setPhoto("https://picsum.photos/300/200");
+        $manager->persist($c7);
+
+        $c8 = new Categorie();
+        $c8->setLib("Ordinateur Portable");
+        $c8->setDescription("Voici la liste des ordinateurs portables");
+        $c8->setPhoto("https://picsum.photos/300/200");
+        $manager->persist($c8);
+
+        $c1 = new Categorie();
+        $c1->setLib("Ordinateur Portable");
+        $c1->setDescription("Voici la liste des ordinateurs portables");
+        $c1->setPhoto("https://picsum.photos/300/200");
+        $manager->persist($c1);
+
+        $c9 = new Categorie();
+        $c9->setLib("Ordinateur Portable");
+        $c9->setDescription("Voici la liste des ordinateurs portables");
+        $c9->setPhoto("https://picsum.photos/300/200");
+        $manager->persist($c9);
+
         $sc1 = new SousCategorie();
         $sc1->setLib("ACER");
         $sc1->setDescription("Voici la liste des ordinateurs portables de la marque ACER");
@@ -107,6 +149,132 @@ class AppFixtures extends Fixture
         $sc3->AddProduit($p3);
         $manager->persist($p3);
 
+        $p4 = new Produit();
+        $p4->SetRef("CG256478");
+        $p4->SetLib("PlayStation 5");
+        $p4->SetDescription("La console ergonomique et légère");
+        $p4->SetPrix(600.99);
+        $p4->SetPrixHt(580);
+        $p4->SetMarque("PlayStation");
+        $p4->SetModele("PS5");
+        $p4->SetCouleur("Blanche");
+        $p4->setPhoto("https://picsum.photos/300/200");
+        $p4->SetHauteur(36.4);
+        $p4->SetLargeur(16.3);
+        $p4->SetProfondeur(6.5);
+        $p4->SetPoid(980);
+        $p4->SetSold(5);
+        $sc3->AddProduit($p4);
+        $manager->persist($p4);
+
+        $p5 = new Produit();
+        $p5->SetRef("CG256478");
+        $p5->SetLib("PlayStation 5");
+        $p5->SetDescription("La console ergonomique et légère");
+        $p5->SetPrix(600.99);
+        $p5->SetPrixHt(580);
+        $p5->SetMarque("PlayStation");
+        $p5->SetModele("PS5");
+        $p5->SetCouleur("Blanche");
+        $p5->setPhoto("https://picsum.photos/300/200");
+        $p5->SetHauteur(36.4);
+        $p5->SetLargeur(16.3);
+        $p5->SetProfondeur(6.5);
+        $p5->SetPoid(980);
+        $p5->SetSold(5);
+        $sc3->AddProduit($p5);
+        $manager->persist($p5);
+
+        $p6 = new Produit();
+        $p6->SetRef("CG256478");
+        $p6->SetLib("PlayStation 5");
+        $p6->SetDescription("La console ergonomique et légère");
+        $p6->SetPrix(600.99);
+        $p6->SetPrixHt(580);
+        $p6->SetMarque("PlayStation");
+        $p6->SetModele("PS5");
+        $p6->SetCouleur("Blanche");
+        $p6->setPhoto("https://picsum.photos/300/200");
+        $p6->SetHauteur(36.4);
+        $p6->SetLargeur(16.3);
+        $p6->SetProfondeur(6.5);
+        $p6->SetPoid(980);
+        $p6->SetSold(5);
+        $sc3->AddProduit($p6);
+        $manager->persist($p6);
+
+        $p7 = new Produit();
+        $p7->SetRef("CG256478");
+        $p7->SetLib("PlayStation 5");
+        $p7->SetDescription("La console ergonomique et légère");
+        $p7->SetPrix(600.99);
+        $p7->SetPrixHt(580);
+        $p7->SetMarque("PlayStation");
+        $p7->SetModele("PS5");
+        $p7->SetCouleur("Blanche");
+        $p7->setPhoto("https://picsum.photos/300/200");
+        $p7->SetHauteur(36.4);
+        $p7->SetLargeur(16.3);
+        $p7->SetProfondeur(6.5);
+        $p7->SetPoid(980);
+        $p7->SetSold(5);
+        $sc3->AddProduit($p7);
+        $manager->persist($p7);
+
+        $p8 = new Produit();
+        $p8->SetRef("CG256478");
+        $p8->SetLib("PlayStation 5");
+        $p8->SetDescription("La console ergonomique et légère");
+        $p8->SetPrix(600.99);
+        $p8->SetPrixHt(580);
+        $p8->SetMarque("PlayStation");
+        $p8->SetModele("PS5");
+        $p8->SetCouleur("Blanche");
+        $p8->setPhoto("https://picsum.photos/300/200");
+        $p8->SetHauteur(36.4);
+        $p8->SetLargeur(16.3);
+        $p8->SetProfondeur(6.5);
+        $p8->SetPoid(980);
+        $p8->SetSold(5);
+        $sc3->AddProduit($p8);
+        $manager->persist($p8);
+
+        $p9 = new Produit();
+        $p9->SetRef("CG256478");
+        $p9->SetLib("PlayStation 5");
+        $p9->SetDescription("La console ergonomique et légère");
+        $p9->SetPrix(600.99);
+        $p9->SetPrixHt(580);
+        $p9->SetMarque("PlayStation");
+        $p9->SetModele("PS5");
+        $p9->SetCouleur("Blanche");
+        $p9->setPhoto("https://picsum.photos/300/200");
+        $p9->SetHauteur(36.4);
+        $p9->SetLargeur(16.3);
+        $p9->SetProfondeur(6.5);
+        $p9->SetPoid(980);
+        $p9->SetSold(5);
+        $sc3->AddProduit($p9);
+        $manager->persist($p9);
+
+        $p10 = new Produit();
+        $p10->SetRef("CG256478");
+        $p10->SetLib("PlayStation 5");
+        $p10->SetDescription("La console ergonomique et légère");
+        $p10->SetPrix(600.99);
+        $p10->SetPrixHt(580);
+        $p10->SetMarque("PlayStation");
+        $p10->SetModele("PS5");
+        $p10->SetCouleur("Blanche");
+        $p10->setPhoto("https://picsum.photos/300/200");
+        $p10->SetHauteur(36.4);
+        $p10->SetLargeur(16.3);
+        $p10->SetProfondeur(6.5);
+        $p10->SetPoid(980);
+        $p10->SetSold(5);
+        $sc3->AddProduit($p10);
+        $manager->persist($p10);
+
         $f1 = new Fournisseur();
         $f1->SetRef("F021458");
         $f1->SetNom("test");
@@ -118,6 +286,13 @@ class AppFixtures extends Fixture
         $f1->AddProduit($p1);
         $f1->AddProduit($p2);
         $f1->AddProduit($p3);
+        $f1->AddProduit($p4);
+        $f1->AddProduit($p5);
+        $f1->AddProduit($p6);
+        $f1->AddProduit($p7);
+        $f1->AddProduit($p8);
+        $f1->AddProduit($p9);
+        $f1->AddProduit($p10);
         $manager->persist($f1);
 
         $manager->flush();

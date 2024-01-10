@@ -8,23 +8,25 @@
 }
 
 /* Card produit */
-h1 {
+#accueil_titre_prod {
     font-family: 'Farro';
     color: var(--Bleu);
     text-decoration: underline;
     font-size: 50px;
-    margin: 3% 0% 1% 3%;
+    margin: 3% 0% 1% 10%;
 }
 
 #produit {
     display: flex;
     flex-direction: row;
-    margin: 0% 3% 3% 3%;
+    flex-wrap: wrap;
+    margin: 0% 9% 3% 9%;
 }
 
 .card_produit {
     margin: auto;
     border: 2px var(--Marron) solid;
+    margin-bottom: 3%;
 }
 
 #produit p {
@@ -85,15 +87,25 @@ h1 {
 }
 
 /* Card categorie */
+#accueil_titre_categorie {
+    font-family: 'Farro';
+    color: var(--Bleu);
+    text-decoration: underline;
+    font-size: 50px;
+    margin: 3% 0% 1% 17.5%;
+}
+
 #categorie {
     display: flex;
     flex-direction: row;
-    margin: 0% 9% 0% 9%;
+    flex-wrap: wrap;
+    margin: 0% 16% 0% 16%;
 }
 
 .card_categorie {
     margin: auto;
     border: 2px var(--Marron) solid;
+    margin-bottom: 3%;
 }
 
 #categorie img {
@@ -137,4 +149,112 @@ h1 {
     justify-content: center;
     padding: 1% 0% 1% 0%;
     margin-top: 3%;
+}
+
+/* À propos accueil */
+#accueil_propos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0% 9% 3% 9%;
+}
+
+#accueil_titre_propos {
+    font-family: 'Farro';
+    color: var(--Bleu);
+    text-decoration: underline;
+    font-size: 50px;
+    text-align: center;
+}
+
+.card_propos {
+    margin: auto;
+}
+
+.card_propos h2 {
+    color: var(--Bleu);
+    background-color: var(--Beige-1);
+    font-family: 'Farro';
+    font-size: 37px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    margin: 0px;
+    padding: 5px 5px 0px 5px;
+}
+
+#horraire ul {
+    list-style: none;
+}
+
+#jours_horraires {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: var(--Beige-1);
+    font-family: 'Raleway';
+    font-size: 26px;
+    padding: 0px;
+}
+
+#jours {
+    text-align: end;
+    padding: 0px 16px 0px 0px;
+}
+
+#horraires {
+    border-left: 2px var(--Beige-1) solid;
+    padding-left: 16px;
+}
+
+#map img {
+    width: 548px;
+    height: 300px;
+    object-fit: cover;
+}
+
+#accueil_contact_titre h2, #accueil_horraire h2 {
+    color: var(--Bleu);
+    background-color: var(--Beige-1);
+    font-family: 'Farro';
+    font-size: 37px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    margin: 0px;
+    padding: 5px 5px 0px 5px;
+}
+
+#contact_accueil, #horraire {
+    width: 406px;
+    height: 300px;
+    background-color: var(--Marron);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#mail_tel {
+    color: var(--Beige-1);
+    font-family: 'Farro';
+    font-size: 37px;
+}
+
+#mail_tel p {
+    margin: 2.5px;
+}
+
+#mail {
+    margin-bottom: 10px;
+}
+
+
+
+/* Page Categorie */
+#categorie_titre_categorie {
+    font-family: 'Farro';
+    color: var(--Bleu);
+    text-decoration: underline;
+    font-size: 50px;
+    margin: 3% 0% 1% 17.5%;
 }

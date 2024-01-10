@@ -22,4 +22,14 @@ class MainController extends AbstractController
             'categories' => $categories,
         ]);
     }
+
+    #[Route('/categorie', name: 'categorie')]
+    public function categorie(CategorieRepository $cateRepo): Response
+    {
+        $categories = $cateRepo->findAll();
+        
+        return $this->render('main/index.html.twig', [
+            'categories' => $categories,
+        ]);
+    }
 }
