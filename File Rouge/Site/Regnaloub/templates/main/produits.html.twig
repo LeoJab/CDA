@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ sousCategorie.lib }} - Produits{% endblock %}
+{% block title %}Produits{% endblock %}
 
-{% block pub %}{% endblock %}
+{% block pub %} <div id="publicite">Publicité</div> {% endblock %}
 
 {% block body %}
-    <h1 id="accueil_titre_prod">{{ sousCategorie.lib }}</h1>
+    <h1 id="accueil_titre_prod">Liste de tout les produits</h1>
     <div id="produit">
         {% for produit in produits %}
             <div class="card_produit">
-                <a href="#">
+                <a href="{{ path('produit_detail', { sCateId: produit.SousCategorie.id, produitId: produit.id }) }}">
                     <img src="{{ produit.photo }}" alt="photo catégorie">
                     <div class="card_produit_lib_desc_btn">
                         <div class="card_produit_lib_desc">
@@ -20,7 +20,7 @@
                                 <p class="ht">{{ produit.prixht }}€HT</p>
                             </div>
                         </div>
-                        <btn class="btn_panier" href="#">
+                        <btn class="btn_panier">
                             Voir les details du produit
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                             <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>

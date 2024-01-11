@@ -87,7 +87,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    text-align: center;
     padding: 1% 0% 1% 0%;
+}
+
+.btn_panier svg {   
+    width: 25px;
+    height: 25px;
 }
 
 /* Card categorie */
@@ -110,6 +116,7 @@
     margin: auto;
     border: 2px var(--Marron) solid;
     margin-bottom: 3%;
+    max-width: 264px;
 }
 
 #accueil_categorie img {
@@ -134,10 +141,15 @@
 .card_categorie_lib_desc {
     margin: 0% 1.5% 0% 1.5%;
     padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 .card_categorie a {
     text-decoration: none;
+}
+
+.card_categorie img {
+    object-fit: cover;
 }
 
 #accueil_categorie .desc {
@@ -297,10 +309,21 @@
 
 
 /* Page sous catégorie */
-#accueil_titre_sCategorie {
+#sCategorie_titre {
     font-family: 'Farro';
     color: var(--Bleu);
     text-decoration: underline;
     font-size: 50px;
-    margin: 3% 0% 1% 17.5%;
+    margin-bottom: 0px;
+}
+
+#sCategorie_desc {
+    font-family: 'Raleway' !important;
+    color: var(--Bleu);
+    font-size: 17px;
+    margin-top: 0px;
+}
+
+.card_categorie_lib_desc #sCategorie_desc {
+    font-size: 12px !important;
 }

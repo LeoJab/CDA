@@ -6,8 +6,8 @@
 
 {% block body %}
     <div id="categorie_all">
-        <h1 id="categorie_titre_sCategorie">{{ categorie.lib }}</h1>
-        <p>{{ categorie.description }}</p>
+        <h1 id="sCategorie_titre">{{ categorie.lib }}</h1>
+        <p id="sCategorie_desc">{{ categorie.description }}</p>
         <div id="categorie">
             {% for souscate in categorie.sousCategories %}
                 <div class="card_categorie">
@@ -16,7 +16,7 @@
                         <div class="card_categorie_lib_desc_btn">
                             <div class="card_categorie_lib_desc">
                                 <p>{{ souscate.lib }}</p>
-                                <p>{{ souscate.description }}</p>
+                                <p id="sCategorie_desc">{{ souscate.description|u.truncate(60, '...')  }}</p>
                             </div>
                             <a class="btn_categorie" href="#">Visiter la categorie</a>
                         </div>

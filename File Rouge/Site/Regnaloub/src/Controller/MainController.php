@@ -10,9 +10,6 @@ use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
 use App\Repository\SousCategorieRepository;
 
-use App\Entity\SousCategorie;
-use App\Entity\Categorie;
-
 class MainController extends AbstractController
 {
     #[Route('/', name: 'default')]
@@ -59,6 +56,16 @@ class MainController extends AbstractController
 
         return $this->render('main/sCateProduit.html.twig', [
             'sousCategorie' => $sousCategorie,
+            'produits' => $produits,
+        ]);
+    }
+
+    #[Route('/produits', name: 'produit_all')]
+    public function ProduitAll(ProduitRepository $prodRepo): Response
+    {
+        $produits = $prodRepo->findAll();
+
+        return $this->render('main/produits.html.twig', [
             'produits' => $produits,
         ]);
     }
