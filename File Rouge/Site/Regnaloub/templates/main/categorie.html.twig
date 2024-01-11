@@ -10,7 +10,7 @@
         <div id="categorie">
             {% for categorie in categoriespopu %}
                 <div class="card_categorie">
-                    <a href="{{ path('sous_categorie', { categorie : categorie.id }) }}">
+                    <a href="{{ path('categorie_detail', { categorie : categorie.id }) }}">
                         <img src="{{ categorie.photo }}" alt="">
                         <div class="card_categorie_lib_desc_btn">
                             <div class="card_categorie_lib_desc">
@@ -28,7 +28,7 @@
         <div id="categorie">
             {% for categorie in categories %}
                 <div class="card_categorie">
-                    <a href="{{ path('sous_categorie', { categorie : categorie.id }) }}">
+                    <a href="{{ path('categorie_detail', { categorie : categorie.id }) }}">
                         <img src="{{ categorie.photo }}" alt="">
                     <div class="card_categorie_lib_desc_btn">
                         <div class="card_categorie_lib_desc">

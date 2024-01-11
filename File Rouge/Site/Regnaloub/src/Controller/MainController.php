@@ -10,6 +10,9 @@ use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
 use App\Repository\SousCategorieRepository;
 
+use App\Entity\SousCategorie;
+use App\Entity\Categorie;
+
 class MainController extends AbstractController
 {
     #[Route('/', name: 'default')]
@@ -36,13 +39,27 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/sous_categorie/{categorie}', name: 'sous_categorie')]
-    public function souscategorie(SousCategorie $categorie): Response
+    #[Route('/categorie/{categorie}', name: 'categorie_detail')]
+    public function souscategorie($categorie, SousCategorieRepository $ScateRepo, CategorieRepository $cateRepo): Response
     {
-        dd($categorie);
+        $sousCategorie = $ScateRepo->find($categorie);
+        $categorie = $cateRepo->find($categorie);
 
         return $this->render('main/souscategorie.html.twig', [
+            'sous_categorie' => $sousCategorie,
             'categorie' => $categorie,
+        ]);
+    }
+
+    #[Route('/sous_categorie/{sCategorie}', name: 'sCategorie_detail')]
+    public function sCateProduit($sCategorie, SousCategorieRepository $sCateRepo, ProduitRepository $prodRepo): Response
+    {
+        $sousCategorie = $sCateRepo->find($sCategorie);
+        $produits = $prodRepo->findProduit($sCategorie);
+
+        return $this->render('main/sCateProduit.html.twig', [
+            'sousCategorie' => $sousCategorie,
+            'produits' => $produits,
         ]);
     }
 }

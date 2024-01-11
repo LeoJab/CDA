@@ -38,7 +38,7 @@
     <div id="accueil_categorie">
         {% for categorie in categories %}
             <div class="card_categorie">
-                <a href="#">
+                <a href="{{ path('categorie_detail', { categorie: categorie.id }) }}">
                     <img src="{{ categorie.photo }}" alt="">
                     <div class="card_categorie_lib_desc_btn">
                         <div class="card_categorie_lib_desc">

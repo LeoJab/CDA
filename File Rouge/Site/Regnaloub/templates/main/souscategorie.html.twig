@@ -6,16 +6,17 @@
 
 {% block body %}
     <div id="categorie_all">
-        <h1 id="categorie_titre_categorie">{{ categorie.nom }}</h1>
-        <p>{{ categorie.desc }}</p>
+        <h1 id="categorie_titre_sCategorie">{{ categorie.lib }}</h1>
+        <p>{{ categorie.description }}</p>
         <div id="categorie">
             {% for souscate in categorie.sousCategories %}
                 <div class="card_categorie">
-                    <a href="#">
+                    <a href="{{ path('sCategorie_detail', { sCategorie: souscate.id }) }}">
                         <img src="{{ souscate.photo }}" alt="">
                         <div class="card_categorie_lib_desc_btn">
                             <div class="card_categorie_lib_desc">
-                                <p>{{ categorie.lib }}</p>
+                                <p>{{ souscate.lib }}</p>
+                                <p>{{ souscate.description }}</p>
                             </div>
                             <a class="btn_categorie" href="#">Visiter la categorie</a>
                         </div>
