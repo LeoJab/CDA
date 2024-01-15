@@ -60,7 +60,7 @@ class Utilisateur
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
-        $this->utilisateurs = new ArrayCollection();
+        $this->commercial = new ArrayCollection();
     }
 
     public function getId(): ?int

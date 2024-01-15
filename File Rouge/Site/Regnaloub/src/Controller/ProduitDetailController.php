@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,7 +22,7 @@ class ProduitDetailController extends AbstractController
         switch ($cateId) {
             case 14:
                 return $this->render('produit_detail/ordinateur_portable.html.twig', [
-                    'produit' => $produit,
+                    'produit' => $produitId,
                 ]);
                 break;
         };
