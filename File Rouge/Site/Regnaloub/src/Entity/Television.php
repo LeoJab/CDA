@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TelevisionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TelevisionRepository::class)]
@@ -33,6 +35,14 @@ class Television
 
     #[ORM\Column]
     private ?int $port_usb = null;
+
+    #[ORM\OneToMany(mappedBy: 'Television', targetEntity: Produit::class)]
+    private Collection $produits;
+
+    public function __construct()
+    {
+        $this->produits = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +129,36 @@ class Television
     public function setPortUsb(int $port_usb): static
     {
         $this->port_usb = $port_usb;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): static
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits->add($produit);
+            $produit->setTelevision($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): static
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getTelevision() === $this) {
+                $produit->setTelevision(null);
+            }
+        }
 
         return $this;
     }

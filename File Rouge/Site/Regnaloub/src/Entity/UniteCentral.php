@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UniteCentralRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -49,6 +51,14 @@ class UniteCentral
 
     #[ORM\Column(length: 20)]
     private ?string $sys_expl = null;
+
+    #[ORM\OneToMany(mappedBy: 'UniteCentral', targetEntity: Produit::class)]
+    private Collection $produits;
+
+    public function __construct()
+    {
+        $this->produits = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -195,6 +205,36 @@ class UniteCentral
     public function setSysExpl(string $sys_expl): static
     {
         $this->sys_expl = $sys_expl;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): static
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits->add($produit);
+            $produit->setUniteCentral($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): static
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getUniteCentral() === $this) {
+                $produit->setUniteCentral(null);
+            }
+        }
 
         return $this;
     }

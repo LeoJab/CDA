@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EnceinteRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EnceinteRepository::class)]
@@ -25,6 +27,14 @@ class Enceinte
     #[ORM\Column(length: 10)]
     private ?string $bluetooth = null;
 
+    #[ORM\OneToMany(mappedBy: 'Enceinte', targetEntity: Produit::class)]
+    private Collection $produits;
+
+    public function __construct()
+    {
+        $this->produits = new ArrayCollection();
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +84,36 @@ class Enceinte
     public function setBluetooth(string $bluetooth): static
     {
         $this->bluetooth = $bluetooth;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): static
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits->add($produit);
+            $produit->setEnceinte($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): static
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getEnceinte() === $this) {
+                $produit->setEnceinte(null);
+            }
+        }
 
         return $this;
     }

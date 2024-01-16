@@ -7,20 +7,20 @@ use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-use Symfony\Repository\CategorieRepository;
+use App\Repository\CategorieRepository;
 
-use Symfony\Entity\Produit;
-use Symfony\Entity\SousCategorie;
+use App\Entity\Produit;
+use App\Entity\SousCategorie;
 
 class ProduitDetailController extends AbstractController
 {
-    #[Route('/produit/detail/{sCateId}/{produitId}', name: 'produit_detail')]
+    #[Route('/produit/detail/{sCate}/{produit}', name: 'produit_detail')]
     public function index(#[MapEntity(id: 'sCateId')] SousCategorie $sCateId, #[MapEntity(id: 'produitId')] Produit $produitId, CategorieRepository $cateRepo): Response
     {
-        $cateId = $cateRepo->find($sCateId);
+        $cateId = $sCateId->getCategorie()->getLib();
 
         switch ($cateId) {
-            case 14:
+            case 'Ordinateur Portable':
                 return $this->render('produit_detail/ordinateur_portable.html.twig', [
                     'produit' => $produitId,
                 ]);

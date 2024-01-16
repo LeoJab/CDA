@@ -7,6 +7,8 @@ use App\entity\SousCategorie;
 use App\entity\Produit;
 use App\Entity\MultiMedia;
 use App\Entity\Fournisseur;
+use App\Entity\TelephoneTablette;
+use App\Entity\Television;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -14,6 +16,8 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+
+        /* CATEGORIES */
         $c1 = new Categorie();
         $c1->setLib("Ordinateur Portable");
         $c1->setDescription("Voici la liste des ordinateurs portables");
@@ -56,17 +60,12 @@ class AppFixtures extends Fixture
         $c7->setPhoto("https://picsum.photos/300/100");
         $manager->persist($c7);
 
+
+        /* SOUS CATEGORIES */
         $sc1 = new SousCategorie();
         $sc1->setLib("ACER");
         $sc1->setDescription("Voici la liste des ordinateurs portables de la marque ACER");
         $sc1->setPhoto("https://picsum.photos/320/200");
-        $c1->AddSousCategorie($sc1);
-        $manager->persist($sc1);
-
-        $sc1 = new SousCategorie();
-        $sc1->setLib("ASUS");
-        $sc1->setDescription("Voici la liste des ordinateurs portables de la marque ASUS");
-        $sc1->setPhoto("https://picsum.photos/380/200");
         $c1->AddSousCategorie($sc1);
         $manager->persist($sc1);
 
@@ -112,9 +111,12 @@ class AppFixtures extends Fixture
         $c7->AddSousCategorie($sc7);
         $manager->persist($sc7);
 
+
+        /* PRODUITS */
         $p1 = new Produit();
         $p1->setRef("OP102478");
         $p1->setLib("Odinateur Portable ACER 214");
+        $p1->SetSlug("ordinateur-portable-acer-214");
         $p1->setDescription("L'ordinateur portable ergonomique et léger");
         $p1->setPrix(600.99);
         $p1->setPrixHt(580);
@@ -133,6 +135,7 @@ class AppFixtures extends Fixture
         $p2 = new Produit();
         $p2->setRef("TEL214587");
         $p2->setLib("Téléphone Mobile Samsung A10");
+        $p2->SetSlug("telephone-mobile-samsung-a10");
         $p2->setDescription("Le téléphone ergonomique et léger");
         $p2->setPrix(600.99);
         $p2->setPrixHt(580);
@@ -151,6 +154,7 @@ class AppFixtures extends Fixture
         $p3 = new Produit();
         $p3->SetRef("CG256478");
         $p3->SetLib("PlayStation 5");
+        $p3->SetSlug("playstation-ps5");
         $p3->SetDescription("La console ergonomique et légère");
         $p3->SetPrix(600.99);
         $p3->SetPrixHt(580);
@@ -169,6 +173,7 @@ class AppFixtures extends Fixture
         $p4 = new Produit();
         $p4->SetRef("CG256478");
         $p4->SetLib("MSI Rog 25148");
+        $p4->SetSlug("msi-rog-25148");
         $p4->SetDescription("La console ergonomique et légère");
         $p4->SetPrix(600.99);
         $p4->SetPrixHt(580);
@@ -187,6 +192,7 @@ class AppFixtures extends Fixture
         $p5 = new Produit();
         $p5->SetRef("CG256478");
         $p5->SetLib("Epson MultiColor 2514");
+        $p5->SetSlug("epson-multicolor-2514");
         $p5->SetDescription("La console ergonomique et légère");
         $p5->SetPrix(600.99);
         $p5->SetPrixHt(580);
@@ -205,6 +211,7 @@ class AppFixtures extends Fixture
         $p6 = new Produit();
         $p6->SetRef("CG256478");
         $p6->SetLib("JBL BoomBox 5");
+        $p6->SetSlug("jbl-boombox-5");
         $p6->SetDescription("La console ergonomique et légère");
         $p6->SetPrix(600.99);
         $p6->SetPrixHt(580);
@@ -223,6 +230,7 @@ class AppFixtures extends Fixture
         $p7 = new Produit();
         $p7->SetRef("CG256478");
         $p7->SetLib('écran plat 125"');
+        $p7->SetSlug("ecran-plat-125");
         $p7->SetDescription("La console ergonomique et légère");
         $p7->SetPrix(600.99);
         $p7->SetPrixHt(580);
@@ -241,6 +249,7 @@ class AppFixtures extends Fixture
         $p8 = new Produit();
         $p8->SetRef("CG256478");
         $p8->SetLib("Casque Bluetooth Sony");
+        $p8->SetSlug("casque-bluetooth-sony");
         $p8->SetDescription("La console ergonomique et légère");
         $p8->SetPrix(600.99);
         $p8->SetPrixHt(580);
@@ -258,7 +267,8 @@ class AppFixtures extends Fixture
 
         $p9 = new Produit();
         $p9->SetRef("CG256478");
-        $p9->SetLib("Manette PS5");
+        $p9->SetLib("Casque Audio PlayStation");
+        $p9->SetSlug("casque-audio-playstation");
         $p9->SetDescription("La console ergonomique et légère");
         $p9->SetPrix(600.99);
         $p9->SetPrixHt(580);
@@ -277,6 +287,7 @@ class AppFixtures extends Fixture
         $p10 = new Produit();
         $p10->SetRef("CG256478");
         $p10->SetLib("Manette PS4");
+        $p10->SetSlug("manette-ps4");
         $p10->SetDescription("La console ergonomique et légère");
         $p10->SetPrix(600.99);
         $p10->SetPrixHt(580);
@@ -292,6 +303,20 @@ class AppFixtures extends Fixture
         $sc3->AddProduit($p10);
         $manager->persist($p10);
 
+        /* TELEVISIONS */
+        $tel1 = new Television();
+        $tel1->setResolution("3840x2160");
+        $tel1->setDef("4K");
+        $tel1->setTechno("Oled");
+        $tel1->setProc("Crystal Processor 4K");
+        $tel1->setSonPuiss("40 KW");
+        $tel1->setPortHdmi(4);
+        $tel1->setPortUsb(6);
+        $tel1->AddProduit($p7);
+        $manager->persist($tel1);
+
+
+        /* FOURNISSEURS */
         $f1 = new Fournisseur();
         $f1->SetRef("F021458");
         $f1->SetNom("test");

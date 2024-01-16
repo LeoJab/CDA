@@ -69,6 +69,30 @@ class Produit
     #[ORM\Column(length: 255)]
     private ?string $photo = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?ConsoleGaming $consoleGaming = null;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?Enceinte $Enceinte = null;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?Imprimante $Imprimante = null;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?OrdinateurPortable $OrdinateurPortable = null;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?TelephoneTablette $TelephoneTablette = null;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?Television $Television = null;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?UniteCentral $UniteCentral = null;
+
     public function __construct()
     {
         $this->produit = new ArrayCollection();
@@ -300,4 +324,101 @@ class Produit
 
         return $this;
     }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getConsoleGaming(): ?ConsoleGaming
+    {
+        return $this->consoleGaming;
+    }
+
+    public function setConsoleGaming(?ConsoleGaming $consoleGaming): static
+    {
+        $this->consoleGaming = $consoleGaming;
+
+        return $this;
+    }
+
+    public function getEnceinte(): ?Enceinte
+    {
+        return $this->Enceinte;
+    }
+
+    public function setEnceinte(?Enceinte $Enceinte): static
+    {
+        $this->Enceinte = $Enceinte;
+
+        return $this;
+    }
+
+    public function getImprimante(): ?Imprimante
+    {
+        return $this->Imprimante;
+    }
+
+    public function setImprimante(?Imprimante $Imprimante): static
+    {
+        $this->Imprimante = $Imprimante;
+
+        return $this;
+    }
+
+    public function getOrdinateurPortable(): ?OrdinateurPortable
+    {
+        return $this->OrdinateurPortable;
+    }
+
+    public function setOrdinateurPortable(?OrdinateurPortable $OrdinateurPortable): static
+    {
+        $this->OrdinateurPortable = $OrdinateurPortable;
+
+        return $this;
+    }
+
+    public function getTelephoneTablette(): ?TelephoneTablette
+    {
+        return $this->TelephoneTablette;
+    }
+
+    public function setTelephoneTablette(?TelephoneTablette $TelephoneTablette): static
+    {
+        $this->TelephoneTablette = $TelephoneTablette;
+
+        return $this;
+    }
+
+    public function getTelevision(): ?Television
+    {
+        return $this->Television;
+    }
+
+    public function setTelevision(?Television $Television): static
+    {
+        $this->Television = $Television;
+
+        return $this;
+    }
+
+    public function getUniteCentral(): ?UniteCentral
+    {
+        return $this->UniteCentral;
+    }
+
+    public function setUniteCentral(?UniteCentral $UniteCentral): static
+    {
+        $this->UniteCentral = $UniteCentral;
+
+        return $this;
+    }
+    
 }

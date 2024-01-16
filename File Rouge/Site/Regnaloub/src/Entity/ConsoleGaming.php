@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ConsoleGamingRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ConsoleGamingRepository::class)]
@@ -27,6 +29,14 @@ class ConsoleGaming
 
     #[ORM\Column]
     private ?int $fps = null;
+
+    #[ORM\OneToMany(mappedBy: 'consoleGaming', targetEntity: Produit::class)]
+    private Collection $produits;
+
+    public function __construct()
+    {
+        $this->produits = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -89,6 +99,36 @@ class ConsoleGaming
     public function setFps(int $fps): static
     {
         $this->fps = $fps;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): static
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits->add($produit);
+            $produit->setConsoleGaming($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): static
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getConsoleGaming() === $this) {
+                $produit->setConsoleGaming(null);
+            }
+        }
 
         return $this;
     }

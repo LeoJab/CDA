@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TelephoneTabletteRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TelephoneTabletteRepository::class)]
@@ -60,6 +62,14 @@ class TelephoneTablette
 
     #[ORM\Column]
     private ?int $ram = null;
+
+    #[ORM\OneToMany(mappedBy: 'TelephoneTablette', targetEntity: Produit::class)]
+    private Collection $produits;
+
+    public function __construct()
+    {
+        $this->produits = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -254,6 +264,36 @@ class TelephoneTablette
     public function setRam(int $ram): static
     {
         $this->ram = $ram;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): static
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits->add($produit);
+            $produit->setTelephoneTablette($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): static
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getTelephoneTablette() === $this) {
+                $produit->setTelephoneTablette(null);
+            }
+        }
 
         return $this;
     }
