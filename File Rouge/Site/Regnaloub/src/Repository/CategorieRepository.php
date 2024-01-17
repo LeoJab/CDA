@@ -31,6 +31,17 @@ class CategorieRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findCateProd($prodId): array
+    {
+        return $this->createQueryBuilder('c')
+            ->innerJoin('App\Entity\SousCategorie', 'sousCategorie', 'WITH', 'sousCategorie.categorie_id = c.id')
+            ->innerJoin('App\Entity\Produit', 'produit', 'WITH', 'produit.souscategorie_id = souscategorie.id')
+            ->andWhere('produit.id = :id')
+            ->setParameter('id', $prodId)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Categorie[] Returns an array of Categorie objects
 //     */
