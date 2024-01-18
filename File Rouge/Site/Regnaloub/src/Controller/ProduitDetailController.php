@@ -7,24 +7,30 @@ use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-use App\Repository\CategorieRepository;
-
 use App\Entity\Produit;
 use App\Entity\SousCategorie;
 
+use App\Repository\ProduitRepository;
+use App\Repository\SousCategorieRepository;
+
 class ProduitDetailController extends AbstractController
 {
-    #[Route('/produit/detail/{sCate}/{produit}', name: 'produit_detail')]
-    public function index(#[MapEntity(id: 'sCateId')] SousCategorie $sCateId, #[MapEntity(id: 'produitId')] Produit $produitId, CategorieRepository $cateRepo): Response
+    #[Route('/produit/detail/{sCateLib}/{produitSlug}', name: 'produit_detail')]
+    public function index($sCateLib, $produitSlug, ProduitRepository $prodRepo, SousCategorieRepository $sCateRepo): Response
     {
-        $cateId = $sCateId->getCategorie()->getLib();
+        $cateLibArray = $sCateRepo->findCateProd($produitSlug);
+        $cateLibString = implode($cateLibArray);
+        $produit = $prodRepo->findBy(['slug' => $produitSlug]);
 
-        switch ($cateId) {
+        switch ($cateLibString) {
             case 'Ordinateur Portable':
-                return $this->render('produit_detail/ordinateur_portable.html.twig', [
-                    'produit' => $produitId,
+                $vue = $this->render('produit_detail/ordinateur_portable.html.twig', [
+                    'produit' => $produit,
                 ]);
                 break;
-        };
+            default:
+                $vue = $this->redirectToRoute('produit_all');
+        }; 
+        return $vue;
     }
 }

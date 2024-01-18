@@ -3,6 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\SousCategorie;
+use App\Entity\Categorie;
+use App\Entity\Produit;
+
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,6 +22,19 @@ class SousCategorieRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, SousCategorie::class);
+    }
+
+    public function findCateProd($produitSlug): ?array
+    {
+        return $this->createQueryBuilder('sC')
+            ->select('c.lib')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.SousCategorie = sC.id')
+            ->innerJoin('App\Entity\Categorie', 'c', 'WITH', 'c.id = sC.categorie')
+            ->where('p.slug LIKE :prodSlug')
+            ->setParameter('prodSlug', '%'.$produitSlug.'%')
+            ->groupBy('c.lib')
+            ->getQuery()
+            ->getSingleColumnResult();
     }
 
 //    /**

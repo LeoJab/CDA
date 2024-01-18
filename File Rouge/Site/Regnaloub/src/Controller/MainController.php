@@ -64,12 +64,9 @@ class MainController extends AbstractController
     public function ProduitAll(ProduitRepository $prodRepo, CategorieRepository $cateRepo): Response
     {
         $produits = $prodRepo->findAll();
-        $prodId = $prodRepo->findProdId($produits);
-        $categories = $cateRepo->findCateProd($prodId);
 
         return $this->render('main/produits.html.twig', [
             'produits' => $produits,
-            'categories' => $categories,
         ]);
     }
 }
