@@ -13,6 +13,8 @@ use App\Entity\SousCategorie;
 use App\Repository\ProduitRepository;
 use App\Repository\SousCategorieRepository;
 
+use App\Repository\OrdinateurPortableRepository;
+
 class ProduitDetailController extends AbstractController
 {
     #[Route('/produit/detail/{sCateLib}/{produitSlug}', name: 'produit_detail')]
@@ -21,10 +23,41 @@ class ProduitDetailController extends AbstractController
         $cateLibArray = $sCateRepo->findCateProd($produitSlug);
         $cateLibString = implode($cateLibArray);
         $produit = $prodRepo->findBy(['slug' => $produitSlug]);
+        $produitDetail = ;
 
         switch ($cateLibString) {
             case 'Ordinateur Portable':
                 $vue = $this->render('produit_detail/ordinateur_portable.html.twig', [
+                    'produit' => $produit,
+                ]);
+                break;
+            case 'Téléphone Mobile':
+                $vue = $this->render('produit_detail/telephone_mobile.html.twig', [
+                    'produit' => $produit,
+                ]);
+                break;
+            case 'Console Gaming':
+                $vue = $this->render('produit_detail/console_gaming.html.twig', [
+                    'produit' => $produit,
+                ]);
+                break;
+            case 'Unité Centrale':
+                $vue = $this->render('produit_detail/unite_centrale.html.twig', [
+                    'produit' => $produit,
+                ]);
+                break;
+            case 'Imprimante':
+                $vue = $this->render('produit_detail/imprimante.html.twig', [
+                    'produit' => $produit,
+                ]);
+                break;
+            case 'Enceinte':
+                $vue = $this->render('produit_detail/enceinte.html.twig', [
+                    'produit' => $produit,
+                ]);
+                break;
+            case 'Télévision':
+                $vue = $this->render('produit_detail/television.html.twig', [
                     'produit' => $produit,
                 ]);
                 break;

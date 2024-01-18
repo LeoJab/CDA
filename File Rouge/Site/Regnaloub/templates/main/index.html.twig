@@ -9,7 +9,7 @@
     <div id="produit">
         {% for produit in produits %}
             <div class="card_produit">
-                <a href="#">
+                <a href="{{ path('produit_detail', { sCateLib: produit.SousCategorie.lib, produitSlug: produit.slug }) }}">
                     <img src="{{ produit.photo }}" alt="photo catégorie">
                     <div class="card_produit_lib_desc_btn">
                         <div class="card_produit_lib_desc">

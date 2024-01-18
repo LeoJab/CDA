@@ -9,6 +9,7 @@ use App\Entity\MultiMedia;
 use App\Entity\Fournisseur;
 use App\Entity\TelephoneTablette;
 use App\Entity\Television;
+use App\Entity\OrdinateurPortable;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -315,6 +316,15 @@ class AppFixtures extends Fixture
         $tel1->AddProduit($p7);
         $manager->persist($tel1);
 
+        /* Ordinateur Portable */
+        $op1 = new OrdinateurPortable();
+        $op1->setResolution('2880x1800');
+        $op1->setWebcam('Oui');
+        $op1->setProc('Intel Core i7');
+        $op1->setProcFreq(2.1);
+        $op1->setProcNbrCoeur('12');
+        $op1->setRam('16');
+        $op1->setRamFreq('')
 
         /* FOURNISSEURS */
         $f1 = new Fournisseur();

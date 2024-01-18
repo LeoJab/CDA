@@ -327,3 +327,61 @@
 .card_categorie_lib_desc #sCategorie_desc {
     font-size: 12px !important;
 }
+
+
+/* Card produit detail */
+#page_detail {
+    margin: 2.5% 12% 2.5% 12%;
+}
+
+.produit_detail {
+    display: flex;
+    flex-direction: row;
+    color: var(--Bleu);
+    width: 100%;
+    border-bottom: 1px var(--Bleu) solid;
+    padding-bottom: 2.5%;
+}
+
+.produit_detail img {
+    width: 350px;
+    height: 450px;
+    object-fit: cover;
+}
+
+.produit_detail_lib_desc_btn {
+    margin-left: 2.5%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.produit_detail .lib, .prix {
+    font-size: 50px;
+    font-family: 'Farro';
+    margin: 0%;
+}
+
+.produit_detail .desc, .ht {
+    font-size: 18px;
+    font-family: 'Raleway';
+    margin: 0%;
+}
+
+.prod_detail_btn_panier {
+    background-color: var(--Marron);
+    color: var(--Beige-1);
+    font-size: 50px;
+    font-family: 'Farro';
+    padding: 0% 2.5% 0% 2.5%;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 50%;
+}
+
+.prod_detail_btn_panier svg {
+    width: 40px;
+    height: 40px;
+    margin-left: 2%;
+}
