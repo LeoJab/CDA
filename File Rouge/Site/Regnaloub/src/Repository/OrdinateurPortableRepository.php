@@ -21,6 +21,16 @@ class OrdinateurPortableRepository extends ServiceEntityRepository
         parent::__construct($registry, OrdinateurPortable::class);
     }
 
+    public function findOpDetail($produitSlug): array
+    {
+        return $this->createQueryBuilder('op')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.OrdinateurPortable = op.id')
+            ->where('p.slug = :slug')
+            ->setParameter(':slug', $produitSlug)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return OrdinateurPortable[] Returns an array of OrdinateurPortable objects
 //     */

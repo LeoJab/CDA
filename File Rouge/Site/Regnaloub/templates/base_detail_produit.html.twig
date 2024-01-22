@@ -30,6 +30,33 @@
         {% block caractéristique %}
 
         {% endblock %}
+    
+        <h1 class="h1ProdSim">Produits Similaires</h1>
+        <div id="produitSim">
+            {% for produitSim in produitsSim %}
+                <div class="card_produit">
+                    <a href="{{ path('produit_detail', { sCateLib: produitSim.SousCategorie.lib, produitSlug: produitSim.slug }) }}">
+                        <img src="{{ produitSim.photo }}" alt="photo catégorie">
+                        <div class="card_produit_lib_desc_btn">
+                            <div class="card_produit_lib_desc">
+                                <p>{{ produitSim.lib }}</p>
+                                <p class="desc">{{ produitSim.description|u.truncate(60, '...') }}</p>
+                                <div class="prix">
+                                    <p>{{ produitSim.prix }}€</p>
+                                    <p class="ht">{{ produitSim.prixht }}€HT</p>
+                                </div>
+                            </div>
+                            <btn class="btn_panier">
+                                Voir les details du produit
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                </svg>
+                            </btn>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock %}

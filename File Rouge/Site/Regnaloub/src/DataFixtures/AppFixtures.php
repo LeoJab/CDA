@@ -132,6 +132,25 @@ class AppFixtures extends Fixture
         $p1->setSold(0);
         $sc1->addProduit($p1);
         $manager->persist($p1);
+        
+        $p11 = new Produit();
+        $p11->setRef("OP102478");
+        $p11->setLib("Odinateur Portable ACER 52148");
+        $p11->SetSlug("ordinateur-portable-acer-52148");
+        $p11->setDescription("L'ordinateur portable ergonomique et léger");
+        $p11->setPrix(600.99);
+        $p11->setPrixHt(580);
+        $p11->setMarque("ACER");
+        $p11->setModele("ZenBook 5");
+        $p11->setCouleur("Noir");
+        $p11->setPhoto("https://picsum.photos/540/540");
+        $p11->setHauteur(25.8);
+        $p11->setLargeur(30.2);
+        $p11->setProfondeur(25.6);
+        $p11->setPoid(800);
+        $p11->setSold(0);
+        $sc1->addProduit($p11);
+        $manager->persist($p11);
 
         $p2 = new Produit();
         $p2->setRef("TEL214587");
@@ -324,7 +343,18 @@ class AppFixtures extends Fixture
         $op1->setProcFreq(2.1);
         $op1->setProcNbrCoeur('12');
         $op1->setRam('16');
-        $op1->setRamFreq('')
+        $op1->setRamFreq('3200');
+        $op1->setCgModele('AMD Radeon Graphics');
+        $op1->setStkage(512);
+        $op1->setTypeStkage('SSD');
+        $op1->setWifi('Wifi 6');
+        $op1->setBluetooth('5.1');
+        $op1->setPortUsb(3);
+        $op1->setPortHdmi(1);
+        $op1->setSysExp('Windows 11');
+        $op1->addProduit($p1);
+        $op1->addProduit($p11);
+        $manager->persist($op1);
 
         /* FOURNISSEURS */
         $f1 = new Fournisseur();
@@ -345,6 +375,7 @@ class AppFixtures extends Fixture
         $f1->AddProduit($p8);
         $f1->AddProduit($p9);
         $f1->AddProduit($p10);
+        $f1->AddProduit($p11);
         $manager->persist($f1);
 
         $manager->flush();

@@ -2,13 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\OrdinateurPortable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-
-use App\Entity\Produit;
-use App\Entity\SousCategorie;
 
 use App\Repository\ProduitRepository;
 use App\Repository\SousCategorieRepository;
@@ -18,17 +16,21 @@ use App\Repository\OrdinateurPortableRepository;
 class ProduitDetailController extends AbstractController
 {
     #[Route('/produit/detail/{sCateLib}/{produitSlug}', name: 'produit_detail')]
-    public function index($sCateLib, $produitSlug, ProduitRepository $prodRepo, SousCategorieRepository $sCateRepo): Response
+    public function index($sCateLib, $produitSlug, ProduitRepository $prodRepo, SousCategorieRepository $sCateRepo, OrdinateurPortableRepository $opRepo): Response
     {
-        $cateLibArray = $sCateRepo->findCateProd($produitSlug);
-        $cateLibString = implode($cateLibArray);
+        $cateLib = implode($sCateRepo->findCateProd($produitSlug));
         $produit = $prodRepo->findBy(['slug' => $produitSlug]);
-        $produitDetail = ;
+        $produitsSim = $prodRepo->findProdSim($sCateLib, $produitSlug);
+        // dd($cateLib, $produit, $produitsSim);
 
-        switch ($cateLibString) {
+        switch ($cateLib) {
             case 'Ordinateur Portable':
+                $detailProduit = $opRepo->findOpDetail($produitSlug);
+                // dd($cateLib, $produit, $produitSlug, $detailProduit, $produitsSim);
                 $vue = $this->render('produit_detail/ordinateur_portable.html.twig', [
                     'produit' => $produit,
+                    'detailProduit' => $detailProduit,
+                    'produitsSim' => $produitsSim,
                 ]);
                 break;
             case 'Téléphone Mobile':

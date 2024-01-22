@@ -2,34 +2,38 @@
 
 {% block caractéristique %}
     {% for produit in produit %}
-        <h2>Caractéristique du produit</h2>
-        <h3>Caractéristiques générales</h3>
-            <p>Marque: {{ produit.marque }}</p>
-            <p>Modèle: {{ produit.modele }}</p>
-            <p>Système d'exploitation: {{ produit.sysExp }}</p>
-            <p>Processeur: {{ produit.proc }}</p>
-            <p>Fréquence du processeur: {{ produit.procFreq }}</p>
-            <p>Nombre de coeur: {{ produit.procNbrCoeur }}</p>
-            <p>Modèle de la carte graphique: {{ produit.cgModele }}</p>
-            <p>Stockage: {{ produit.stkage }}Go</p>
-            <p>Type de stockage: {{ produit.typeStkage }}</p>
-            <p>Webcam: {{ produit.webcam }}</p>
-            <p>Couleur: {{ produit.couleur }}</p>
-        <h3>Ecran</h3>
-            <p>Résolution de l'ecran: {{ produit.resolution }}</p>
-        <h3>Connectivité</h3>
-            <p>Wifi: {{ produit.wifi }}</p>
-            <p>Bluetooth: {{ produit.bluetooth }}</p>
-        <h3>Connectique</h3>
-            <p>Nombre de port USB: {{ produit.portUsb }}</p>
-            <p>Nombre de port HDMI: {{ produit.portHdmi }}</p>
-        <h3>Mémoire</h3>
-            <p>Quantité de RAM: {{ produit.ram }}Go</p>
-            <p>Fréquence RAM: {{ produit.freqRam }}</p>
-        <h3>Dimension</h3>
-            <p>Hauteur: {{ produit.hauteur }}</p>
-            <p>Largeur: {{ produit.largeur }}</p>
-            <p>Profondeur: {{ produit.profondeur }}</p>
-            <p>Poid: {{ produit.poid }}</p>
+        {% for detailProduit in detailProduit %}
+            <div class="caracteristique_produit">
+                <h2>Caractéristique du produit</h2>
+                <h3>Caractéristiques générales</h3>
+                    <p>Marque: {{ produit.marque }}</p>
+                    <p>Modèle: {{ produit.modele }}</p>
+                    <p>Système d'exploitation: {{ detailProduit.sysExp }}</p>
+                    <p>Processeur: {{ detailProduit.proc }}</p>
+                    <p>Fréquence du processeur: {{ detailProduit.procFreq }}</p>
+                    <p>Nombre de coeur: {{ detailProduit.procNbrCoeur }}</p>
+                    <p>Modèle de la carte graphique: {{ detailProduit.cgModele }}</p>
+                    <p>Stockage: {{ detailProduit.stkage }}Go</p>
+                    <p>Type de stockage: {{ detailProduit.typeStkage }}</p>
+                    <p>Webcam: {{ detailProduit.webcam }}</p>
+                    <p>Couleur: {{ produit.couleur }}</p>
+                <h3>Ecran</h3>
+                    <p>Résolution de l'ecran: {{ detailProduit.resolution }} pixels</p>
+                <h3>Connectivité</h3>
+                    <p>Wifi: {{ detailProduit.wifi }}</p>
+                    <p>Bluetooth: {{ detailProduit.bluetooth }}</p>
+                <h3>Connectique</h3>
+                    <p>Nombre de port USB: {{ detailProduit.portUsb }}</p>
+                    <p>Nombre de port HDMI: {{ detailProduit.portHdmi }}</p>
+                <h3>Mémoire</h3>
+                    <p>Quantité de RAM: {{ detailProduit.ram }}Go</p>
+                    <p>Fréquence RAM: {{ detailProduit.ramFreq }}MHz</p>
+                <h3>Dimension</h3>
+                    <p>Hauteur: {{ produit.hauteur }} cm</p>
+                    <p>Largeur: {{ produit.largeur }} cm</p>
+                    <p>Profondeur: {{ produit.profondeur }} cm</p>
+                    <p>Poid: {{ produit.poid }} g</p>
+            </div>
+            {% endfor %}
     {% endfor %}
 {% endblock %}

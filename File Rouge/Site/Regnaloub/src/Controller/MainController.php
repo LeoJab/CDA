@@ -61,7 +61,7 @@ class MainController extends AbstractController
     }
 
     #[Route('/produits', name: 'produit_all')]
-    public function ProduitAll(ProduitRepository $prodRepo, CategorieRepository $cateRepo): Response
+    public function ProduitAll(ProduitRepository $prodRepo): Response
     {
         $produits = $prodRepo->findAll();
 

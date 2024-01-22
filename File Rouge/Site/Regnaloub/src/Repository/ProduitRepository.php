@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Produit;
+use App\Entity\SousCategorie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -29,6 +30,22 @@ class ProduitRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findProdSim(string $sCateLib, string $produitSlug)
+    {
+        return $this->createQueryBuilder('p')
+            ->innerJoin('App\Entity\SousCategorie', 'sC', 'WITH', 'p.SousCategorie = sC.id')
+            ->andWhere('p.slug != :slug')
+            ->andWhere('sC.lib = :scLib')
+            ->setParameters([
+                'slug' => $produitSlug,
+                'scLib' => $sCateLib,
+            ])
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
+
 
 //    /**
 //     * @return Produit[] Returns an array of Produit objects

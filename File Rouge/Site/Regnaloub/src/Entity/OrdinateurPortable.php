@@ -26,25 +26,25 @@ class OrdinateurPortable
     private ?string $proc = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $proc_freq = null;
+    private ?string $procFreq = null;
 
     #[ORM\Column]
-    private ?int $proc_nbr_coeur = null;
+    private ?int $procNbrCoeur = null;
 
     #[ORM\Column]
     private ?int $ram = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $ram_freq = null;
+    private ?string $ramFreq = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $cg_modele = null;
+    private ?string $cgModele = null;
 
     #[ORM\Column]
     private ?int $stkage = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $type_stkage = null;
+    private ?string $typeStkage = null;
 
     #[ORM\Column(length: 10)]
     private ?string $wifi = null;
@@ -53,13 +53,13 @@ class OrdinateurPortable
     private ?string $bluetooth = null;
 
     #[ORM\Column]
-    private ?int $port_usb = null;
+    private ?int $portUsb = null;
 
     #[ORM\Column]
-    private ?int $port_hdmi = null;
+    private ?int $portHdmi = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $sys_exp = null;
+    private ?string $sysExp = null;
 
     #[ORM\OneToMany(mappedBy: 'OrdinateurPortable', targetEntity: Produit::class)]
     private Collection $produits;
@@ -112,24 +112,24 @@ class OrdinateurPortable
 
     public function getProcFreq(): ?string
     {
-        return $this->proc_freq;
+        return $this->procFreq;
     }
 
-    public function setProcFreq(string $proc_freq): static
+    public function setProcFreq(string $procFreq): static
     {
-        $this->proc_freq = $proc_freq;
+        $this->procFreq = $procFreq;
 
         return $this;
     }
 
     public function getProcNbrCoeur(): ?int
     {
-        return $this->proc_nbr_coeur;
+        return $this->procNbrCoeur;
     }
 
-    public function setProcNbrCoeur(int $proc_nbr_coeur): static
+    public function setProcNbrCoeur(int $procNbrCoeur): static
     {
-        $this->proc_nbr_coeur = $proc_nbr_coeur;
+        $this->procNbrCoeur = $procNbrCoeur;
 
         return $this;
     }
@@ -148,24 +148,24 @@ class OrdinateurPortable
 
     public function getRamFreq(): ?string
     {
-        return $this->ram_freq;
+        return $this->ramFreq;
     }
 
-    public function setRamFreq(string $ram_freq): static
+    public function setRamFreq(string $ramFreq): static
     {
-        $this->ram_freq = $ram_freq;
+        $this->ramFreq = $ramFreq;
 
         return $this;
     }
 
     public function getCgModele(): ?string
     {
-        return $this->cg_modele;
+        return $this->cgModele;
     }
 
-    public function setCgModele(string $cg_modele): static
+    public function setCgModele(string $cgModele): static
     {
-        $this->cg_modele = $cg_modele;
+        $this->cgModele = $cgModele;
 
         return $this;
     }
@@ -184,12 +184,12 @@ class OrdinateurPortable
 
     public function getTypeStkage(): ?string
     {
-        return $this->type_stkage;
+        return $this->typeStkage;
     }
 
-    public function setTypeStkage(string $type_stkage): static
+    public function setTypeStkage(string $typeStkage): static
     {
-        $this->type_stkage = $type_stkage;
+        $this->typeStkage = $typeStkage;
 
         return $this;
     }
@@ -220,36 +220,36 @@ class OrdinateurPortable
 
     public function getPortUsb(): ?int
     {
-        return $this->port_usb;
+        return $this->portUsb;
     }
 
-    public function setPortUsb(int $port_usb): static
+    public function setPortUsb(int $portUsb): static
     {
-        $this->port_usb = $port_usb;
+        $this->portUsb = $portUsb;
 
         return $this;
     }
 
     public function getPortHdmi(): ?int
     {
-        return $this->port_hdmi;
+        return $this->portHdmi;
     }
 
-    public function setPortHdmi(int $port_hdmi): static
+    public function setPortHdmi(int $portHdmi): static
     {
-        $this->port_hdmi = $port_hdmi;
+        $this->portHdmi = $portHdmi;
 
         return $this;
     }
 
     public function getSysExp(): ?string
     {
-        return $this->sys_exp;
+        return $this->sysExp;
     }
 
-    public function setSysExp(string $sys_exp): static
+    public function setSysExp(string $sysExp): static
     {
-        $this->sys_exp = $sys_exp;
+        $this->sysExp = $sysExp;
 
         return $this;
     }

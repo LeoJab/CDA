@@ -334,6 +334,12 @@
     margin: 2.5% 12% 2.5% 12%;
 }
 
+.h1ProdSim {
+    color: var(--Bleu);
+    font-family: 'Farro';
+    font-size: 50px;
+}
+
 .produit_detail {
     display: flex;
     flex-direction: row;
@@ -384,4 +390,50 @@
     width: 40px;
     height: 40px;
     margin-left: 2%;
+}
+
+.caracteristique_produit {
+    border-bottom: 1px var(--Bleu) solid;
+    padding-bottom: 1%;
+}
+
+.caracteristique_produit h2, h3 {
+    color: var(--Bleu);
+    font-family: 'Farro';
+}
+
+.caracteristique_produit p {
+    color: var(--Bleu);
+    font-family: 'Raleway';
+    margin-left: 1%;
+}
+
+#produitSim {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2.5% 0% 2.5% 0%;
+}
+
+#produitSim .card_produit {
+    margin: 0px;
+}
+
+#produitSim p {
+    font-family: 'Farro';
+    color: var(--Bleu);
+    font-size: 17px;
+    margin: 0px;
+}
+
+#produitSim img {
+    width: 264px;
+    height: 300px;
+    object-fit: cover;
+    vertical-align:bottom
+}
+
+#produitSim .desc , #produitSim .ht {
+    font-family: 'Raleway';
+    font-size: 12px;
 }

@@ -39,7 +39,7 @@ class CategorieRepository extends ServiceEntityRepository
             ->andWhere('produit.id = :id')
             ->setParameter('id', $prodId)
             ->getQuery()
-            ->getResult();
+            ->getSingleColumnResult();
     }
 
 //    /**
