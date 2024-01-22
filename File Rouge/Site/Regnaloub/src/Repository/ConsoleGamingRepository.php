@@ -21,6 +21,16 @@ class ConsoleGamingRepository extends ServiceEntityRepository
         parent::__construct($registry, ConsoleGaming::class);
     }
 
+    public function findCgDetail($produitSlug): array
+    {
+        return $this->createQueryBuilder('cg')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.OrdinateurPortable = cg.id')
+            ->where('p.slug = :slug')
+            ->setParameter(':slug', $produitSlug)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return ConsoleGaming[] Returns an array of ConsoleGaming objects
 //     */

@@ -1,5 +1,39 @@
 {% extends 'base_detail_produit.html.twig' %}
 
 {% block caractéristique %}
-
+    {% for produit in produit %}
+        {% for detailProduit in detailProduit %}
+            <div class="caracteristique_produit">
+                <h2>Caractéristique du produit</h2>
+                <h3>Caractéristiques générales</h3>
+                    <p>Marque: {{ produit.marque }}</p>
+                    <p>Modèle: {{ produit.modele }}</p>
+                    <p>Système d'exploitation: {{ detailProduit.sysExp }}</p>
+                    <p>Processeur: {{ detailProduit.procModele }}</p>
+                    <p>Stockage: {{ detailProduit.memoire }}Go</p>
+                    <p>Nombre de carte SIM: {{ detailProduit.nbrSim }}</p>
+                    <p>Type de carte SIM: {{ detailProduit.typeSim }}</p>
+                    <p>Couleur: {{ produit.couleur }}</p>
+                <h3>Ecran</h3>
+                    <p>Résolution de l'ecran: {{ detailProduit.resEcran }} pixels</p>
+                    <p>Taille de l'ecran: {{ detailProduit.taille_ecran }}</p>
+                    <p>Fréquence d'ecran: {{ detailProduit.freqEcran }}</p>
+                <h3>Connectivité</h3>
+                    <p>Reseaux: {{ detailProduit.reseau }}</p>
+                    <p>Wifi: {{ detailProduit.wifi }}</p>
+                    <p>Bluetooth: {{ detailProduit.bluetooth }}</p>
+                <h3>Batterie</h3>
+                    <p>Batterie: {{ detailProduit.bat }}</p>
+                    <p>État de la batterie: {{ detailProduit.etatBat }}</p>
+                    <p>Type de chargement: {{ detailProduit.bluetooth }}</p>
+                <h3>Mémoire</h3>
+                    <p>Quantité de RAM: {{ detailProduit.ram }}Go</p>
+                <h3>Dimension</h3>
+                    <p>Hauteur: {{ produit.hauteur }} cm</p>
+                    <p>Largeur: {{ produit.largeur }} cm</p>
+                    <p>Profondeur: {{ produit.profondeur }} cm</p>
+                    <p>Poid: {{ produit.poid }} g</p>
+            </div>
+            {% endfor %}
+    {% endfor %}
 {% endblock %}

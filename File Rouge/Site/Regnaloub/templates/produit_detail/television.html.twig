@@ -1,5 +1,29 @@
 {% extends 'base_detail_produit.html.twig' %}
 
 {% block caractéristique %}
-
+    {% for produit in produit %}
+        {% for detailProduit in detailProduit %}
+            <div class="caracteristique_produit">
+                <h2>Caractéristique du produit</h2>
+                <h3>Caractéristiques générales</h3>
+                    <p>Marque: {{ produit.marque }}</p>
+                    <p>Modèle: {{ produit.modele }}</p>
+                    <p>Processeur: {{ detailProduit.proc }}</p>
+                    <p>Puissance de son: {{ detailProduit.sonPuiss }}</p>
+                    <p>Couleur: {{ produit.couleur }}</p>
+                <h3>Ecran</h3>
+                    <p>Résolution de l'ecran: {{ detailProduit.resolution }} pixels</p>
+                    <p>Définition de l'ecran: {{ detailProduit.def }} pixels</p>
+                    <p>Technologie: {{ detailProduit.techno }}</p>
+                <h3>Connectique</h3>
+                    <p>Nombre de port USB: {{ detailProduit.portUsb }}</p>
+                    <p>Nombre de port HDMI: {{ detailProduit.portHdmi }}</p>
+                <h3>Dimension</h3>
+                    <p>Hauteur: {{ produit.hauteur }} cm</p>
+                    <p>Largeur: {{ produit.largeur }} cm</p>
+                    <p>Profondeur: {{ produit.profondeur }} cm</p>
+                    <p>Poid: {{ produit.poid }} g</p>
+            </div>
+            {% endfor %}
+    {% endfor %}
 {% endblock %}

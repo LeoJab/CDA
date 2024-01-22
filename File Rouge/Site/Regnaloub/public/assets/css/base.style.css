@@ -140,6 +140,7 @@ footer li {
 }
 
 footer h3 {
+    color: var(--Beige-1) !important;
     margin: 0px;
 }
 

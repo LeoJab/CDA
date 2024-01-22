@@ -21,6 +21,16 @@ class TelevisionRepository extends ServiceEntityRepository
         parent::__construct($registry, Television::class);
     }
 
+    public function findTelDetail($produitSlug): array
+    {
+        return $this->createQueryBuilder('tel')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.OrdinateurPortable = tel.id')
+            ->where('p.slug = :slug')
+            ->setParameter(':slug', $produitSlug)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Television[] Returns an array of Television objects
 //     */

@@ -21,6 +21,16 @@ class ImprimanteRepository extends ServiceEntityRepository
         parent::__construct($registry, Imprimante::class);
     }
 
+    public function findImpDetail($produitSlug): array
+    {
+        return $this->createQueryBuilder('imp')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.OrdinateurPortable = imp.id')
+            ->where('p.slug = :slug')
+            ->setParameter(':slug', $produitSlug)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Imprimante[] Returns an array of Imprimante objects
 //     */

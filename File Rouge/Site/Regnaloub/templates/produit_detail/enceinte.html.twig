@@ -1,5 +1,25 @@
 {% extends 'base_detail_produit.html.twig' %}
 
 {% block caractéristique %}
-
+    {% for produit in produit %}
+        {% for detailProduit in detailProduit %}
+            <div class="caracteristique_produit">
+                <h2>Caractéristique du produit</h2>
+                <h3>Caractéristiques générales</h3>
+                    <p>Marque: {{ produit.marque }}</p>
+                    <p>Modèle: {{ produit.modele }}</p>
+                    <p>Puissance du son: {{ detailProduit.puissance }}</p>
+                    <p>Type d'alimentation: {{ detailProduit.alimentation }}</p>
+                    <p>Couleur: {{ produit.couleur }}</p>
+                <h3>Connectivité</h3>
+                    <p>Wifi: {{ detailProduit.wifi }}</p>
+                    <p>Bluetooth: {{ detailProduit.bluetooth }}</p>
+                <h3>Dimension</h3>
+                    <p>Hauteur: {{ produit.hauteur }} cm</p>
+                    <p>Largeur: {{ produit.largeur }} cm</p>
+                    <p>Profondeur: {{ produit.profondeur }} cm</p>
+                    <p>Poid: {{ produit.poid }} g</p>
+            </div>
+            {% endfor %}
+    {% endfor %}
 {% endblock %}

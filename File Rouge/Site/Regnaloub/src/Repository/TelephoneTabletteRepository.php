@@ -21,6 +21,16 @@ class TelephoneTabletteRepository extends ServiceEntityRepository
         parent::__construct($registry, TelephoneTablette::class);
     }
 
+    public function findTelTabDetail($produitSlug): array
+    {
+        return $this->createQueryBuilder('teltab')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.OrdinateurPortable = teltab.id')
+            ->where('p.slug = :slug')
+            ->setParameter(':slug', $produitSlug)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return TelephoneTablette[] Returns an array of TelephoneTablette objects
 //     */

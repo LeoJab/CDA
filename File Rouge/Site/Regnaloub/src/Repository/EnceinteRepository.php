@@ -21,6 +21,16 @@ class EnceinteRepository extends ServiceEntityRepository
         parent::__construct($registry, Enceinte::class);
     }
 
+    public function findEncDetail($produitSlug): array
+    {
+        return $this->createQueryBuilder('enc')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.OrdinateurPortable = enc.id')
+            ->where('p.slug = :slug')
+            ->setParameter(':slug', $produitSlug)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Enceinte[] Returns an array of Enceinte objects
 //     */

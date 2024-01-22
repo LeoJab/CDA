@@ -21,6 +21,16 @@ class UniteCentralRepository extends ServiceEntityRepository
         parent::__construct($registry, UniteCentral::class);
     }
 
+    public function findUcDetail($produitSlug): array
+    {
+        return $this->createQueryBuilder('uc')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.OrdinateurPortable = uc.id')
+            ->where('p.slug = :slug')
+            ->setParameter(':slug', $produitSlug)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return UniteCentral[] Returns an array of UniteCentral objects
 //     */
