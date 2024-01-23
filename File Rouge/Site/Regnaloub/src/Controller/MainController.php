@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+use App\Form\ContactFormType;
+use Symfony\Component\HttpFoundation\Request;
+
 use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
 use App\Repository\SousCategorieRepository;
@@ -67,6 +70,16 @@ class MainController extends AbstractController
 
         return $this->render('main/produits.html.twig', [
             'produits' => $produits,
+        ]);
+    }
+
+    #[Route('/contact', name: 'contact')]
+    public function contact(Request $request): Response
+    {
+        $form = $this->createForm(ContactFormType::class);
+
+        return $this->render('main/contact.html.twig', [
+            'form' => $form,
         ]);
     }
 }

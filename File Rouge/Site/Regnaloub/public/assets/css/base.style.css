@@ -55,7 +55,7 @@ header a {
     text-decoration: none;
 }
 
-form {
+#navbar form {
     display: flex;
     align-items: center;
     background-color: var(--Beige-1);
@@ -63,12 +63,12 @@ form {
     border: 3px solid var(--Marron);
 }
 
-form button, input {
+#navbar form button, input {
     margin: 0px;
     padding: 0px;
 }
 
-form input {
+#navbar form input {
     background-color: var(--Beige-1);
     border-radius: 0px 50px 50px 0px;
     border: none;
@@ -76,14 +76,14 @@ form input {
     margin-left: 8px;
 }
 
-form button {
+#navbar form button {
     background-color: var(--Marron);
     border: none;
     height: 40px;
     border-radius: 20px 0px 0px 20px;
 }
 
-form svg {
+#navbar form svg {
     color: var(--Beige-1);
     width: 22px;
     height: 22px;
