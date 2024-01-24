@@ -5,10 +5,14 @@ namespace App\Entity;
 use App\Repository\ContactRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
 {
+    #[Assert\Email(message: "Veuillez saisir une asresse e-mail valide.")]
+    private $errorEmail;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]

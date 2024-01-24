@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 use App\Form\ContactFormType;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 
 use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
@@ -74,9 +76,21 @@ class MainController extends AbstractController
     }
 
     #[Route('/contact', name: 'contact')]
-    public function contact(Request $request): Response
+    public function contact(Request $request, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ContactFormType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $message = new Contact();
+            $data = $form->getData();
+            $message = $data;
+
+            $entityManager->persist($message);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('default');
+        }
 
         return $this->render('main/contact.html.twig', [
             'form' => $form,
