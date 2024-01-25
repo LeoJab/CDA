@@ -82,11 +82,10 @@ class MainController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            $message = new Contact();
-            $data = $form->getData();
-            $message = $data;
 
-            $entityManager->persist($message);
+            $data = $form->getData();
+
+            $entityManager->persist($data);
             $entityManager->flush();
 
             return $this->redirectToRoute('default');

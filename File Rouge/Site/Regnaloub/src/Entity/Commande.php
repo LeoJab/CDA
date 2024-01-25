@@ -25,7 +25,7 @@ class Commande
     #[ORM\OneToMany(mappedBy: 'commande', targetEntity: Facture::class, orphanRemoval: true)]
     private Collection $factures;
 
-    #[ORM\OneToMany(mappedBy: 'commande', targetEntity: livraison::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'commande', targetEntity: Livraison::class, orphanRemoval: true)]
     private Collection $livraison;
 
     #[ORM\ManyToOne(inversedBy: 'commandes')]

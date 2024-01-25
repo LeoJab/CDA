@@ -6,9 +6,14 @@ use App\Repository\UtilisateurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
-class Utilisateur
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -24,8 +29,40 @@ class Utilisateur
     #[ORM\Column(length: 30)]
     private ?string $cate = null;
 
-    #[ORM\Column(length: 30)]
-    private ?string $role = null;
+/**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->email;
+    }
+
+    #[ORM\Column(length: 180, unique: true)]
+    private ?string $email = null;
+
+    #[ORM\Column]
+    private array $roles = [];
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): static
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
 
     #[ORM\Column(length: 100)]
     private ?string $adresse = null;
@@ -45,11 +82,25 @@ class Utilisateur
     #[ORM\Column(length: 20)]
     private ?string $tel = null;
 
-    #[ORM\Column(length: 80)]
-    private ?string $mail = null;
+        /**
+     * @var string The hashed password
+     */
+    #[ORM\Column]
+    private ?string $password = null;
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
 
-    #[ORM\Column(length: 255)]
-    private ?string $mdp = null;
+    public function setPassword(string $password): static
+    {
+        $this->password = $password;
+
+        return $this;
+    }
 
     #[ORM\OneToMany(mappedBy: 'utilisateur', targetEntity: Commande::class, orphanRemoval: true)]
     private Collection $commandes;
@@ -57,10 +108,12 @@ class Utilisateur
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'commercial')]
     private ?self $commercial = null;
 
+    #[ORM\Column(type: 'boolean')]
+    private $isVerified = false;
+
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
-        $this->commercial = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -100,18 +153,6 @@ class Utilisateur
     public function setCate(string $cate): static
     {
         $this->cate = $cate;
-
-        return $this;
-    }
-
-    public function getRole(): ?string
-    {
-        return $this->role;
-    }
-
-    public function setRole(string $role): static
-    {
-        $this->role = $role;
 
         return $this;
     }
@@ -188,26 +229,14 @@ class Utilisateur
         return $this;
     }
 
-    public function getMail(): ?string
+    public function getEmail(): ?string
     {
-        return $this->mail;
+        return $this->email;
     }
 
-    public function setMail(string $mail): static
+    public function setEmail(string $email): static
     {
-        $this->mail = $mail;
-
-        return $this;
-    }
-
-    public function getMdp(): ?string
-    {
-        return $this->mdp;
-    }
-
-    public function setMdp(string $mdp): static
-    {
-        $this->mdp = $mdp;
+        $this->email = $email;
 
         return $this;
     }
@@ -250,6 +279,27 @@ class Utilisateur
     public function setCommercial(?self $commercial): static
     {
         $this->commercial = $commercial;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials(): void
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }
