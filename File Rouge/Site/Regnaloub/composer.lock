@@ -7057,6 +7057,7 @@
         },
         {
             "name": "symfony/uid",
+<<<<<<< HEAD
             "version": "v6.4.3",
             "source": {
                 "type": "git",
@@ -7067,6 +7068,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/uid/zipball/1d31267211cc3a2fff32bcfc7c1818dac41b6fc0",
                 "reference": "1d31267211cc3a2fff32bcfc7c1818dac41b6fc0",
+=======
+            "version": "v6.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/uid.git",
+                "reference": "8092dd1b1a41372110d06374f99ee62f7f0b9a92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/uid/zipball/8092dd1b1a41372110d06374f99ee62f7f0b9a92",
+                "reference": "8092dd1b1a41372110d06374f99ee62f7f0b9a92",
+>>>>>>> 7860c06e1cfcc42f9f7593a5773ef6a1c11d2337
                 "shasum": ""
             },
             "require": {
@@ -7111,7 +7124,11 @@
                 "uuid"
             ],
             "support": {
+<<<<<<< HEAD
                 "source": "https://github.com/symfony/uid/tree/v6.4.3"
+=======
+                "source": "https://github.com/symfony/uid/tree/v6.4.0"
+>>>>>>> 7860c06e1cfcc42f9f7593a5773ef6a1c11d2337
             },
             "funding": [
                 {
@@ -7127,7 +7144,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2024-01-23T14:51:35+00:00"
+=======
+            "time": "2023-10-31T08:18:17+00:00"
+>>>>>>> 7860c06e1cfcc42f9f7593a5773ef6a1c11d2337
         },
         {
             "name": "symfony/ux-turbo",
