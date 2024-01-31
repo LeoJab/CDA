@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -35,5 +36,12 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Console Gaming', 'fas fa-list', ConsoleGaming::class);
         yield MenuItem::linkToCrud('Télévision', 'fas fa-list', Television::class);
         yield MenuItem::linkToCrud('Produit', 'fas fa-list', Produit::class);
+
+        yield MenuItem::section('Produits');
+
+        yield MenuItem::subMenu('Télévision')->setSubItems([
+            MenuItem::linkToCrud('Ajouter une télévision', 'fas fa-plus', Television::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Voir les télévisions', 'fas fa-eye', Television::class)
+        ]);
     }
 }
