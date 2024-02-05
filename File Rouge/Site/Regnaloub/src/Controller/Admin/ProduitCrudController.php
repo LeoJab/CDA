@@ -7,7 +7,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 
 
 class ProduitCrudController extends AbstractCrudController
@@ -21,10 +22,21 @@ class ProduitCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
+            IdField::new('id')->hideOnForm(),
+            TextField::new('lib', 'Nom'),
             TextEditorField::new('description'),
-            AssociationField::new('consoleGaming')
+            TextField::new('slug'),
+            TextField::new('marque'),
+            TextField::new('modele', 'Modèle'),
+            NumberField::new('hauteur')->hideOnIndex(),
+            NumberField::new('largeur')->hideOnIndex(),
+            NumberField::new('profondeur')->hideOnIndex(),
+            NumberField::new('poid')->hideOnIndex(),
+            NumberField::new('sold'),
+            TextField::new('couleur'),
+            TextField::new('photo'),
+            NumberField::new('prix'),
+            NumberField::new('prix_ht', 'Prox hors taxe'),
         ];
     }
   
