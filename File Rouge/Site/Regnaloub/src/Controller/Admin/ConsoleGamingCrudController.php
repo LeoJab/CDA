@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 
 class ConsoleGamingCrudController extends AbstractCrudController
 {
@@ -20,24 +21,13 @@ class ConsoleGamingCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('ref'),
-            TextField::new('lib'),
-            TextEditorField::new('description'),
-            TextField::new('prix'),
-            TextField::new('prix_ht'),
-            TextField::new('marque'),
-            TextField::new('modele'),
-            TextField::new('hauteur'),
-            TextField::new('largeur'),
-            TextField::new('profondeur'),
-            TextField::new('poid'),
-            TextField::new('sold'),
-            TextField::new('couleur'),
-            TextField::new('photo'),
-            TextField::new('slug'),
-            AssociationField::new('Produit'),
-            TextField::new('ref'),
+            IdField::new('id')->hideOnForm(),
+            TextField::new('libAsso', "Nom du produit"),
+            NumberField::new('port_usb', 'Nombre de port USB'),
+            NumberField::new('port_hdmi'),
+            NumberField::new('disque_dur'),
+            TextField::new('resolution'),
+            NumberField::new('fps'),
         ];
     }
     

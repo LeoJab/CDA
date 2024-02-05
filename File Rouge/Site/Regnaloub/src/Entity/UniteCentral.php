@@ -17,6 +17,9 @@ class UniteCentral
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    private ?string $lib_asso = null;
+
+    #[ORM\Column(length: 50)]
     private ?string $proc = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 4, scale: 2)]
@@ -60,9 +63,26 @@ class UniteCentral
         $this->produits = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->lib_asso;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getLibAsso(): ?string
+    {
+        return $this->lib_asso;
+    }
+
+    public function setLibAsso(string $lib_asso): static
+    {
+        $this->lib_asso = $lib_asso;
+
+        return $this;
     }
 
     public function getProc(): ?string

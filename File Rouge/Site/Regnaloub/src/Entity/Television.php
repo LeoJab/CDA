@@ -16,6 +16,9 @@ class Television
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    private ?string $lib_asso = null;
+
+    #[ORM\Column(length: 50)]
     private ?string $resolution = null;
 
     #[ORM\Column(length: 10)]
@@ -44,9 +47,26 @@ class Television
         $this->produits = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->lib_asso;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getLibAsso(): ?string
+    {
+        return $this->lib_asso;
+    }
+
+    public function setLibAsso(string $lib_asso): static
+    {
+        $this->lib_asso = $lib_asso;
+
+        return $this;
     }
 
     public function getResolution(): ?string

@@ -15,6 +15,9 @@ class Enceinte
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(length: 50)]
+    private ?string $lib_asso = null;
+
     #[ORM\Column]
     private ?int $puissance = null;
 
@@ -34,6 +37,11 @@ class Enceinte
     {
         $this->produits = new ArrayCollection();
     }
+
+    public function __toString()
+    {
+        return $this->lib_asso;
+    }
     
     public function getId(): ?int
     {
@@ -48,6 +56,18 @@ class Enceinte
     public function setPuissance(int $puissance): static
     {
         $this->puissance = $puissance;
+
+        return $this;
+    }
+
+    public function getLibAsso(): ?string
+    {
+        return $this->lib_asso;
+    }
+
+    public function setLibAsso(string $lib_asso): static
+    {
+        $this->lib_asso = $lib_asso;
 
         return $this;
     }

@@ -7,7 +7,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class EnceinteCrudController extends AbstractCrudController
 {
@@ -20,8 +19,8 @@ class EnceinteCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            AssociationField::new('produits', 'slug'),
-            TextField::new('puissance', 'Puissance du son'),
+            TextField::new('lib_asso', "Nom du produit"),
+            NumberField::new('puissance', 'Puissance du son'),
             TextField::new('alimentation', "Type d'alimentation"),
             TextField::new('wifi'),
             TextField::new('bluetooth')
