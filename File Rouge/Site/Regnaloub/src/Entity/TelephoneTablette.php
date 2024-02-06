@@ -19,7 +19,7 @@ class TelephoneTablette
     private ?string $lib_asso = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $sys_expl = null;
+    private ?string $sys_exp = null;
 
     #[ORM\Column(length: 30)]
     private ?string $type_sim = null;
@@ -96,14 +96,14 @@ class TelephoneTablette
         return $this;
     }
 
-    public function getSysExpl(): ?string
+    public function getSysExp(): ?string
     {
-        return $this->sys_expl;
+        return $this->sys_exp;
     }
 
-    public function setSysExpl(string $sys_expl): static
+    public function setSysExp(string $sys_exp): static
     {
-        $this->sys_expl = $sys_expl;
+        $this->sys_exp = $sys_exp;
 
         return $this;
     }

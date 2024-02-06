@@ -16,14 +16,17 @@ class ImprimanteCrudController extends AbstractCrudController
         return Imprimante::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')->hideOnForm()->hideOnIndex(),
+            TextField::new('lib_asso', "Nom du produit"),
+            TextField::new('type', "Type d'impression"),
+            TextField::new('vit', "Vitesse d'impression"),
+            TextField::new('qualiter', "Qualiter d'impression papier"),
+            TextField::new('qualiter_photo', "Qualiter d'impression photo"),
+            TextField::new('format', "Format du papier"),
         ];
     }
-    */
+    
 }

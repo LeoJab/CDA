@@ -41,7 +41,6 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('Produits');
         yield MenuItem::linkToCrud('Produit', 'fas fa-list', Produit::class);
-        yield MenuItem::linkToCrud('Ajouter un produit', 'fas fa-plus', Produit::class)->setAction(Crud::PAGE_NEW);
         yield MenuItem::subMenu('Télévision')->setSubItems([
             MenuItem::linkToCrud('Ajouter une télévision', 'fas fa-plus', Television::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Voir les télévisions', 'fas fa-eye', Television::class)
@@ -70,5 +69,6 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Ajouter une unitée centrale', 'fas fa-plus', UniteCentral::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Voir les unitées centrales', 'fas fa-eye', UniteCentral::class)
         ]);
+        yield MenuItem::linkToCrud('Ajouter un produit', 'fas fa-plus', Produit::class)->setAction(Crud::PAGE_NEW);
     }
 }

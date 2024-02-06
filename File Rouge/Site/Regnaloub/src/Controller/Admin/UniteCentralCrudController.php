@@ -16,14 +16,24 @@ class UniteCentralCrudController extends AbstractCrudController
         return UniteCentral::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')->hideOnForm()->hideOnIndex(),
+            TextField::new('lib_asso', "Nom du produit"),
+            TextField::new('proc', "Nom du processeur"),
+            NumberField::new('proc_freq', "Fréquence du processeur"),
+            NumberField::new('proc_nbr_coeur', "Nombre de coeur du processeur"),
+            NumberField::new('ram', "Quantité de RAM"),
+            NumberField::new('ram_type', "Type de la RAM")->hideOnIndex(),
+            TextField::new('cg_modele', "Modele de la carte graphique"),
+            NumberField::new('stkage', "Quantité de stockage (en Go)"),
+            TextField::new('type_stkage', "Type du stockage")->hideOnIndex(),
+            TextField::new('wifi')->hideOnIndex(),
+            NumberField::new('port_usb', "Nombre de port USB")->hideOnIndex(),
+            NumberField::new('port_hdmi', "Nombre de port HDMI")->hideOnIndex(),
+            TextField::new('sys_exp', "Système d'exploitation"),
         ];
     }
-    */
+
 }

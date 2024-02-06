@@ -21,11 +21,11 @@ class ConsoleGamingCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
+            IdField::new('id')->hideOnForm()->hideOnIndex(),
             TextField::new('libAsso', "Nom du produit"),
             NumberField::new('port_usb', 'Nombre de port USB'),
             NumberField::new('port_hdmi'),
-            NumberField::new('disque_dur'),
+            NumberField::new('disque_dur', 'Disque Dur (en Go)'),
             TextField::new('resolution'),
             NumberField::new('fps'),
         ];

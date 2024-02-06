@@ -18,7 +18,7 @@ class EnceinteCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
+            IdField::new('id')->hideOnForm()->hideOnIndex(),
             TextField::new('lib_asso', "Nom du produit"),
             NumberField::new('puissance', 'Puissance du son'),
             TextField::new('alimentation', "Type d'alimentation"),

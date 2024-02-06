@@ -46,7 +46,7 @@ class Imprimante
         return $this->lib_asso;
     }
 
-    public function geId(): ?int
+    public function getId(): ?int
     {
         return $this->id;
     }

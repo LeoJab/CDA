@@ -23,7 +23,7 @@ class UniteCentral
     private ?string $proc = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 4, scale: 2)]
-    private ?string $proc_frequence = null;
+    private ?string $proc_freq = null;
 
     #[ORM\Column]
     private ?int $proc_nbr_coeur = null;
@@ -53,7 +53,7 @@ class UniteCentral
     private ?int $port_hdmi = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $sys_expl = null;
+    private ?string $sys_exp = null;
 
     #[ORM\OneToMany(mappedBy: 'UniteCentral', targetEntity: Produit::class)]
     private Collection $produits;
@@ -97,14 +97,14 @@ class UniteCentral
         return $this;
     }
 
-    public function getProcFrequence(): ?string
+    public function getProcFreq(): ?string
     {
-        return $this->proc_frequence;
+        return $this->proc_freq;
     }
 
-    public function setProcFrequence(string $proc_frequence): static
+    public function setProcFreq(string $proc_freq): static
     {
-        $this->proc_frequence = $proc_frequence;
+        $this->proc_freq = $proc_freq;
 
         return $this;
     }
@@ -217,14 +217,14 @@ class UniteCentral
         return $this;
     }
 
-    public function getSysExpl(): ?string
+    public function getSysExp(): ?string
     {
-        return $this->sys_expl;
+        return $this->sys_exp;
     }
 
-    public function setSysExpl(string $sys_expl): static
+    public function setSysExp(string $sys_exp): static
     {
-        $this->sys_expl = $sys_expl;
+        $this->sys_exp = $sys_exp;
 
         return $this;
     }

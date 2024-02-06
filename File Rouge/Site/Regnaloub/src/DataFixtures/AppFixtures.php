@@ -5,7 +5,6 @@ namespace App\DataFixtures;
 use App\Entity\Categorie;
 use App\entity\SousCategorie;
 use App\entity\Produit;
-use App\Entity\MultiMedia;
 use App\Entity\Fournisseur;
 use App\Entity\TelephoneTablette;
 use App\Entity\Television;

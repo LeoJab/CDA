@@ -7,7 +7,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class TelevisionCrudController extends AbstractCrudController
 {
@@ -20,8 +19,8 @@ class TelevisionCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            AssociationField::new('produits', 'slug'),
+            IdField::new('id')->hideOnForm()->hideOnIndex(),
+            TextField::new('lib_asso', "Nom du produit"),
             TextField::new('resolution', 'Résolution'),
             TextField::new('def', 'Définition'),
             TextField::new('techno', 'Technologie'),
