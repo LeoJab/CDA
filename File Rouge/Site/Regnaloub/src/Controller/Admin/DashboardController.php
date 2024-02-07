@@ -10,6 +10,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Utilisateur;
+use App\Entity\Fournisseur;
+use App\Entity\Categorie;
+use App\Entity\SousCategorie;
+use App\Entity\Commande;
+
 use App\Entity\Produit;
 use App\Entity\ConsoleGaming;
 use App\Entity\Television;
@@ -37,7 +42,6 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', Utilisateur::class);
 
         yield MenuItem::section('Produits');
         yield MenuItem::linkToCrud('Produit', 'fas fa-list', Produit::class);
@@ -70,5 +74,19 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Voir les unitées centrales', 'fas fa-eye', UniteCentral::class)
         ]);
         yield MenuItem::linkToCrud('Ajouter un produit', 'fas fa-plus', Produit::class)->setAction(Crud::PAGE_NEW);
+
+        yield MenuItem::section('Utilisateurs');
+        yield MenuItem::linkToCrud('Ajouter un utilisateur', 'fas fa-plus', Utilisateur::class)->setAction(CRUD::PAGE_NEW);
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', Utilisateur::class);
+
+        yield MenuItem::section('Fournisseurs');
+        yield MenuItem::linkToCrud('Ajouter un fournisseur', 'fas fa-plus', Fournisseur::class)->setAction(CRUD::PAGE_NEW);
+        yield MenuItem::linkToCrud('Fournisseurs', 'fas fa-list', Fournisseur::class);
+
+        yield MenuItem::section('Catégories/Sous-Catégories');
+        yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
+        yield MenuItem::linkToCrud('Sous-Catégories', 'fas fa-list', SousCategorie::class);
+
+        yield MenuItem::linkToCrud('Liste des commandes', 'fas fa-eye', Commande::class);
     }
 }

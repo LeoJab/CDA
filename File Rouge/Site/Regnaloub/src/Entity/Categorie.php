@@ -33,6 +33,11 @@ class Categorie
         $this->sousCategories = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->lib;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
