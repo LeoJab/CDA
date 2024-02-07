@@ -87,6 +87,5 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
         yield MenuItem::linkToCrud('Sous-Catégories', 'fas fa-list', SousCategorie::class);
 
-        yield MenuItem::linkToCrud('Liste des commandes', 'fas fa-eye', Commande::class);
     }
 }

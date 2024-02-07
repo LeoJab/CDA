@@ -49,8 +49,8 @@ class ProduitCrudController extends AbstractCrudController
             ImageField::new('photo')
                 ->setBasePath('assets\img\produits')
                 ->setUploadDir('public\assets\img\produits'),
-            MoneyField::new('prix')->setCurrency('EUR'),
-            MoneyField::new('prix_ht', 'Prox hors taxe')->setCurrency('EUR'),
+            NumberField::new('prix'),
+            NumberField::new('prix_ht', 'Prox hors taxe'),
         ];
     }
   
