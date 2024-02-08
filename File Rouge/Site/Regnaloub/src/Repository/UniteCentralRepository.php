@@ -24,7 +24,7 @@ class UniteCentralRepository extends ServiceEntityRepository
     public function findUcDetail($produitSlug): array
     {
         return $this->createQueryBuilder('uc')
-            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.OrdinateurPortable = uc.id')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.UniteCentral = uc.id')
             ->where('p.slug = :slug')
             ->setParameter(':slug', $produitSlug)
             ->getQuery()

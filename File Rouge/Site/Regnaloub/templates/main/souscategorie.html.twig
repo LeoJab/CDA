@@ -12,13 +12,13 @@
             {% for souscate in categorie.sousCategories %}
                 <div class="card_categorie">
                     <a href="{{ path('sCategorie_detail', { sCategorie: souscate.id }) }}">
-                        <img src="{{ souscate.photo }}" alt="">
+                        <img src="{{ asset('assets/img/sCategories/') ~ souscate.photo }}" alt="">
                         <div class="card_categorie_lib_desc_btn">
                             <div class="card_categorie_lib_desc">
                                 <p>{{ souscate.lib }}</p>
-                                <p id="sCategorie_desc">{{ souscate.description|u.truncate(60, '...')  }}</p>
+                                <p id="sCategorie_desc">{{ souscate.description|u.truncate(80, '...')  }}</p>
                             </div>
-                            <a class="btn_categorie" href="#">Visiter la categorie</a>
+                            <btn class="btn_categorie">Visiter la sous categorie</btn>
                         </div>
                     </a>
                 </div>

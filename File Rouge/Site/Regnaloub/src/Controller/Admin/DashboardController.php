@@ -43,9 +43,6 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
 
-        yield MenuItem::section('Commandes');
-        yield MenuItem::linkToCrud('Voir les commandes', 'fas fa-eye', Commande::class);
-
         yield MenuItem::section('Produits');
         yield MenuItem::linkToCrud('Produit', 'fas fa-list', Produit::class);
         yield MenuItem::subMenu('Télévision')->setSubItems([

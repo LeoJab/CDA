@@ -24,7 +24,7 @@ class EnceinteRepository extends ServiceEntityRepository
     public function findEncDetail($produitSlug): array
     {
         return $this->createQueryBuilder('enc')
-            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.OrdinateurPortable = enc.id')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.Enceinte = enc.id')
             ->where('p.slug = :slug')
             ->setParameter(':slug', $produitSlug)
             ->getQuery()

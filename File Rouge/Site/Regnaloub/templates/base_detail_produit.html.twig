@@ -8,11 +8,11 @@
     <div id="page_detail">
         {% for detail_produit in produit %}
             <div class="produit_detail">
-                <img src="{{ detail_produit.photo }}" alt="photo catégorie">
+                <img src="{{ asset('assets/img/produits/') ~ detail_produit.photo }}" alt="photo du produit">
                 <div class="produit_detail_lib_desc_btn">
                     <div class="produit_detail_lib_desc">
                         <p class="lib">{{ detail_produit.lib }}</p>
-                        <p class="desc">{{ detail_produit.description }}</p>
+                        {{ detail_produit.description|raw }}
                         <div class="prix">
                             <p>{{ detail_produit.prix }}€</p>
                             <p class="ht">{{ detail_produit.prixht }}€HT</p>

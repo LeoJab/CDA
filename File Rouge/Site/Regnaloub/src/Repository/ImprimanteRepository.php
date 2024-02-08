@@ -24,7 +24,7 @@ class ImprimanteRepository extends ServiceEntityRepository
     public function findImpDetail($produitSlug): array
     {
         return $this->createQueryBuilder('imp')
-            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.OrdinateurPortable = imp.id')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.Imprimante = imp.id')
             ->where('p.slug = :slug')
             ->setParameter(':slug', $produitSlug)
             ->getQuery()

@@ -61,7 +61,7 @@
     padding-top: 1%;
 }
 
-.desc {
+.card_produit_lib_desc_btn .desc {
     max-height: 56px;
     max-width: 264px;
 }
@@ -356,7 +356,7 @@
 }
 
 .produit_detail_lib_desc_btn {
-    margin-left: 2.5%;
+    margin-left: 2.5% !important;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -369,10 +369,11 @@
     margin: 0%;
 }
 
-.produit_detail .desc, .ht {
+.produit_detail div:first-child, .ht {
     font-size: 18px;
     font-family: 'Raleway';
     margin: 0%;
+    color: var(--Bleu);
 }
 
 .prod_detail_btn_panier {

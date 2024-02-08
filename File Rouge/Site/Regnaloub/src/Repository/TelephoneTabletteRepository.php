@@ -24,7 +24,7 @@ class TelephoneTabletteRepository extends ServiceEntityRepository
     public function findTelTabDetail($produitSlug): array
     {
         return $this->createQueryBuilder('teltab')
-            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.OrdinateurPortable = teltab.id')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.TelephoneTablette = teltab.id')
             ->where('p.slug = :slug')
             ->setParameter(':slug', $produitSlug)
             ->getQuery()

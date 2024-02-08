@@ -24,7 +24,7 @@ class TelevisionRepository extends ServiceEntityRepository
     public function findTelDetail($produitSlug): array
     {
         return $this->createQueryBuilder('tel')
-            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.OrdinateurPortable = tel.id')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.Television = tel.id')
             ->where('p.slug = :slug')
             ->setParameter(':slug', $produitSlug)
             ->getQuery()
