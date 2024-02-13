@@ -61,7 +61,9 @@
     padding-top: 1%;
 }
 
-.card_produit_lib_desc_btn .desc {
+.card_produit_lib_desc_btn p:nth-child(2) {
+    font-family: 'Raleway' !important;
+    font-size: 12px !important;
     max-height: 56px;
     max-width: 264px;
 }

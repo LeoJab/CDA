@@ -24,7 +24,7 @@ class ConsoleGamingRepository extends ServiceEntityRepository
     public function findCgDetail($produitSlug): array
     {
         return $this->createQueryBuilder('cg')
-            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.ConsoleGaming = cg.id')
+            ->innerJoin('App\Entity\Produit', 'p', 'WITH', 'p.consoleGaming = cg.id')
             ->where('p.slug = :slug')
             ->setParameter(':slug', $produitSlug)
             ->getQuery()

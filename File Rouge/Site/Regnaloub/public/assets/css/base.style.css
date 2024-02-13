@@ -103,6 +103,15 @@ header a {
     width: 36px;
     height: 36px;
     padding: 5px;
+    cursor: pointer;
+}
+
+#navbar_icon button {
+    background-color: var(--Beige-1);
+    border: none;
+    border-radius: 10px;
+    padding: 0px;
+    margin-left: 6px;
 }
 
 #navbar_icon #icon_panier {
@@ -123,6 +132,38 @@ header a {
     background-color: var(--Beige-1);
     border-radius: 10px;
     padding: 0% 1% 0% 1%;
+}
+
+.none {
+    display: none !important;
+}
+
+.block {
+    display: block !important;
+}
+
+.menu_nav_uti {
+    background-color: var(--Bleu);
+    text-align: center;
+    width: 220px;
+    height: auto;
+    position: absolute;
+    top: 63px;
+    right: 0px;
+    border-radius: 0px 0px 0px 15px;
+    padding-bottom: 6px;
+}
+
+.menu_nav_uti a {
+    color: var(--Beige-1);
+    font-family: 'Raleway';
+    font-size: 24px;
+}
+
+.menu_nav_uti #logout {
+    background-color: var(--Marron);
+    padding: 1px 6px 1px 6px;
+    border-radius: 7.5px;
 }
 
 /* Footer */

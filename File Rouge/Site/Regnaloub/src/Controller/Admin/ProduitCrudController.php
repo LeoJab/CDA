@@ -27,7 +27,14 @@ class ProduitCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm()->hideOnIndex(),
             TextField::new('ref', 'Référence du produit'),
             TextField::new('lib', 'Nom'),
-            TextEditorField::new('description'),
+            TextEditorField::new('description')->setTrixEditorConfig([
+                'blockAttributes' => [
+                    'default' => ['tagName' => 'p'],
+                ],
+                'css' => [
+                    'attachment' => 'desc',
+                ],
+            ]),
             AssociationField::new('SousCategorie'),
             AssociationField::new('fournisseur'),
             SlugField::new('slug')->setTargetFieldName('lib'),

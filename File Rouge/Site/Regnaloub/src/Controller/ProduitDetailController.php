@@ -60,7 +60,7 @@ class ProduitDetailController extends AbstractController
                     'produitsSim' => $produitsSim,
                 ]);
                 break;
-            case 'Unité Central':
+            case 'Unité centrale':
                 $detailProduit = $ucRepo->findUcDetail($produitSlug);
                 // dd($cateLib, $produit, $produitSlug, $detailProduit, $produitsSim);
                 $vue = $this->render('produit_detail/unite_centrale.html.twig', [
