@@ -39,7 +39,7 @@ class Panier {
 
         return $panier;
     }
-    
+
 
     public function remove(Produit $produit) {
 
@@ -59,6 +59,24 @@ class Panier {
         else {
             unset($panier[$trouve]);
         }
+
+        $this->session->set("panier", $panier);
+
+        return $panier;
+    }
+
+    public function delete(Produit $produit) {
+        $panier = $this->session->get("panier", []);
+        // dd($panier);
+
+        $trouve = -1;
+        foreach($panier as $i => $p) {
+            if( $p["produit"]->getId() == $produit->getId()) {
+                $trouve = $i;
+            }
+        }
+
+        unset($panier[$trouve]);
 
         $this->session->set("panier", $panier);
 
