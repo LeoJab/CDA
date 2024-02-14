@@ -8,10 +8,17 @@
     <div class="">
 
     {% set totalPanier = 0 %}
+    {% set totalHtPanier = 0 %}
+    {% set totalTVA = 0 %}
 
         {% for item in panier %}
             {% set totalArticle = item.produit.prix * item.quantite %}
             {% set totalPanier = totalPanier + totalArticle %}
+
+            {% set totalHtArticle = item.produit.prixHt * item.quantite %}
+            {% set totalHtPanier = totalHtPanier + totalHtArticle %}
+
+            {% set totalTVA = totalPanier - totalHtPanier %}
 
             <div class="">
                 <div class="">
@@ -19,21 +26,32 @@
                     <h3>{{item.produit.lib}}</h3>
                     {{item.produit.description|u.truncate(60, '...')|raw}}
                 </div>
-                <div><a href="/add/{{item.produit.id}}">+</a> {{item.quantite}} <a href="/remove/{{item.produit.id}}">-</a></div>
-                <p>{{ item.produit.prix }}€</p>
-                <p>{{ item.produit.prix * item.quantite }}€</p>
-                <p>{{ item.produit.prixHt }}€ HT</p>
-                <p>{{ item.produit.prixHt * item.quantite }}€ HT</p>
+                <div>
+                    <a href="/add/{{item.produit.id}}">+</a> 
+                    {{item.quantite}} 
+                    <a href="/remove/{{item.produit.id}}">-</a>
+                    <a href="/delete/{{item.produit.id}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p>Total: {{ item.produit.prix * item.quantite }}€</p>
+                <p>Total HT:{{ item.produit.prixHt * item.quantite }}€ HT</p>
             
             {% else %}
                 Votre panier est vide
         {% endfor %}
             </div>
-<br><br>
-        
-            <div>
-                <p>Total Hors Taxe: {{ totalPanier }}€ HT</p>
 
+            <div>
+                <ul>
+                    <li>Total Hors Taxe: {{ totalHtPanier }}€ HT</li>
+                    <li>TVA: {{ totalTVA }}€</li>
+                    <li>Total: {{ totalPanier }}€</li>
+                </ul>
+                <a href="#">Valider et payer</a>
             </div>
     </div>
 
