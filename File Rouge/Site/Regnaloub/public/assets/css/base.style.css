@@ -231,7 +231,7 @@ footer li a {
 }
 
 #footer_info {
-    color: var(--Beige-1);
+    color: var(--Beige-1) !important;
     font-family: 'Raleway';
     font-size: 16px;
     margin-bottom: 20px;
