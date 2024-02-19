@@ -7,10 +7,13 @@ use App\Entity\Utilisateur;
 use App\Entity\Facture;
 use App\Entity\Commande;
 use App\Entity\Contient;
+use App\Entity\Livraison;
+
+use App\Repository\ProduitRepository;
+use App\Repository\UtilisateurRepository;
 
 use App\Services\Panier;
 use DateTime;
-use DateTimeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -19,6 +22,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mime\Address;
+
+use Doctrine\ORM\EntityManagerInterface;
 
 class PanierController extends AbstractController
 {
@@ -63,35 +68,96 @@ class PanierController extends AbstractController
     }
 
     #[Route('/validation_panier', name: 'validation_panier')]
-    public function validationPanier(SessionInterface $session, MailerInterface $mailer): Response
+    public function validationPanier(SessionInterface $session, Panier $service_panier, MailerInterface $mailer, ProduitRepository $produitRepository, UtilisateurRepository $utilisateurRepository,EntityManagerInterface $em): Response
     {
-        $user = new Utilisateur();
-        $panier = $session->get("panier", []);
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $panier = $session->get('panier', []);
         $date = new \DateTime('@'.strtotime('now'));
+        $utilisateur = $utilisateurRepository->find($this->getUser());
+        
+        if($panier === []){
+            $this->addFlash('message', 'Votre panier est vide');
+            return $this->redirectToRoute('default');
+        }
+
+        // Set des prix
+        $totalTtc = 0;
+        $totalHt = 0;
+        $tva = 0;
+
+        foreach($panier as $item){
+            $produit = $produitRepository->find($item['produit']);
+            $quantite = $item['quantite'];
+
+            $totalArticleTtc = $produit->getPrix() * $quantite;
+            $totalTtc = $totalTtc + $totalArticleTtc;
+
+            $totalArticleHt = $produit->getPrixHt() * $quantite;
+            $totalHt = $totalHt + $totalArticleHt;
+
+            $tva = $totalTtc - $totalHt;
+        }
+        
+        // Création de la commande
+        $commande = new Commande();
+        $commande->setUtilisateur($this->getUser());
+        $commande->setSuivi('En cours de préparation');
+        $commande->setDate($date);
+        $em->persist($commande);
+
+        // Création de la facture
+        $facture = new Facture();
+        $facture->setAdresse($utilisateur->getAdresseFac());
+        $facture->setDate($date);
+        $facture->setTotTtc($totalTtc);
+        $facture->setTotPrixHt($totalHt);
+        $facture->setTva($tva);
+        $facture->setCommande($commande);
+        $em->persist($facture);
+
+        // Création de la livraison
+        $livraison = new Livraison();
+        $livraison->setAdresse($utilisateur->getAdresseLiv());
+        $livraison->setDate(new \DateTime('@'.strtotime('+4 days')));
+        $livraison->setStatus('En attente de reception');
+        $livraison->setCommande($commande);
+        $em->persist($livraison);
+
+        // Insertion des données dans la table contient
+        foreach($panier as $item){
+            $produit = $produitRepository->find($item['produit']);
+            $quantite = $item['quantite'];
+
+            $contient = new Contient();
+
+            $contient->setQuant($quantite);
+            $contient->setPu($produit->getPrix());
+            $contient->setPuHt($produit->getPrixHt());
+            $contient->setSold($produit->getSold());
+            $contient->setProduit($produit);
+            $contient->setFacture($facture);
+        };
+        //dd($facture, $commande, $contient, $livraison);
+        $em->persist($commande);
+        $em->persist($facture);
+        $em->persist($livraison);
+        $em->persist($contient);
+        $em->flush();
 
         //Envoie du mail de confirmation
-        /*$email = (new TemplatedEmail())
+        $email = (new TemplatedEmail())
             ->from('regnaloub@gmail.com')
-            ->to($user->getEmail())
+            ->to($utilisateur->getEmail())
             ->subject('Validation de votre commande')
             ->htmlTemplate('mails/validationPanier.html.twig')
             ->context([
                     'panier' => $panier,
                 ]);
 
-        $mailer->send($email);*/
-
-        //Création de la commande
-        $commande = new Commande();
-        $commande->setUtilisateur($user->getEmail());
-        $commande->setSuivi('En cours de préparation');
-        $commande->setDate($date);
-
-        dd($commande);
-        //Création de la facture
-        $facture = new Facture();
-        //Insertion des données dans la table contient
-        $contient = new Contient();
+        $mailer->send($email);
+        
+        $service_panier->delete($produit);
 
         return $this->render('main/validationPanier.html.twig');
     }

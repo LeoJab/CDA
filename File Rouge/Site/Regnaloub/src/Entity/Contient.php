@@ -26,7 +26,7 @@ class Contient
     #[ORM\Column]
     private ?int $sold = null;
 
-    #[ORM\ManyToOne(inversedBy: 'produit')]
+    #[ORM\ManyToOne(inversedBy: 'produit', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Produit $produit = null;
 

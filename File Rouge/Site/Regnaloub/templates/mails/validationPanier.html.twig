@@ -1,4 +1,224 @@
-<div id="panier_all">
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('/assets/css/base.style.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Farro:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% apply inline_css %}
+    <style>
+    :root {
+        /* Couleurs */
+        --Noir: #000000;
+        --Marron: #E07A5F;
+        --Bleu: #3D405B;
+        --Beige-1: #FDF0E7;
+        --Beige-2: #E3CBBB;
+    }
+
+    #panier {
+        margin: 5% 10% 5% 10%;
+    }
+
+    h1 {
+        color: var(--Bleu);
+        font-family: 'Farro';
+        font-size: 50px;
+    }
+
+    #panier_all {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 25px;
+    }
+
+    #panier_titre {
+        color: var(--Bleu);
+        font-family: 'Farro';
+        font-size: 50px;
+    }
+
+    .panier_contenue_all {
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 7px 1px #D4D4D4;
+        padding: 10px;
+        border-radius: 15px;
+        width: 40%;
+    }
+
+    .panier_contenue_all h2 {
+        font-family: 'Farro';
+        text-align: center;
+        font-size: 32px;
+        color: var(--Bleu);
+    }
+
+    .panier_contenue {
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .panier_contenue img {
+        max-width: 100px;
+        max-height: 100px;
+        margin-right: 5px;
+    }
+
+    .panier_contenue h3, .panier_contenue p {
+        margin: 0px;
+        color: var(--Bleu);
+        font-family: 'Raleway';
+    }
+
+    .panier_quantiter_prix {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-left: 5%;
+    }
+
+    .panier_quantite {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 5%;
+    }
+
+    .panier_ajouter_quantiter_retirer {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+    }
+
+    .panier_quantite a {
+        text-decoration: none;
+        color: var(--Bleu);
+        font-family: 'Farro';
+    }
+
+    .icon_trash {
+        background-color: var(--Beige-1);
+        border: 1px var(--Marron) solid;
+        border-radius: 100%;
+        padding: 2px;
+    }
+
+    .a_trash {
+        margin-top: 2.5%;
+        margin-left: auto;
+    }
+
+    .panier_quantite a .trash:hover {
+        background-color: var(--Beige-2);
+    }
+
+    .panier_ajouter_quantiter_retirer {
+        border-radius: 10%;
+        box-shadow: 0px 0px 7px 1px #D4D4D4;
+    }
+
+    .panier_quantite p {
+        color: var(--Bleu);
+        font-family: 'Farro';
+        background-color: var(--Beige-1);
+        padding-left: 25%;
+        padding-right: 25%;
+        border: 1px var(--Marron) solid;
+    }
+
+    .panier_ajouter, .panier_retirer {
+        padding-left: 10%;
+        padding-right: 10%;
+        border: 1px var(--Marron) solid;
+    }
+
+    .panier_ajouter {
+        background-color: var(--Marron);
+        border-radius: 10% 0% 0% 10%;
+    }
+
+    .panier_retirer {
+        background-color: var(--Marron);
+        border-radius: 0% 10% 10% 0%;
+    }
+
+    .panier_prix_u {
+        display: flex;
+        flex-direction: row;
+        margin-left: 10px;
+    }
+
+    .panier_prix {
+        font-family: 'Farro' !important;
+    }
+
+    .panier_prix_ht {
+        font-size: 14px !important;
+        text-align: end;
+    }
+
+    .panier_total {
+        box-shadow: 0px 0px 7px 1px #D4D4D4;
+        border-radius: 15px;
+        width: auto;
+        padding-right: 2%;
+        padding-bottom: 1%;
+        text-align: center;
+    }
+
+    .panier_total ul {
+        list-style: none;
+        padding: 0% 5% 0% 5%;
+        margin-bottom: 2.5%;
+    }
+
+    .panier_total li {
+        color: var(--Bleu);
+        font-family: 'Farro';
+        display: flex;
+        flex-direction: row;
+        white-space: nowrap;
+    }
+
+    .panier_total p {
+        font-family: 'Raleway';
+        margin: 0px;
+        margin-left: 3%;
+        white-space: nowrap;
+    }
+
+    .panier_total .total {
+        border-top: 1px solid var(--Bleu);
+        padding-top: 5%;
+        margin-top: 20%;
+    }
+
+    .panier_total a {
+        background-color: var(--Marron);
+        color: var(--Beige-1);
+        font-size: 20px;
+        font-family: 'Farro';
+        padding: 0% 2.5% 0% 2.5%;
+        border-radius: 25px;
+        text-decoration: none;
+        margin-left: 7%;
+        white-space: nowrap;
+    }
+    </style>
+
+    <div id="panier_all">
+        <h1>Merci pour votre commande sur Ragnaloub !</h1>
         {% set totalPanier = 0 %}
         {% set totalHtPanier = 0 %}
         {% set totalTVA = 0 %}
@@ -15,7 +235,6 @@
                 {% set totalTVA = totalPanier - totalHtPanier %}
 
                 <div class="panier_contenue">
-                    <img src="{{ asset('assets/img/produits/') ~ item.produit.photo }}" alt="photo produit">
                     <div class="panier_lib_desc">
                         <h3>{{item.produit.lib}}</h3>
                         {{item.produit.description|u.truncate(300, '...')|raw}}
@@ -24,17 +243,8 @@
                     <div class="panier_quantiter_prix">
                         <div class="panier_quantite">
                             <div class="panier_ajouter_quantiter_retirer">
-                                <a class="panier_ajouter" href="/add/{{item.produit.id}}">+</a>
-                                <p>{{item.quantite}}
-                                </p>
-                                <a class="panier_retirer" href="/remove/{{item.produit.id}}">-</a>
+                                <p>{{item.quantite}}</p>
                             </div>
-                            <a class="a_trash" href="/delete/{{item.produit.id}}">
-                                <svg class="icon_trash" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewbox="0 0 16 16">
-                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-                                </svg>
-                            </a>
                         </div>
 
                         <div class="panier_prix_u">
@@ -44,8 +254,6 @@
                         </div>
                     </div>
                 </div>
-            {% else %}
-                <h2>Votre panier est vide</h2>
             {% endfor %}
         </div>
 
@@ -55,6 +263,6 @@
                 <li>TVA: <p>{{ totalTVA }}€</p></li>
                 <li class="total">Total: <p>{{ totalPanier }}€</p></li>
             </ul>
-            <a href="/validation_panier">Valider la commande</a>
         </div>
     </div>
+{% endapply %}
