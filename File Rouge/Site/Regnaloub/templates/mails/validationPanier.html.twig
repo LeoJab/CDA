@@ -1,12 +1,4 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Panier{% endblock %}
-
-{% block body %}
-<div id="panier">
-    <h1 id="panier_titre">Panier</h1>
-
-    <div id="panier_all">
+<div id="panier_all">
         {% set totalPanier = 0 %}
         {% set totalHtPanier = 0 %}
         {% set totalTVA = 0 %}
@@ -66,5 +58,3 @@
             <a href="/validation_panier">Valider la commande</a>
         </div>
     </div>
-</div>
-{% endblock %}

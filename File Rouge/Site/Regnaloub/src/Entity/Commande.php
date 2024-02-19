@@ -48,7 +48,7 @@ class Commande
         return $this->suivi;
     }
 
-    public function setComSuivi(string $suivi): static
+    public function setSuivi(string $suivi): static
     {
         $this->suivi = $suivi;
 
