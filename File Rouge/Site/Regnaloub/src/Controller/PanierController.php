@@ -161,14 +161,4 @@ class PanierController extends AbstractController
 
         return $this->render('main/validationPanier.html.twig');
     }
-
-    #[Route('/mailPanier', name: 'mail_panier')]
-    public function mailPanier(SessionInterface $session): Response
-    {
-        $panier = $session->get("panier", []);
-
-        return $this->render('mails/validationPanier.html.twig', [
-            'panier' => $panier,
-        ]);
-    }
 }

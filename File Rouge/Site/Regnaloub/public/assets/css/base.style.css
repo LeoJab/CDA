@@ -176,6 +176,8 @@ header a {
 footer {
     background-color: var(--Bleu);
     padding: 0.75% 0% 0.75% 0%;
+    position: relative;
+    bottom: 100%;
 }
 
 #footer_all {

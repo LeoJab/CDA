@@ -628,6 +628,7 @@
     white-space: nowrap;
 }
 
+<<<<<<< HEAD
 /* Contact */
 #contact {
     display: flex;
@@ -809,4 +810,30 @@
 
 #formInscription .formBtn {
     margin-top: 5px;
+=======
+/* Confirmation Commande */
+#confirmation_commande {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#confirmation_commande h1 {
+    color: var(--Bleu);
+    font-size: 50px;
+    font-family: 'Farro';
+}
+
+#confirmation_commande h2 {
+    color: var(--Bleu);
+    font-size: 30px;
+    font-family: 'Raleway';
+}
+
+#confirmation_commande svg {
+    color: #affc41;
+    width: 250px;
+    height: 250px;
+>>>>>>> abfa1cbb446381f64adcf10d4292c88262f7d0da
 }
