@@ -3,30 +3,42 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-    <div id="formContact">
-        {{ form_start(form) }}
-            <div id="formContactErrors">
-                {{ form_errors(form) }}
-            </div>
+    <style>
+    footer {
+        position: absolute; 
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    </style>
 
-            <div id="formContactInputLabel">
-                {{ form_label(form.email, 'Adresse e-mail', {'attr': {'class':'formContactLabel'}}) }}
-                {{ form_widget(form.email, {'attr': {'class':'formContactInput'}}) }}
-                {{ form_errors(form.email, {'attr': {'class':'formContactErrors'}}) }}
+    <div id='contact'> 
+        <h1 class="formH1">Prendre contact</h1>
+        <div id="formContact">
+            {{ form_start(form) }}
+                <div id="formContactInputLabel">
+                    {{ form_label(form.email, 'Adresse e-mail') }}
+                    {{ form_widget(form.email, {'attr': {'class':'formInput75 contactInput'}}) }}
+                    {{ form_errors(form.email, {'attr': {'class':'formContactErrors'}}) }}
 
-                {{ form_label(form.objet, 'Objet du message', {'attr': {'class':'formContactLabel'}}) }}
-                {{ form_widget(form.objet, {'attr': {'class':'formContactInput'}}) }}
-                {{ form_errors(form.objet, {'attr': {'class':'formContactErrors'}}) }}
+                    {{ form_label(form.objet, 'Objet du message') }}
+                    {{ form_widget(form.objet, {'attr': {'class':'formInput75 contactInput'}}) }}
+                    {{ form_errors(form.objet, {'attr': {'class':'formContactErrors'}}) }}
 
-                {{ form_label(form.message, 'Votre message', {'attr': {'class':'formContactLabel'}}) }}
-                {{ form_widget(form.message, {'attr': {'class':'formContactInput'}}) }}
-                {{ form_errors(form.message, {'attr': {'class':'formContactErrors'}}) }}
-            </div>
+                    {{ form_label(form.message, 'Votre message') }}
+                    {{ form_widget(form.message, {'attr': {'class':'contactMessage'}}) }}
+                    {{ form_errors(form.message, {'attr': {'class':'formContactErrors'}}) }}
+                </div>
 
-            <div id="formContactBtn">
-                {{ form_row(form.envoyer) }}
-            </div>
+                <div id="formContactErrors">
+                    {{ form_errors(form) }}
+                </div>
 
-        {{ form_end(form) }}
+                <div id="formContactBtn">
+                    {{ form_row(form.envoyer, {'attr': {'class':'formBtn'}}) }}
+                </div>
+
+            {{ form_end(form) }}
+        </div>
     </div>
 {% endblock %}

@@ -3,21 +3,69 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
+<div id="inscription">
+    <h1 class="formH1">Inscription</h1>
+    
+    <div id="formInscription">
+        {% for flash_error in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+        {% endfor %}
 
-    <h1>Register</h1>
+        {{ form_start(registrationForm) }}
+            <div id="registerNomPrenom">
+                <div id="registerNom">
+                    {{ form_label(registrationForm.nom, 'Nom') }}
+                    {{ form_widget(registrationForm.nom, {'attr': {'class':'formInput100'}}) }}
+                    {{ form_errors(registrationForm.nom, {'attr': {'class':'formContactErrors'}}) }}
+                </div>
+                <div id="registerPrenom">
+                    {{ form_label(registrationForm.prenom, 'Prenom') }}
+                    {{ form_widget(registrationForm.prenom, {'attr': {'class':'formInput100'}}) }}
+                    {{ form_errors(registrationForm.prenom, {'attr': {'class':'formContactErrors'}}) }}
+                </div>
+            </div>
 
-    {{ form_errors(registrationForm) }}
+            {{ form_label(registrationForm.email, 'Adresse Email') }}
+            {{ form_widget(registrationForm.email, {'attr': {'class':'formInput100'}}) }}
+            {{ form_errors(registrationForm.email, {'attr': {'class':'formContactErrors'}}) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+            {{ form_label(registrationForm.tel, 'Numéro de téléphone') }}
+            {{ form_widget(registrationForm.tel, {'attr': {'class':'formInput75'}}) }}
+            {{ form_errors(registrationForm.tel, {'attr': {'class':'formContactErrors'}}) }}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+            <div id="registerVilleCp">
+                <div id="registerVille">
+                    {{ form_label(registrationForm.ville, 'Ville') }}
+                    {{ form_widget(registrationForm.ville, {'attr': {'class':'formInput100'}}) }}
+                    {{ form_errors(registrationForm.ville, {'attr': {'class':'formContactErrors'}}) }}
+                </div>
+                <div id="registerCp">
+                    {{ form_label(registrationForm.cp, 'Code Postal') }}
+                    {{ form_widget(registrationForm.cp, {'attr': {'class':'formInput75'}}) }}
+                    {{ form_errors(registrationForm.cp, {'attr': {'class':'formContactErrors'}}) }}
+                </div>
+            </div>
+
+            {{ form_label(registrationForm.adresse, 'Adresse') }}
+            {{ form_widget(registrationForm.adresse, {'attr': {'class':'formInput100'}}) }}
+            {{ form_errors(registrationForm.adresse, {'attr': {'class':'formContactErrors'}}) }}
+
+            {{ form_label(registrationForm.adresseLiv, 'Adresse de livraison') }}
+            {{ form_widget(registrationForm.adresseLiv, {'attr': {'class':'formInput100'}}) }}
+            {{ form_errors(registrationForm.adresseLiv, {'attr': {'class':'formContactErrors'}}) }}
+
+            {{ form_label(registrationForm.adresseFac, 'Adresse de facturation') }}
+            {{ form_widget(registrationForm.adresseFac, {'attr': {'class':'formInput100'}}) }}
+            {{ form_errors(registrationForm.adresseFac, {'attr': {'class':'formContactErrors'}}) }}
+
+            {{ form_label(registrationForm.plainPassword, 'Mot de passe') }}
+            {{ form_widget(registrationForm.plainPassword, {'attr': {'class':'formInput75'}}) }}
+            {{ form_errors(registrationForm.plainPassword, {'attr': {'class':'formContactErrors'}}) }}
+            
+            {{ form_row(registrationForm.agreeTerms) }}
+            <button type="submit" class="formBtn">S'inscrire</button>
+            {{ form_errors(registrationForm) }}
+        {{ form_end(registrationForm) }}
+    </div>
+</div>
 {% endblock %}

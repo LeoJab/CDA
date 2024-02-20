@@ -627,3 +627,186 @@
     margin-left: 7%;
     white-space: nowrap;
 }
+
+/* Contact */
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formH1 {
+    color: var(--Bleu);
+    font-family: 'Farro';
+    font-size: 64px;
+}
+
+#formContact{
+    width: 40%;
+    background-color: var(--Bleu);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1% 0% 1% 0%;
+}
+
+#formContactInputLabel label, .formLabel, #formInscription label {
+    color: var(--Beige-1);
+    font-size: 20px;
+}
+
+.formInput100 {
+    background-color: var(--Beige-1);
+    border: 1px solid var(--Marron);
+    color: var(--Bleu);
+    font-size: 12px;
+    font-family: 'Raleway';
+    border-radius: 10px;
+    width: 100%;
+    padding-left: 1%;
+    height: 24px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.formInput75 {
+    background-color: var(--Beige-1);
+    border: 1px solid var(--Marron);
+    color: var(--Bleu);
+    font-size: 12px;
+    font-family: 'Raleway';
+    border-radius: 10px;
+    width: 75%;
+    padding-left: 1%;
+    height: 24px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.formInput50 {
+    background-color: var(--Beige-1);
+    border: 1px solid var(--Marron);
+    color: var(--Bleu);
+    font-size: 12px;
+    font-family: 'Raleway';
+    border-radius: 10px;
+    width: 40%;
+    padding-left: 1%;
+    height: 24px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.formInput25 {
+    background-color: var(--Beige-1);
+    border: 1px solid var(--Marron);
+    color: var(--Bleu);
+    font-size: 12px;
+    font-family: 'Raleway';
+    border-radius: 10px;
+    width: 40%;
+    padding-left: 1%;
+    height: 24px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.contactMessage {
+    background-color: var(--Beige-1);
+    border: 1px solid var(--Marron);
+    color: var(--Bleu);
+    font-size: 12px;
+    font-family: 'Raleway';
+    border-radius: 10px;
+    width: 98%;
+    margin-top: 5px;
+    padding-left: 1%;
+}
+
+.contactInput {
+    height: 24px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+#formContactInputLabel {
+    display: flex;
+    flex-direction: column;
+}
+
+#formContactBtn {
+    text-align: center;
+    margin: 5% 0% 0% 0%;
+}
+
+.formBtn {
+    background-color: var(--Beige-1);
+    border: 3px solid var(--Marron);
+    color: var(--Bleu);
+    font-size: 32px;
+    font-family: 'Farro';
+    border-radius: 10px;
+}
+
+/* Connexion */
+#connexion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#formConnexion {
+    width: 40%;
+    background-color: var(--Bleu);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1% 0% 1% 0%;
+}
+
+/* Inscription */
+#inscription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#formInscription {
+    width: 50%;
+    background-color: var(--Bleu);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1% 0% 1% 0%;
+}
+
+#formInscription form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#registerNomPrenom, #registerVilleCp {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#registerNom, #registerPrenom, #registerVille, #registerCp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#formInscription .formBtn {
+    margin-top: 5px;
+}

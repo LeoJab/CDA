@@ -7,8 +7,14 @@
     --Beige-2: #E3CBBB;
 }
 
+html {
+    min-height: 100%;
+  }
+
 body {
-    margin: 0px;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* NavBar */

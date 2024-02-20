@@ -27,7 +27,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $prenom = null;
 
     #[ORM\Column(length: 30)]
-    private ?string $cate = null;
+    private ?string $cate = 'Particulier';
 
 /**
      * A visual identifier that represents this user.
@@ -152,7 +152,11 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getCate(): ?string
     {
-        return $this->cate;
+        $cate = $this->cate;
+
+        $cate = 'Particulier';
+
+        return $cate;
     }
 
     public function setCate(string $cate): static
