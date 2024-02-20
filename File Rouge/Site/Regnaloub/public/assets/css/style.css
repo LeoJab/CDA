@@ -627,3 +627,29 @@
     margin-left: 7%;
     white-space: nowrap;
 }
+
+/* Confirmation Commande */
+#confirmation_commande {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#confirmation_commande h1 {
+    color: var(--Bleu);
+    font-size: 50px;
+    font-family: 'Farro';
+}
+
+#confirmation_commande h2 {
+    color: var(--Bleu);
+    font-size: 30px;
+    font-family: 'Raleway';
+}
+
+#confirmation_commande svg {
+    color: #affc41;
+    width: 250px;
+    height: 250px;
+}
