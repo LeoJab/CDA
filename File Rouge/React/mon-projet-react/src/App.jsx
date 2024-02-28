@@ -1,7 +1,7 @@
 import Exo1 from "./Exo1";
 import Exo2 from "./Exo2";
 import Exo3 from "./Exo3";
-import Api from "./Api";
+import ApiMovieDB from "./ApiMovieDB";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
     </div>
 
     <div>
-      <Api />
+      <ApiMovieDB />
     </div>
   </>
   );
