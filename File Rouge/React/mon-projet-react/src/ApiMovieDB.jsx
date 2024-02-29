@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 function ApiMovieDB() {
@@ -11,31 +11,35 @@ function ApiMovieDB() {
 
     const [liste, setListe] = useState(['']);
 
-    useEffect(() => {
-        axios.get(`http://api.themoviedb.org/3/search/movie?api_key=f33cd318f5135dba306176c13104506a&query=` + nom,
+    const resultFilm = () => {
+        try {
+            axios.get(`http://api.themoviedb.org/3/search/movie?api_key=f33cd318f5135dba306176c13104506a&query=` + nom,
             {
                 headers: { "Accept": "application/json" }
             }
-        ).then( 
-            (response) => {
-                setListe(response.data.results);
-                console.log(response.data.results);
-            }
-        )
-    }, [])
+            ).then( 
+                (response) => {
+                    setListe(response.data.results);
+                    console.log(response.data.results);
+                }
+            )
+        } catch {
 
+        }
+    } 
 
     return (
 
             <div>
                 <h2>API The Movie DB</h2>
                 <input type="text" placeholder="Entre un nom de film" value={nom} onChange={ handleNom } />
-                <button >Rechercher</button>
+                <button onClick={ resultFilm }>Rechercher</button>
+
                 {
                     liste.map((element, index) =>
                         (
                             <div key={index}>
-                                {element.title}
+                                <p>{element.title} {element.release_date}</p>
                             </div>
                         )
                     )
