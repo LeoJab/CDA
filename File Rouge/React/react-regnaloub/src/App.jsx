@@ -1,9 +1,9 @@
-import ProduitAll from './Produits';
+import CategorieAll from './Categories';
 
 function App() {
   return (
     <>
-      <ProduitAll />
+      <CategorieAll />
     </>
   );
 }
