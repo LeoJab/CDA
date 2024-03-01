@@ -628,7 +628,6 @@
     white-space: nowrap;
 }
 
-<<<<<<< HEAD
 /* Contact */
 #contact {
     display: flex;
@@ -810,7 +809,8 @@
 
 #formInscription .formBtn {
     margin-top: 5px;
-=======
+}
+
 /* Confirmation Commande */
 #confirmation_commande {
     display: flex;
@@ -835,5 +835,4 @@
     color: #affc41;
     width: 250px;
     height: 250px;
->>>>>>> abfa1cbb446381f64adcf10d4292c88262f7d0da
 }
