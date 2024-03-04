@@ -1,0 +1,83 @@
+:root {
+    /* Couleurs */
+    --Noir: #000000;
+    --Marron: #E07A5F;
+    --Bleu: #3D405B;
+    --Beige-1: #FDF0E7;
+    --Beige-2: #E3CBBB;
+}
+
+/* CATEGORIE */
+#accueil_titre_categorie {
+    font-family: 'Farro';
+    color: var(--Bleu);
+    text-decoration: underline;
+    font-size: 50px;
+    margin: 3% 0% 1% 17.5%;
+}
+
+#accueil_categorie {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0% 16% 0% 16%;
+}
+
+.card_categorie {
+    margin: auto;
+    border: 2px var(--Marron) solid;
+    text-align: center;
+    margin-bottom: 3%;
+    max-width: 264px;
+}
+
+#accueil_categorie img {
+    width: 264px;
+    height: 197px;
+    object-fit: cover;
+    vertical-align:bottom
+}
+
+#accueil_categorie p {
+    font-family: 'Farro';
+    color: var(--Bleu);
+    font-size: 17px;
+    margin: 0px;
+}
+
+.card_categorie_lib_desc_btn {
+    background-color: var(--Beige-1);
+    text-align: center;
+}
+
+.card_categorie_lib_desc {
+    margin: 0% 1.5% 0% 1.5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.card_categorie a {
+    text-decoration: none;
+}
+
+.card_categorie img {
+    object-fit: cover;
+}
+
+#accueil_categorie .desc {
+    font-family: 'Raleway';
+    font-size: 12px;
+}
+
+.btn_categorie {
+    text-decoration: none;
+    font-family: 'Farro';
+    color: var(--Beige-1);
+    background-color: var(--Marron);
+    font-size: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1% 0% 1% 0%;
+}

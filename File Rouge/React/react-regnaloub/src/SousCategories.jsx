@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Categories () {
-    const navigate = useNavigate();
+function Produits () {
     
     const [liste, setListe] = useState(['']);
 
     useEffect( () => {
-        axios("http://127.0.0.1:8000/api/categories", 
+        axios("http://127.0.0.1:8000/api/sous_categories", 
             {
                 headers: { "Accept": "application/json"}
             }
@@ -22,19 +20,20 @@ function Categories () {
 
     return (
         <>
-        <h1 id="accueil_titre_categorie">Nos différentes catégories</h1>
+        <h1 id="accueil_titre_categorie">Sous Catégories</h1>
         <div id="accueil_categorie">
             {
                 liste.map((element, index) =>
                     (
                         <div className="card_categorie" key={index}>
-                            <a onClick={navigate("/sous_categorie", { replace: true })}>
+                            <a href="http://127.0.0.1:8000/api/sous_categories/">
                                 <img src={element.photo} alt="photo categorie" />
                                 <div className="card_categorie_lib_desc_btn">
                                     <div className="card_categorie_lib_desc">
                                         <p>{element.lib}</p>
+                                        <p>{element.description}</p>
                                     </div>
-                                    <btn class="btn_categorie" href="#">Visiter la categorie</btn>
+                                    <btn class="btn_categorie" href="#">Visiter la sous-categorie</btn>
                                 </div>
                             </a>
                         </div>
@@ -46,4 +45,4 @@ function Categories () {
     );
 }
 
-export default Categories;
+export default Produits;

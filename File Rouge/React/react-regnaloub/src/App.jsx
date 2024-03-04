@@ -1,10 +1,21 @@
-import CategorieAll from './Categories';
+import { Link, Route, Routes } from "react-router-dom";
+import Categories from './Categories';
+import Produits from './Produits';
 
 function App() {
   return (
-    <>
-      <CategorieAll />
-    </>
+
+  <div>
+      <nav>
+        <Link to="/Categories">Categories</Link>
+
+      </nav>
+    <hr />
+    <Routes>
+      <Route path="Categories" element={<Categories />} />
+
+    </Routes>
+  </div>
   );
 }
 

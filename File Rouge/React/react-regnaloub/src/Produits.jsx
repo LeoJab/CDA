@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+/* import { useEffect, useState } from "react";
 import axios from "axios";
 
 function ProduitAll()  {
-    const [liste, setListe] = useState([]);
+    const [liste, setListe] = useState(['']);
 
     useEffect(()=>{
         axios("http://127.0.0.1:8000/api/produits", 
@@ -29,4 +29,4 @@ function ProduitAll()  {
     );
 }
 
-export default ProduitAll();
+export default ProduitAll(); */
