@@ -4,6 +4,10 @@ import axios from "axios";
 
 function Categories () {
     const navigate = useNavigate();
+
+    function handleClick () {
+        navigate("/produits", { replace: true });
+      };
     
     const [liste, setListe] = useState(['']);
 
@@ -27,16 +31,15 @@ function Categories () {
             {
                 liste.map((element, index) =>
                     (
-                        <div className="card_categorie" key={index}>
-                            <a onClick={navigate("/sous_categorie", { replace: true })}>
-                                <img src={element.photo} alt="photo categorie" />
-                                <div className="card_categorie_lib_desc_btn">
-                                    <div className="card_categorie_lib_desc">
-                                        <p>{element.lib}</p>
-                                    </div>
-                                    <btn class="btn_categorie" href="#">Visiter la categorie</btn>
+                        <div onClick={handleClick} className="card_categorie" key={index}>
+                            <img src={element.photo} alt="photo categorie" />
+                            <div className="card_categorie_lib_desc_btn">
+                                <div className="card_categorie_lib_desc">
+                                    <p>{element.lib}</p>
+                                    <p>{element.sousCategories}</p>
                                 </div>
-                            </a>
+                                <div className="btn_categorie">Visiter la categorie</div>
+                            </div>
                         </div>
                     )
                 )

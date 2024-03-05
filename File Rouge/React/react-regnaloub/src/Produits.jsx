@@ -1,32 +1,49 @@
-/* import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
-function ProduitAll()  {
+function Produits () {
+
+    
     const [liste, setListe] = useState(['']);
 
-    useEffect(()=>{
+    useEffect( () => {
         axios("http://127.0.0.1:8000/api/produits", 
+            {
+                headers: { "Accept": "application/json"}
+            }
         ).then(
-            (reponse)=>{
-                console.log(reponse.data);
-                setListe(reponse.data);
+            (response)=>{
+                console.log(response.data);
+                setListe(response.data);
             }
         )
     }, [])
 
     return (
-        <div>
+        <>
+        <h1 id="accueil_titre_categorie">Liste de tout nos produits</h1>
+        <div id="accueil_categorie">
             {
                 liste.map((element, index) =>
                     (
-                        <div key={index}>
-                            <p>{element}</p>
+                        <div className="card_categorie" key={index}>
+                            <a href="api/sous_categories/36">
+                                <img src={element.photo} alt="photo categorie" />
+                                <div className="card_categorie_lib_desc_btn">
+                                    <div className="card_categorie_lib_desc">
+                                        <p>{element.lib}</p>
+                                    </div>
+                                    <div className="btn_categorie">Visiter la categorie</div>
+                                </div>
+                            </a>
                         </div>
                     )
                 )
             }
         </div>
+        </>
     );
 }
 
-export default ProduitAll(); */
+export default Produits;
