@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
 use App\Repository\SousCategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,6 +13,9 @@ use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: SousCategorieRepository::class)]
 #[ApiResource]
+#[ApiFilter(SearchFilter::class,
+    properties: ["categorie.id" => "exact"]
+)]
 class SousCategorie
 {
     #[ORM\Id]

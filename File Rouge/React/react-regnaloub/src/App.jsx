@@ -2,6 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import Categories from './Categories';
 import SousCategories from './SousCategories';
 import Produits from './Produits'
+import DetailsProduit from './DetailsProduit'
 
 function App() {
   return (
@@ -9,7 +10,6 @@ function App() {
   <div>
       <nav>
         <Link to="/Categories">Categories</Link>
-        <Link to="/sous_categories/36">Test</Link>
         <Link to="/Produits">Produit</Link>
       </nav>
     <hr />
@@ -17,6 +17,8 @@ function App() {
       <Route path="Categories" element={<Categories />} />
       <Route path="Produits" element={<Produits />} />
       <Route path="sous_categories/:id" element={<SousCategories />} />
+      <Route path="produits/:id" element={<Produits />} />
+      <Route path="details_produit/:id" element={<DetailsProduit />} />
     </Routes>
   </div>
   );

@@ -1,14 +1,8 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Categories () {
-    const navigate = useNavigate();
-
-    function handleClick () {
-        navigate("/produits", { replace: true });
-      };
-    
+function Categories () {    
     const [liste, setListe] = useState(['']);
 
     useEffect( () => {
@@ -31,15 +25,16 @@ function Categories () {
             {
                 liste.map((element, index) =>
                     (
-                        <div onClick={handleClick} className="card_categorie" key={index}>
+                        <div className="card_categorie" key={index}>
+                            <Link to={`/sous_categories/${element.id}`}>
                             <img src={element.photo} alt="photo categorie" />
                             <div className="card_categorie_lib_desc_btn">
                                 <div className="card_categorie_lib_desc">
                                     <p>{element.lib}</p>
-                                    <p>{element.sousCategories}</p>
                                 </div>
                                 <div className="btn_categorie">Visiter la categorie</div>
                             </div>
+                            </Link>
                         </div>
                     )
                 )

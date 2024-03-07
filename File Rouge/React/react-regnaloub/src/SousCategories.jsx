@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams, Link } from "react-router-dom";
 
 function SousCategories () {
+
+    const {id} = useParams();
+    console.log(id);
     
-    const [liste, setListe] = useState(['']);
+    const [liste, setListe] = useState([]);
 
     useEffect( () => {
-        axios("http://127.0.0.1:8000/api/sous_categories/:id", 
+        axios(`http://127.0.0.1:8000/api/sous_categories?categorie.id=${id}`, 
             {
                 headers: { "Accept": "application/json"}
             }
@@ -26,14 +30,16 @@ function SousCategories () {
                 liste.map((element, index) =>
                     (
                         <div className="card_categorie" key={index}>
-                                <img src={element.photo} alt="photo categorie" />
+                            <Link to={`/produits/${element.id}`}>
+                                <img src={`/assets/img/sCategories/${element.photo}`} alt="photo sous-categorie" />
                                 <div className="card_categorie_lib_desc_btn">
                                     <div className="card_categorie_lib_desc">
                                         <p>{element.lib}</p>
                                         <p>{element.description}</p>
                                     </div>
-                                    <btn className="btn_categorie" href="#">Visiter la sous-categorie</btn>
+                                    <div className="btn_categorie" href="#">Voir les produits</div>
                                 </div>
+                            </Link>
                         </div>
                     )
                 )

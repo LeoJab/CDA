@@ -81,3 +81,146 @@
     justify-content: center;
     padding: 1% 0% 1% 0%;
 }
+
+/* PRODUIT */
+#accueil_titre_prod {
+    font-family: 'Farro';
+    color: var(--Bleu);
+    text-decoration: underline;
+    font-size: 50px;
+    margin: 3% 0% 1% 10%;
+}
+
+#produit {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0% 9% 3% 9%;
+}
+
+.card_produit {
+    margin: auto;
+    border: 2px var(--Marron) solid;
+    margin-bottom: 3%;
+}
+
+.card_produit a {
+    text-decoration: none;
+}
+
+#produit p {
+    font-family: 'Farro';
+    color: var(--Bleu);
+    font-size: 17px;
+    margin: 0px;
+}
+
+#produit img {
+    width: 264px;
+    height: 300px;
+    object-fit: cover;
+    vertical-align:bottom
+}
+
+#produit .desc , #produit .ht {
+    font-family: 'Raleway';
+    font-size: 12px;
+}
+
+#produit .desc {
+text-overflow: ellipsis;
+overflow: hidden;
+}
+
+.card_produit_lib_desc_btn {
+    background-color: var(--Beige-1);
+}
+
+.card_produit_lib_desc {
+    margin: 0% 1.5% 0% 1.5%;
+    padding-top: 1%;
+}
+
+.card_produit_lib_desc_btn p:nth-child(2) {
+    font-family: 'Raleway' !important;
+    font-size: 12px !important;
+    max-height: 56px;
+    max-width: 264px;
+}
+
+.prix {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 3% 0% 3% 0%;
+}
+
+#produit .ht {
+    margin-left: 1%;
+}
+
+.btn_panier {
+    text-decoration: none;
+    font-family: 'Farro';
+    color: var(--Beige-1);
+    background-color: var(--Marron);
+    font-size: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1% 0% 1% 0%;
+}
+
+.btn_panier svg {   
+    width: 25px;
+    height: 25px;
+}
+
+/* DETAILS PRODUIT */
+#page_detail {
+    margin: 2.5% 12% 2.5% 12%;
+}
+
+.h1ProdSim {
+    color: var(--Bleu);
+    font-family: 'Farro';
+    font-size: 50px;
+}
+
+.produit_detail {
+    display: flex;
+    flex-direction: row;
+    color: var(--Bleu);
+    width: 100%;
+    border-bottom: 1px var(--Bleu) solid;
+    padding-bottom: 2.5%;
+}
+
+.produit_detail img {
+    width: 350px;
+    height: 450px;
+    object-fit: cover;
+}
+
+.produit_detail_lib_desc_btn {
+    margin-left: 2.5% !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.produit_detail .lib, .prix {
+    font-size: 50px;
+    font-family: 'Farro';
+    margin: 0%;
+}
+
+.produit_detail div:first-child, .ht {
+    font-size: 18px;
+    font-family: 'Raleway';
+    margin: 0%;
+    color: var(--Bleu);
+}
